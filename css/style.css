@@ -1,0 +1,362 @@
+    /* PADRONIZAÇÃO */
+.fonte{
+  font-family: "Century Gothic";
+  font-size: 18px;  
+  text-transform: capitalize;
+}
+.float{
+   float: left;
+}
+.back{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.conteudo{
+    width: 1500px;
+    height: inherit;
+    background-color: white;
+}
+#teste{
+   height: 500px;
+   width: 100%;
+   background-color: black;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+/* CABEÇALHO */
+header{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    position: fixed;
+    z-index: 4;
+}
+header .conteudo{
+    background-color: black;
+}
+#header_caixa_logo{
+    height: 80px;
+    width: 260px;
+    margin-top:10px; 
+    background-color: #f7e3c8;
+}
+#logo_img{
+    height: inherit;
+    background-size: cover;
+    width: 80px;
+    background-image: url(../imgs/iconjuice.png);
+}
+#logo_string{
+    height: inherit;
+    width: 180px;
+    text-align: center;
+    font-family: "Bernard MT Condensed";
+    font-size: 30px;
+    box-sizing: border-box;
+    padding-top: 23px;
+    color: #491948;
+    text-transform: capitalize;
+}
+#header_login{
+    height: 60px;
+    margin-top: 20px;
+    width: 350px;
+    margin-left: 80px;
+}
+.login_txt{
+   width: 130px;
+   margin-left: 20px;
+   height: inherit;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    color: white;
+}
+.login_txt input{
+    height: 25px;
+   margin-top: 4px;
+}
+#header_botao{
+   background-color: #d8655b;
+   color: white;
+   height: 30px;
+   margin-top: 25px;
+   width: 40px;
+   margin-left: 5px;
+   border: 0px;
+   border-radius: 10px;
+   font-size: 15px;
+   font-family: "Century Gothic";
+}
+
+/* MENU */
+nav{
+    width: 700px;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 100px;
+    box-sizing: border-box;
+    padding-top: 15px;
+}
+
+#menu{
+    width: inherit;
+    height: 30px;
+}
+.menu_itens{
+    height: inherit;
+    text-align: center;
+    min-width: 10px;
+    margin-left: 15px;
+    font-family: "Century Gothic";
+    font-size: 16px;
+    list-style: none;
+    box-sizing: border-box;
+    padding-top: 4px;
+    
+}
+.menu_itens:hover a{ 
+    color: #d8655b;
+}
+a{
+    text-decoration: none;
+    text-transform: capitalize; 
+    color: white;
+}
+
+/* RODAPÉ */
+footer{
+   width: 1500px;
+   background-color: black;
+   height: 150px;
+}
+#footer_system, #footer_app{
+   width: 200px;
+   height: 60px;
+   margin-left: 15px;
+   margin-top: 45px;
+   padding-top: 19px;
+   text-align: center;
+   color: white;
+   box-sizing: border-box;
+   background-color: #491948;
+   border-radius: 15px;
+}
+#footer_system{
+   margin-right: 260px;
+   margin-left: 40px;
+}
+#footer_system:hover, #footer_app:hover{
+   cursor: pointer;
+   width: 220px;
+   height: 66px;
+   margin-top: 39px;
+   font-size: 20px;
+   border-radius: 19px;
+   padding-top: 20px;
+}
+#footer_system:hover{
+   margin-right: 240px;
+}
+#footer_end{
+  width: 500px;
+  height: 50px;
+  margin-top: 50px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 10px;
+  color: white;
+}
+#footer_img{
+  height: 70px;
+  width: 70px;
+  border-radius: 33px;
+  margin-top: 40px;
+  background-image: url(../imgs/iconjuice.png);
+  margin-left: 170px;
+  background-color: #f7e3c8;
+}
+
+/* REDES SOCIAIS*/
+#caixa_redes_sociais{
+   width: 50px;
+   height: 150px;
+   position: fixed;
+    top:400px;
+   background-color: black;
+   left: 90%;
+   bottom: 0px;
+    z-index: 5;
+}
+#caixa_redes_sociais div{
+   height: 48px;
+   width: 48px;
+   margin-left: 1px;
+   margin-top: 1px;
+   margin-bottom: 1px;
+}
+#caixa_redes_sociais div:hover{
+   cursor: pointer;
+}
+#rede01{
+  background-image: url(../imgs/icon_facebook.png); 
+} 
+#rede02{
+  background-image: url(../imgs/icon_instagram.png); 
+} 
+#rede03{
+  background-image: url(../imgs/icon_twitter.png); 
+} 
+
+/* HOME */
+#home_main{
+   height: 1000px;
+   display: table; 
+   width: 1500px;
+   background-color: white;
+}
+#home_nav{
+    width: 250px;
+    min-height:1000px; 
+    height: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 15px;
+    background-color: #589b85;
+}
+#home_conteudo{
+    width: 1250px;
+    padding-top: 100px;
+    min-height: 500px;
+}
+.home_nav_itens{
+    height: 50px;
+    width: inherit;
+    padding-top: 15px;
+    box-sizing: border-box;
+    background-color: #491948;
+    color: white;
+    border: solid 1px;
+}
+.home_nav_itens:hover{
+   background-color: #d8655b; 
+   cursor: pointer;
+}
+.home_caixa_produtos{
+    height: 360px;
+    width: 1100px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+.home_produtos{
+    width: 300px;
+    margin-left: 31px;
+    margin-right: 31px;
+    margin-top: 5px;
+    height: 350px;
+    background-color: antiquewhite;
+    border-radius: 30px;
+    border: solid 2px;
+    box-shadow: 4px 4px 5px #363636;
+}
+.home_produtos:hover{
+    width: 310px;
+    margin-left: 26px;
+    margin-right: 26px;
+    margin-top: 0px;
+    height: inherit;
+}
+.home_produtos_img{
+    width: 170px;
+    height: 170px;
+    margin-top: 15px;
+    background-image: url(../imgs/produto1.png);
+   background-size: cover;
+    background-repeat: no-repeat;
+}
+.home_produtos_detalhes{
+    width: 250px;
+    height: 135px;
+    margin-top: 15px;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+.home_btn_detalhes{
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-top: 10px;
+    background-color: #491948;
+    color: white;
+}
+.home_btn_detalhes:hover{
+    cursor: pointer;
+}
+
+/* PRODUTO DO MES*/
+#produto_mes_main{
+   width: 100%;
+   height: 800PX;
+   padding-top: 100px;
+   background-color:#54b04a; 
+}
+#produto_mes_main .conteudo{
+   background-color:#54b04a; 
+}
+#produto_mes_img{
+   width: 566px;
+   height: 650px;
+   margin-top: 75px;
+   margin-left: 50px;
+   float: left;
+   background-image: url(../imgs/produtoMes.png);
+}
+#produto_mes_txt{
+   height: 480px;
+   width: 400px;
+   float: left;
+   color: white;
+   margin-top: 195px;
+   font-family: arial, roboto, sans-serif;
+   margin-left: 200px;
+   text-align: right;
+}
+#produto_mes_txt p{
+   margin-bottom: 25px;
+   font-size: 14px;
+   line-height: 1.5;
+}
+#produto_mes_txt h2{
+   margin-bottom: 30px;
+   font-size: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
