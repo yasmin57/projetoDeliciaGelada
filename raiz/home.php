@@ -1,6 +1,3 @@
-<?php
-    require_once("header.php");
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -9,10 +6,13 @@
         </title>
         <link href="../css/slide.css" type="text/css" rel="stylesheet">
         <link href="../css/style.css" type="text/css" rel="stylesheet">
-        <script type="text/javascript" src="../js/slide.js"></script>
+        <script src="../js/slide.js"></script>
         
     </head>
     <body>
+        <?php
+            require_once("header.php");
+        ?>
         <!-- SLIDE  -->
         <div id="sec_slide" class="center">
             <figure>
