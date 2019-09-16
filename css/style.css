@@ -2,10 +2,13 @@
 .fonte{
   font-family: "Century Gothic";
   font-size: 18px;  
-  text-transform: capitalize;
 }
 .float{
    float: left;
+}
+.floatrig{
+   float: right;
+   margin-right: 100px;
 }
 .back{
     background-size: cover;
@@ -15,10 +18,17 @@
     margin: 0px;
     padding: 0px;
 }
+p{
+    margin-bottom: 10px;
+}
+body{
+    background-color: #000000;
+}
 .conteudo{
     width: 1500px;
     height: inherit;
     background-color: white;
+	display: table;
 }
 #teste{
    height: 500px;
@@ -29,6 +39,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+.botao:hover{
+    cursor: pointer;
+    
+}
+
 /* CABEÇALHO */
 header{
     width: 100%;
@@ -44,13 +59,15 @@ header .conteudo{
     height: 80px;
     width: 260px;
     margin-top:10px; 
-    background-color: #f7e3c8;
+    background-color: #ede6dd;
 }
 #logo_img{
     height: inherit;
     background-size: cover;
     width: 80px;
     background-image: url(../imgs/iconjuice.png);
+     /* PC SENAI*/
+/*  background-image: url(../imgs/iconjuice2.png);  */
 }
 #logo_string{
     height: inherit;
@@ -82,7 +99,6 @@ header .conteudo{
    margin-top: 4px;
 }
 #header_botao{
-   background-color: #d8655b;
    color: white;
    height: 30px;
    margin-top: 25px;
@@ -121,7 +137,7 @@ nav{
     
 }
 .menu_itens:hover a{ 
-    color: #d8655b;
+    color:#FCC351;
 }
 a{
     text-decoration: none;
@@ -131,9 +147,12 @@ a{
 
 /* RODAPÉ */
 footer{
-   width: 1500px;
-   background-color: black;
+   width: 100%;
+   background-color: #1b1f1e;
    height: 150px;
+}
+footer .conteudo{
+    background-color: black;
 }
 #footer_system, #footer_app{
    width: 200px;
@@ -142,10 +161,12 @@ footer{
    margin-top: 45px;
    padding-top: 19px;
    text-align: center;
-   color: white;
+   color: black;
    box-sizing: border-box;
-   background-color: #491948;
    border-radius: 15px;
+}
+#footer_system a, #footer_app a{
+   color: black; 
 }
 #footer_system{
    margin-right: 260px;
@@ -175,181 +196,216 @@ footer{
 #footer_img{
   height: 70px;
   width: 70px;
-  border-radius: 33px;
+  background-color: black;
   margin-top: 40px;
   background-image: url(../imgs/iconjuice.png);
+  /* PC SENAI*/
+/*  background-image: url(../imgs/iconjuice2.png);  */
   margin-left: 170px;
-  background-color: #f7e3c8;
 }
 
-/* REDES SOCIAIS*/
-#caixa_redes_sociais{
-   width: 50px;
-   height: 150px;
-   position: fixed;
-    top:400px;
-   background-color: black;
-   left: 90%;
-   bottom: 0px;
-    z-index: 5;
-}
-#caixa_redes_sociais div{
-   height: 48px;
-   width: 48px;
-   margin-left: 1px;
-   margin-top: 1px;
-   margin-bottom: 1px;
-}
-#caixa_redes_sociais div:hover{
-   cursor: pointer;
-}
-#rede01{
-  background-image: url(../imgs/icon_facebook.png); 
-} 
-#rede02{
-  background-image: url(../imgs/icon_instagram.png); 
-} 
-#rede03{
-  background-image: url(../imgs/icon_twitter.png); 
-} 
 
-/* HOME */
-#home_main{
-   height: 1000px;
-   display: table; 
-   width: 1500px;
-   background-color: white;
-}
-#home_nav{
-    width: 250px;
-    min-height:1000px; 
-    height: 100%;
-    margin-top: 0px;
-    margin-left: 0px;
-    box-sizing: border-box;
-    text-align: center;
-    padding-top: 15px;
-    background-color: #589b85;
-}
-#home_conteudo{
-    width: 1250px;
-    padding-top: 100px;
-    min-height: 500px;
-}
-.home_nav_itens{
-    height: 50px;
-    width: inherit;
-    padding-top: 15px;
-    box-sizing: border-box;
-    background-color: #491948;
-    color: white;
-    border: solid 1px;
-}
-.home_nav_itens:hover{
-   background-color: #d8655b; 
-   cursor: pointer;
-}
-.home_caixa_produtos{
-    height: 360px;
-    width: 1100px;
-    margin-left: 50px;
-    margin-bottom: 10px;
-    margin-top: 30px;
-}
-.home_produtos{
-    width: 300px;
-    margin-left: 31px;
-    margin-right: 31px;
-    margin-top: 5px;
-    height: 350px;
-    background-color: antiquewhite;
-    border-radius: 30px;
-    border: solid 2px;
-    box-shadow: 4px 4px 5px #363636;
-}
-.home_produtos:hover{
-    width: 310px;
-    margin-left: 26px;
-    margin-right: 26px;
-    margin-top: 0px;
-    height: inherit;
-}
-.home_produtos_img{
-    width: 170px;
-    height: 170px;
-    margin-top: 15px;
-    background-image: url(../imgs/produto1.png);
-   background-size: cover;
-    background-repeat: no-repeat;
-}
-.home_produtos_detalhes{
-    width: 250px;
-    height: 135px;
-    margin-top: 15px;
-    padding-top: 5px;
-    box-sizing: border-box;
-}
-.home_btn_detalhes{
-    text-align: center;
-    text-decoration: none;
-    width: 120px;
-    height: 40px;
-    box-sizing: border-box;
-    padding-top: 10px;
-    border-radius: 15px;
-    margin-left: auto;
-    margin-top: 10px;
-    background-color: #491948;
-    color: white;
-}
-.home_btn_detalhes:hover{
-    cursor: pointer;
-}
+
+
 
 /* PRODUTO DO MES*/
 #produto_mes_main{
    width: 100%;
-   height: 800PX;
+   height: 780px;
    padding-top: 100px;
-   background-color:#54b04a; 
+/* Mudar para imagem de fundo desfocada  */
+   background-color:#76c454; 
 }
 #produto_mes_main .conteudo{
-   background-color:#54b04a; 
+/*    Desfocar um pouco */
+    background-image: url(../imgs/produtoMesfundo.png);
 }
 #produto_mes_img{
-   width: 566px;
-   height: 650px;
-   margin-top: 75px;
+   width: 640px;
+   height: 424px;
+   margin-top: 150px;
    margin-left: 50px;
+   border: solid 2px; 
+/* Aplicar isso de forma correta */
+   background-clip: border-box;
    float: left;
-   background-image: url(../imgs/produtoMes.png);
+   background-image: url(../imgs/limao.png);
 }
 #produto_mes_txt{
-   height: 480px;
-   width: 400px;
+   height: 680px;
+   width: 600px;
    float: left;
    color: white;
-   margin-top: 195px;
+   margin-top: 45px;
    font-family: arial, roboto, sans-serif;
-   margin-left: 200px;
+   background-color: rgba(0,0,0,0.8);
+   box-sizing: border-box;
+   padding-right: 25px;
+   padding-top: 30px;
+   padding-left: 15px;
+   margin-left: 140px;
    text-align: right;
 }
 #produto_mes_txt p{
    margin-bottom: 25px;
-   font-size: 14px;
+   font-size: 18px;
    line-height: 1.5;
 }
 #produto_mes_txt h2{
    margin-bottom: 30px;
    font-size: 25px;
 }
+#produto_mes_caixa{
+    width: 400px;
+    height: 50px;
+    margin-top: 45px;
+    margin-left: 100px;
+}
+.produto_mes_btn{
+    width: 150px;
+    margin-left: 50px;
+    height: inherit;
+    border-radius: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 15px;
+    background-color: #36910d;
+}
+
+/* CORES NO MEU PC */
+.back_orange{
+    background-color: #F08137;
+}
+.back_pink{
+    background-color: #C91652;
+}
+.back_yellow{
+    background-color: #FCC351;
+}
+.back_blue_dark{
+    background-color: #0e1540;
+}
+.back_green{
+    background-color: #00c986;
+}
+.back_green_dark{
+    background-color: #1a7d30;
+}
+.back_blue{
+    background-color: #34b8e0;
+}
+.back_goiaba{
+    background-color: #de524e;
+}
+
+/* CORES NO PC DO SENAI */
+/*
+.back_orange{
+    background-color: #F0AF81;
+}
+.back_pink{
+    background-color: #D95FBA; 
+}
+.back_yellow{
+    background-color: #f0d297;
+}
+.back_blue_dark{
+    background-color: #385396;
+}
+.back_blue_dark{
+    background-color: #49609c;
+}
+.back_green{
+    background-color: #2cd1c3;
+}
+.back_green_dark{
+    background-color: #57ad81;
+}
+.back_blue{
+    background-color: #2bcee0;
+}
+.back_goiaba{
+    background-color: #d17b94;
+}
+*/
 
 
-
-
-
-
-
+/*
+ CURIOSIDADES 
+#curiosidades_main{
+    width: 100%;
+    min-height: 1800px;
+}
+#curiosidades_main .conteudo, #sobre_main .conteudo{
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 150px;
+}
+#curiosidades_main .conteudo h1, #sobre_main .conteudo h1{
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+#curiosidades_main .conteudo p, #sobre_main .conteudo p{
+    margin-bottom: 40px;
+}
+#curiosidades_fundo_img, #curiosidades_fundo_img2, #sobre_fundo_img{
+    width: 100%;
+    height: 340px;
+    background-image: url(../imgs/curiosidadesfundo.png);
+    background-attachment: fixed;
+}
+#curiosidades_fundo_img2{
+    background-image: url(../imgs/curiosidadesfundo2.png);
+}
+#curiosidades_fundo_img div{
+    height: inherit;
+    width: inherit;
+}
+.curiosidades_sessao, .sobre_sessao{
+    width: inherit;
+    height: 450px;
+    margin-bottom: 25px;
+}
+.barra_titulo{
+    width: inherit;
+    margin-bottom: 20px;
+    height: 98px;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+}
+.barra_titulo h2{
+    box-sizing: border-box;
+    padding-top: 22px;
+    width: inherit;
+    height: inherit;
+}
+.curiosidades_img, .sobre_img{
+    width: 500px;
+    height: 300px;
+    border: solid 1px;
+    margin-left: 75px;
+}
+.curiosidades_txt, .sobre_txt{
+    width: 725px;
+    height: 300px;
+    margin-left: 75px;
+    text-transform:none;
+    text-align: left;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.curiosidades_txt p, .sobre_txt p{
+    font-size: 21px;
+}
+#cur_img1, #sob_img1{
+    background-image: url(../imgs/curiosidade1.png);
+}
+#cur_img2{
+    background-image: url(../imgs/curiosidade2.png);
+}
+*/
 
 
 

@@ -1,0 +1,165 @@
+/* SOBRE */
+#sobre_main{
+    width: 100%;
+    min-height: 1900px;
+    height: auto;
+}
+#sobre_faixa1{
+    width: 100%;
+    height: 650px;
+}
+#sobre_table1{
+    width: 1200px;
+    height: inherit;
+}
+#sobre_titulo1{
+    width: 50%;
+    height: inherit;
+    font-size: 140px;
+    color: white;
+    font-family: sans-serif;
+    padding-top: 90px;
+    text-align: center;
+    padding-left: 25px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+#sobre_txt1, #sobre_txt2, #sobre_txt3{
+    font-size: 17px;
+    color: white;
+    box-sizing: border-box;
+    padding-top: 90px;
+    text-align: left;
+    padding-left: 25px;
+    padding-right: 10px;
+}
+
+/* Faixa 2 - "ENTENDA A DIFERENÇA"*/
+#sobre_faixa2{
+    width: 100%;
+    height: 220px;
+}
+#sobre_titulo2{
+    width: 1200px;
+    margin-top: 20px;
+    height: 180px;
+    box-sizing: border-box;
+    padding-top: 60px;
+    border: solid 2px white;
+    font-size: 23px;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Faixa 3 - "O QUE FAZEMOS?"*/
+#sobre_faixa3{
+    width: 100%;
+    height: 500px;
+}
+#sobre_faixa3  h1, #sobre_faixa4 h1, #sobre_faixa5 .conteudo h1{
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+#sobre_txt2{
+    padding-top: 0px;
+    width: 50%;
+    height: inherit;
+}
+#sobre_img1{
+    width: 50%;
+    height: 500px;
+    background-image: url(../imgs/sobre.png);
+}
+#sobre_table2{
+    width: 1300px;
+    height: inherit;
+}
+
+/* Faixa 4 - "COMO FAZEMOS?"*/
+#sobre_faixa4{
+    width: 100%;
+    height: 650px;
+}
+#sobre_table3{
+    width: 1400px;
+    height: inherit;
+    padding-top: 40px;
+}
+#sobre_tr1_f4{
+   width: 1400px;
+   height: 400px;
+}
+#sobre_img2{
+   width: 1400px;
+   height: 400px;
+   background-image: url(../imgs/sobre-pics-01.png); 
+}
+#sobre_tr2_f4{
+    width: inherit;
+    height: 200px;
+}
+#sobre_txt3{
+    padding-top: 0px;
+    padding-left: 100px;
+    padding-right: 100px;
+/*    padding-bottom: 80px;*/
+    text-align: center;
+}
+
+/* Faixa 5 - MISSÃO, VISÃO E VALORES*/
+#sobre_faixa5{
+    width: 100%;
+    height: 652px;
+    text-align: center;
+    padding-top: 40px;
+    color: white;
+}
+.sobre_caixa{
+    margin-top: 25px;
+    width: 400px;
+    margin-left: 49px;
+    margin-right: 49px;
+    border: solid 1px #e08702;
+    height: 500px;
+    text-align: center;
+}
+.sobre_caixa:hover{
+    margin-top: 24px;
+    margin-left: 48px;
+    margin-right: 48px;
+    border: solid 2px #e08702; 
+}
+.sobre_caixa h1{
+    margin-bottom: 30px;
+    margin-top: 32px;
+    color: white;
+    font-family: sans-serif;
+}
+#sobre_icon1, #sobre_icon2, #sobre_icon3{
+    width: 200px;
+    height: 200px;
+    background-image: url(../imgs/icon_mission2.png);
+}
+#sobre_icon2{
+   background-image: url(../imgs/icon_vision.png);
+   border: solid 2px black;
+   border-radius: 100px;
+}
+#sobre_icon3{
+   background-image: url(../imgs/icon_value1.png); 
+   border: solid 2px black;
+   border-radius: 100px;
+}
+#sobre_txt4, #sobre_txt5, #sobre_txt6{
+    width: 300px;
+    height: 150px;
+    margin-top: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+

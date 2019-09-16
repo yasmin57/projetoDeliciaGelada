@@ -12,12 +12,7 @@
        
        <!-- CONTEÚDO      -->
        <div id="produto_mes_main">
-          <div class="conteudo center">
-             <div id="caixa_redes_sociais">
-               <div id="rede01" class="back"></div>
-               <div id="rede02" class="back"></div>
-               <div id="rede03" class="back"></div>
-             </div>
+          <div class="conteudo back center">
              <div id="produto_mes_img" class="back"></div>
              <section id="produto_mes_txt" class="fonte">
                 <h2> Suco de Limão </h2>
@@ -32,13 +27,11 @@
                 <p>
                   Escolha sempre uma marca de confiança, que não use conservantes, para obter o melhor do sabor e das propriedades das frutas. Conheça a Life Sucos!
                 </p>
+                 <div id="produto_mes_caixa">
+                     <div class="produto_mes_btn fonte float botao"> <a href="home.php">Compre</a> </div>
+                     <div class="produto_mes_btn fonte float botao"><a href="https://www.google.com.br" target="_blank">Saiba Mais</a></div>
+                 </div>
              </section>
-             <div id="produto_mes_menu">
-               <div class="produto_mes_itens"></div>
-               <div class="produto_mes_itens"></div>
-               <div class="produto_mes_itens"></div>
-               <div class="produto_mes_itens"></div>
-             </div>
           </div>
        </div>
        
