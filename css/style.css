@@ -77,7 +77,7 @@ header .conteudo{
     font-size: 30px;
     box-sizing: border-box;
     padding-top: 23px;
-    color: #491948;
+    color: #385396;
     text-transform: capitalize;
 }
 #header_login{
@@ -198,9 +198,9 @@ footer .conteudo{
   width: 70px;
   background-color: black;
   margin-top: 40px;
-  background-image: url(../imgs/iconjuice.png);
+/*  background-image: url(../imgs/iconjuice.png);*/
   /* PC SENAI*/
-/*  background-image: url(../imgs/iconjuice2.png);  */
+  background-image: url(../imgs/iconjuice2.png);  
   margin-left: 170px;
 }
 
@@ -273,6 +273,7 @@ footer .conteudo{
 }
 
 /* CORES NO MEU PC */
+/*
 .back_orange{
     background-color: #F08137;
 }
@@ -297,9 +298,9 @@ footer .conteudo{
 .back_goiaba{
     background-color: #de524e;
 }
+*/
 
 /* CORES NO PC DO SENAI */
-/*
 .back_orange{
     background-color: #F0AF81;
 }
@@ -327,7 +328,6 @@ footer .conteudo{
 .back_goiaba{
     background-color: #d17b94;
 }
-*/
 
 
 /*
