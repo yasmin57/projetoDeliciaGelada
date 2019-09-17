@@ -5,13 +5,14 @@
             Produto Do Mês | Delicia Gelada
         </title>
        <link href="../css/style.css" type="text/css" rel="stylesheet">
+       <link href="../css/produto.css" type="text/css" rel="stylesheet">
     </head>
     <body>
        <!-- CABEÇALHO -->
         <?php require_once("header.php"); ?>
        
        <!-- CONTEÚDO      -->
-       <div id="produto_mes_main">
+       <div id="produto_mes_main" class="back">
           <div class="conteudo back center">
              <div id="produto_mes_img" class="back"></div>
              <section id="produto_mes_txt" class="fonte">

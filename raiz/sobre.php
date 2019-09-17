@@ -92,8 +92,8 @@
                      </table>
                  </div>
             </div>
-            <div id="sobre_faixa5" class="back_green_dark">
-                <div class="conteudo center back_green_dark">
+            <div id="sobre_faixa5" class="back_orange">
+                <div class="conteudo center back_orange">
                     <h1 class="fonte"> Quais são os nossos valores?</h1>
                     <div class="sobre_caixa float">
                         <h1> Missão </h1>

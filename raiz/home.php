@@ -14,10 +14,10 @@
             require_once("header.php");
         ?>
         <!-- SLIDE  -->
-        <div id="sec_slide" class="center back_blue">
+        <div id="sec_slide" class="center back_pink">
             <figure>
-               <span class="trs next back_blue_dark"></span>
-               <span class="trs prev back_blue_dark"></span>
+               <span class="trs next back_pink"></span>
+               <span class="trs prev back_pink"></span>
 
                <div id="slider">
                   <a href="#" class="trs"><img src="../imgs/slide1.png" alt="Melhore o seu comércio com os nossos produtos!" /></a>
@@ -27,7 +27,7 @@
                   <a href="#" class="trs"><img src="../imgs/slide5.png" alt="Aproveite o verão!" /></a>
                </div>
 
-               <figcaption class="back_blue_dark"></figcaption>
+               <figcaption class="back_pink"></figcaption>
             </figure>
         </div>
         <!--        -->
@@ -38,11 +38,11 @@
                    <div id="rede02" class="back"></div>
                    <div id="rede03" class="back"></div>
                  </div>
-                 <nav id="home_nav" class="float back_blue_dark">
-                     <div class="home_nav_itens fonte back_blue">
+                 <nav id="home_nav" class="float back_pink">
+                     <div class="home_nav_itens fonte back_goiaba">
                          item 01
                      </div>
-                     <div class="home_nav_itens fonte back_blue">
+                     <div class="home_nav_itens fonte back_goiaba">
                          item 02
                      </div>
                  </nav>   

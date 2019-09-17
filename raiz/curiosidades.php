@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <title>
-            Produto Do Mês | Delicia Gelada
+            Curiosidades | Delicia Gelada
         </title>
        <link href="../css/style.css" type="text/css" rel="stylesheet">
        <link href="../css/curiosidades.css" type="text/css" rel="stylesheet">
@@ -15,9 +15,10 @@
         <div id="curiosidades_main">
             <div id="curiosidades_img1" class="back" >
             </div>
+            <div id="curiosidades_titulo_main" class="fonte back_goiaba"> Curiosidades </div>
             <!-- FAIXA 01  -->
-            <div class="back_blue_dark curiosidades_faixa">
-                <div class="conteudo center back_blue_dark">
+            <div class="back_goiaba curiosidades_faixa">
+                <div class="conteudo center back_goiaba">
                     <table class="curiosidades_table">
                         <tr>
                             <td class="curiosidades_img back" id="curiosidades_img2">
@@ -32,11 +33,12 @@
             </div>
             <!--  1º IMAGEM QUE SEPARA  -->
             <div id="curiosidades_img3" class="back curiosidades_imgs_fundo" >
+                <div class="mascara"></div>
             </div>
             
             <!-- FAIXA 02  -->
-            <div class="back_blue_dark curiosidades_faixa">
-                <div class="conteudo center back_blue_dark">
+            <div class="back_green curiosidades_faixa">
+                <div class="conteudo center back_green">
                     <table class="curiosidades_table">
                         <tr>
                             <td class="curiosidades_img back" id="curiosidades_img4">
@@ -51,11 +53,12 @@
             </div>
             <!-- 2º IMAGEM QUE SEPARA  -->
             <div id="curiosidades_img5" class="back curiosidades_imgs_fundo" >
+                <div class="mascara"></div>
             </div>
             
             <!-- FAIXA 03  -->
-            <div class="back_blue_dark curiosidades_faixa">
-                <div class="conteudo center back_blue_dark">
+            <div class="back_goiaba curiosidades_faixa">
+                <div class="conteudo center back_goiaba">
                     <table class="curiosidades_table">
                         <tr>
                             <td class="curiosidades_img back" id="curiosidades_img6">
@@ -70,11 +73,12 @@
             </div>
             <!-- 3º IMAGEM QUE SEPARA  -->
             <div id="curiosidades_img7" class="back curiosidades_imgs_fundo" >
+                <div class="mascara"></div>
             </div>
             
             <!-- FAIXA 04  -->
-            <div class="back_blue_dark curiosidades_faixa">
-                <div class="conteudo center back_blue_dark">
+            <div class="back_green curiosidades_faixa">
+                <div class="conteudo center back_green">
                     <table class="curiosidades_table">
                         <tr>
                             <td class="curiosidades_img back" id="curiosidades_img8">
