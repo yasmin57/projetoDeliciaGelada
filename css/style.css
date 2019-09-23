@@ -14,6 +14,10 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+.back img{
+    width: inherit;
+    height: inherit;
+}
 *{
     margin: 0px;
     padding: 0px;
@@ -52,9 +56,9 @@ header{
 header .conteudo{
     background-color: black;
 }
-#header_caixa_logo{
+#header_logo{
     height: 80px;
-    width: 260px;
+    width: 280px;
     margin-top:10px; 
     background-color: black;
 }
@@ -67,9 +71,9 @@ header .conteudo{
 }
 #logo_string{
     height: inherit;
-    width: 180px;
+    width: 200px;
     text-align: center;
-    font-family: "Bernard MT Condensed";
+    font-family: 'Fjalla One', sans-serif;
     font-size: 30px;
     box-sizing: border-box;
     padding-top: 23px;
@@ -111,7 +115,7 @@ nav{
     width: 700px;
     height: 60px;
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 80px;
     box-sizing: border-box;
     padding-top: 15px;
 }
@@ -194,9 +198,7 @@ footer .conteudo{
   width: 70px;
   background-color: black;
   margin-top: 40px;
-  background-image: url(../imgs/iconjuice.png);
-  /* PC SENAI*/
-/*  background-image: url(../imgs/iconjuice2.png);  */
+  background-image: url(../imgs/icon_android.png);
   margin-left: 170px;
 }
 
@@ -211,7 +213,7 @@ footer .conteudo{
     background-color: #FCC351;
 }
 .back_green_limao{
-    background-color: #6d913f;
+    background-color: #7bcc35;
 }
 .back_green_limao_light{
     background-color: #a6d498;

@@ -6,6 +6,7 @@
         </title>
        <link href="../css/style.css" type="text/css" rel="stylesheet">
        <link href="../css/produto.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
     </head>
     <body>
        <!-- CABEÇALHO -->
@@ -14,8 +15,8 @@
        <!-- CONTEÚDO      -->
        <div id="produto_mes_main" class="back">
           <div class="conteudo back center">
-             <div id="produto_mes_img" class="back"></div>
-             <section id="produto_mes_txt" class="fonte">
+             <div id="img_limao" class="back"></div>
+             <section class="fonte texto">
                 <h2> Suco de Limão </h2>
                 <p> Hoje em dia, o limão é queridinho na dieta e refeições de muitas pessoas. Deixou a fama de ser uma fruta que só possui acidez e o azedo, e atualmente, está presente na lista de frutas preferidas de muitas pessoas. Isso, porque possui diversos benefícios para saúde! </p>
                 <p>
@@ -28,9 +29,9 @@
                 <p>
                   Escolha sempre uma marca de confiança, que não use conservantes, para obter o melhor do sabor e das propriedades das frutas. Conheça a Life Sucos!
                 </p>
-                 <div id="produto_mes_caixa">
-                     <div class="produto_mes_btn fonte float botao"> <a href="home.php">Compre</a> </div>
-                     <div class="produto_mes_btn fonte float botao"><a href="https://www.google.com.br" target="_blank">Saiba Mais</a></div>
+                 <div id="botoes">
+                     <div class="produto_mes_btn fonte float"> <a href="home.php">Compre</a> </div>
+                     <div class="produto_mes_btn fonte float"><a href="https://www.google.com.br" target="_blank">Saiba Mais</a></div>
                  </div>
              </section>
           </div>

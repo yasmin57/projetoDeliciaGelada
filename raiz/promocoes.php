@@ -6,33 +6,36 @@
         </title>
        <link href="../css/style.css" type="text/css" rel="stylesheet">
        <link href="../css/promocoes.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
     </head>
     <body>
        <!-- CABEÇALHO -->
         <?php require_once("header.php"); ?>
         
         <!-- CONTEUDO -->
-        <div id="promocoes_main">
-            <div class="back_goiaba" id="promocoes_faixa1">
+        <div id="promocoes">
+            <!--  Slogan     -->
+            <div class="back_goiaba" id="faixa_slogan">
                 <div class="conteudo back_goiaba center ">
                     <table class="promocoes_table">
                         <tr>
-                            <td class="fonte" id="promocoes_titulo_main">
+                            <td class="fonte" id="slogan">
                                 O melhor das
                                 frutas e vegetais,
-                                <div class="back_orange" id="promocoes_titulo_main2"> no melhor dos sucos</div>
-                                <div id="promocoes_titulo_main3" class="back_pink"> com o melhor preço</div>
+                                <div class="back_orange" id="slogan_right"> no melhor dos sucos</div>
+                                <div id="slogan_left" class="back_pink"> com o melhor preço</div>
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
-            <!-- FAIXA 02  -->
-            <div class="promocoes_faixa2">
+            <!-- faixa 01  -->
+            <div class="promocoes_faixa">
                 <div class="conteudo center">
                     <table class="promocoes_table">
                         <tr>
-                            <td class="promocoes_img back" id="promocoes_img1">
+                            <td class="promocoes_img back">
+                                <img src="../imgs/promocoes_img1.png" alt="imagem">
                             </td>
                             <td class="promocoes_txt fonte">
                                 <h1> Del Valle Frut </h1>
@@ -42,7 +45,8 @@
                                 <div class="btn_compre back_green_limao_light float"> Compre </div>
                             </td>
                             
-                            <td class="promocoes_img back" id="promocoes_img2">
+                            <td class="promocoes_img back">
+                                <img src="../imgs/promocoes_img1.png" alt="imagem">
                             </td>
                             <td class="promocoes_txt fonte">
                                 <h1> Del Valle Frut </h1>
@@ -55,12 +59,13 @@
                     </table>
                 </div>
             </div>
-            
-            <div class="promocoes_faixa2">
+            <!-- faixa 02  -->
+            <div class="promocoes_faixa">
                 <div class="conteudo center">
                     <table class="promocoes_table">
                         <tr>
-                            <td class="promocoes_img back" id="promocoes_img1">
+                            <td class="promocoes_img back">
+                                <img src="../imgs/promocoes_img1.png" alt="imagem">
                             </td>
                             <td class="promocoes_txt fonte">
                                 <h1> Del Valle Frut </h1>
@@ -70,7 +75,8 @@
                                 <div class="btn_compre back_green_limao_light float"> Compre </div>
                             </td>
                             
-                            <td class="promocoes_img back" id="promocoes_img2">
+                            <td class="promocoes_img back">
+                                <img src="../imgs/promocoes_img1.png" alt="imagem">
                             </td>
                             <td class="promocoes_txt fonte">
                                 <h1> Del Valle Frut </h1>

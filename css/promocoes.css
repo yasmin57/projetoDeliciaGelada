@@ -1,8 +1,9 @@
-#promocoes_main{
+/* Padronização */
+#promocoes{
     width: 100%;
     min-height: 800px;
 }
-.promocoes_faixa2{
+.promocoes_faixa{
     width: 100%;
     height: 400px;
 }
@@ -13,7 +14,7 @@
 }
 .promocoes_img{
     height: inherit;  /* 400px */
-    width: 200px;
+    width: 170px;
 }
 .promocoes_txt{
     color: black;
@@ -25,6 +26,8 @@
 .promocoes_txt h1{
     margin-bottom: 10px;
 }
+
+/* Preços */
 .preco_antigo{
     text-decoration: line-through;
     font-size: 20px;
@@ -41,8 +44,10 @@
    color: white;
    font-weight: bold;
 }
+
+/* Botões */
 .btn_compre{
-    margin-left: 180px;
+    margin-left: 140px;
     width: 150px;
     color: white;
     box-sizing: border-box;
@@ -57,12 +62,13 @@
 .btn_compre:hover{
     cursor: pointer;
 }
-/* FAIXA 01 */
-#promocoes_faixa1{
+
+/* SLOGAN */
+#faixa_slogan{
     width: 100%;
     height: 500px;
 }
-#promocoes_titulo_main{
+#slogan{
     width: inherit;
     height: inherit;
     font-size: 50px;
@@ -72,7 +78,7 @@
     padding-top: 100px;
     color: white;
 }
-#promocoes_titulo_main2, #promocoes_titulo_main3{
+#slogan_right, #slogan_left{
     width: 650px;
     padding-top: 5px;
     margin-top: 10px;
@@ -82,20 +88,7 @@
     margin-right: 200px;
     text-align: center;
 }
-#promocoes_titulo_main3{
+#slogan_left{
     margin-left: 20px;
     margin-right: 0px;
-}
-/* IMAGENS */
-#promocoes_img1{
-    background-image: url(../imgs/promocoes_img1.png);
-}
-#promocoes_img2{
-    background-image: url(../imgs/promocoes_img1.png);
-}
-#promocoes_img3{
-    background-image: url(../imgs/promocoes_img1.png);
-}
-#promocoes_img4{
-    background-image: url(../imgs/promocoes_img1.png);
 }

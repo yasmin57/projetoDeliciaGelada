@@ -1,6 +1,6 @@
 <header>
     <div class="conteudo center">
-        <div id="header_caixa_logo" class="float"> 
+        <div id="header_logo" class="float"> 
             <div id="logo_img" class="float"></div>
             <div id="logo_string" class="float"> Delicia gelada</div>
         </div>

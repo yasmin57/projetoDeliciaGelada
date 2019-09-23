@@ -1,11 +1,7 @@
-#curiosidades_main{
+/* PADRONIZAÇÃO */
+#curiosidades{
     width: 100%;
     min-height: 1000px; 
-}
-.curiosidades_imgs_fundo{
-    width: 100%;
-    height: 400px;
-    background-attachment: fixed;
 }
 .curiosidades_faixa{
     width: 100%;
@@ -15,23 +11,45 @@
     width: 1400px;
     height: inherit;
 }
-.curiosidades_img{
-    width: 700px;
-    height: inherit;
-}
-.curiosidades_txt{
+
+/* texto */
+.curiosidades_texto{
     color: white;
     line-height:  1.5;
     padding-left: 130px;
 }
-.curiosidades_txt h1{
+.curiosidades_texto h1{
     margin-bottom: 20px;
     line-height:  1.3;
 }
-.mascara{
+
+/* imagens */
+.curiosidades_imgs_fundo{
+    width: 100%;
+    height: 400px;
+    background-attachment: fixed;
+    -moz-background-position: fixed;
+    -ms-background-position: fixed;
+}
+.mascara_preta{
    width:inherit;
    height: inherit;
    background-color: rgba(0,0,0,0.05);
+}
+.curiosidades_img{
+    width: 700px;
+    height: inherit;
+}
+.curiosidades_img img{
+    width: 700px;
+    height: 600px;
+}
+
+/* topo da pagina  */
+#curiosidades_img_top{
+    width: inherit;
+    height: 600px;
+    background-image: url(../imgs/curiosidadeimg1.jpg);
 }
 #curiosidades_titulo_main{
     width: 100%;
@@ -44,47 +62,18 @@
     color: white;
     text-align: center;
 }
-/* 1º IMG DE FUNDO*/
-#curiosidades_img1{
-    width: inherit;
-    height: 600px;
-    background-image: url(../imgs/curiosidadeimg1.jpg);
-/*    background-size: 100% 700px;*/
-}
 
-/* FAIXA 1 - IMG E CONTEUDO */
-#curiosidades_img2{
-    background-image: url(../imgs/curiosidadeimg2.jpg);
-}
-
-/* 1º IMAGEM QUE SEPARA */
-#curiosidades_img3{
+/* imagens que separa as sessões */
+.img_abacate{
     background-image: url(../imgs/curiosidadeimg3.PNG);
 }
-/* FAIXA 2 - IMG E CONTEUDO */
-#curiosidades_img4{
-    background-image: url(../imgs/curiosidadeimg4.jpg);
-}
-
-/* 2º IMAGEM QUE SEPARA */
-#curiosidades_img5{
+.img_laranja{
     background-image: url(../imgs/curiosidadeimg5.jpg);
 }
-
-/* FAIXA 3- IMG E CONTEUDO */
-#curiosidades_img6{
-    background-image: url(../imgs/curiosidadeimg6.jpg);
-}
-
-/* 3º IMAGEM QUE SEPARA */
-#curiosidades_img7{
+.img_limao{
     background-image: url(../imgs/curiosidadeimg7.jpg);
 }
 
-/* FAIXA 4 - IMG E CONTEUDO */
-#curiosidades_img8{
-    background-image: url(../imgs/curiosidadeimg8.jpg);
-}
 
 
 

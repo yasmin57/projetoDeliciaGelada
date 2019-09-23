@@ -2,10 +2,11 @@
 <html lang="pt-br">
     <head>
         <title>
-            Curiosidades | Delicia Gelada
+            Nossas Lojas | Delicia Gelada
         </title>
        <link href="../css/style.css" type="text/css" rel="stylesheet">
        <link href="../css/lojas.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
     </head>
     <body>
        <!-- CABEÇALHO -->
@@ -13,24 +14,27 @@
         
         <!-- CONTEUDO -->
         <div id="lojas_main">
+            <!--     topo da pag       -->
             <div class="lojas_faixa back_green_limao_light">
-                <div class="conteudo center back back_green_limao_light " id="lojas_img1"></div>
+                <div class="conteudo center back back_green_limao_light " id="back_map"></div>
             </div>
-            <div id="lojas_faixa1">
+            <div id="lojas_faixa_titulo">
                  <div class="conteudo center">
-                     <section id="lojas_titulo1" class="center">
+                     <section id="lojas_titulo" class="center">
                          <h1> Onde estamos? </h1>
                      </section>
                  </div>
             </div>
+            <!--   Loja 01        -->
             <div class="back_goiaba lojas_faixa">
                 <div class="conteudo center back_goiaba">
                     <table class="lojas_table">
                         <tr>
-                            <td class="lojas_img back" id="lojas_img2">
+                            <td class="lojas_img back">
+                                <img title="imagem" alt="imagem" src="../imgs/lojasimg2.png">
                             </td>
-                            <td class="lojas_txt fonte">
-                                <h1> Bauru - SP </h1>
+                            <td class="textos fonte">
+                                <h2> Bauru - SP </h2>
                                 <p> Shopping Bauru </p>
                                 <p> RUA HENRIQUE SAVI </p>
                                 <p> 55 </p>
@@ -48,14 +52,16 @@
                     </table>
                 </div>
             </div>
+            <!--   Loja 02        -->
             <div class="back_green_limao lojas_faixa">
                 <div class="conteudo center back_green_limao">
                     <table class="lojas_table">
                         <tr>
-                            <td class="lojas_img back" id="lojas_img3">
+                            <td class="lojas_img back">
+                                <img title="imagem" alt="imagem" src="../imgs/lojasimg2.png">
                             </td>
-                            <td class="lojas_txt fonte">
-                                <h1> Bauru - SP </h1>
+                            <td class="textos fonte">
+                                <h2> Bauru - SP </h2>
                                 <p> Shopping Bauru </p>
                                 <p> RUA HENRIQUE SAVI </p>
                                 <p> 55 </p>

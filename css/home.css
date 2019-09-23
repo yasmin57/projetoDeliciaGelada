@@ -1,18 +1,11 @@
-/* SLIDE */
-#sec_slide{
+/* SLIDER */
+#slider_container{
     width: 100%;
     height: 550px;
    padding-top: 90px;
 }
 a,img {
     border: none;
-}
-.trs {
-    -webkit-transition:all ease-out 0.5s;
-    -moz-transition:all ease-out 0.5s;
-    -o-transition:all ease-out 0.5s;
-    -ms-transition:all ease-out 0.5s;
-    transition:all ease-out 0.5s;
 }  
 #slider {
     position: relative;
@@ -35,19 +28,31 @@ a,img {
     opacity: 1!important; 
     filter:alpha(opacity=100)!important;
 }
+figure:hover span {
+    opacity: 0.76;
+    filter:alpha(opacity=76);
+}
+figure {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+}
 
-/*controladores*/
+/* CONTROLADORES DO SLIDER */
 span {
     cursor: pointer; 
     opacity: 0;
     filter:alpha(opacity=0);
-    position: absolute; bottom: 40%; 
+    position: absolute;
+    bottom: 40%; 
     width: 43px;
     height: 43px; 
     z-index: 5;
 }
 .next {
     right: 10px;
+    background-image: url(../imgs/icon_next.png);
 }
 .next:before,.next:after {
     left: 21px;
@@ -61,7 +66,6 @@ span {
     top: 19px;
 }
 .next:before,.next:after,.prev:before,.prev:after {
-    content: "";
     height: 20px;
     background: #fff;
     width: 1px;
@@ -69,6 +73,7 @@ span {
 }
 .prev {
     left: 10px;
+    background-image: url(../imgs/icon_prev.png);
 }
 .prev:before,.prev:after {
     left: 18px;
@@ -81,19 +86,15 @@ span {
     -webkit-transform: rotate(132deg);
     top: 19px;
 }
-
-figure:hover span {
-    opacity: 0.76;
-    filter:alpha(opacity=76);
+.transicao{
+    -webkit-transition:all ease-out 0.5s;
+    -moz-transition:all ease-out 0.5s;
+    -o-transition:all ease-out 0.5s;
+    -ms-transition:all ease-out 0.5s;
+    transition:all ease-out 0.5s;
 }
 
-figure {
-    width: 100%;
-    height: 550px;
-    position: relative;
-    overflow: hidden;
-}
-
+/* LEGENDA DO SLIDER */
 figcaption {
     padding-left: 20px;
     color: #fff; 
@@ -110,41 +111,31 @@ figcaption {
     z-index: 3;
 }
 
-/* REDES SOCIAIS*/
-#caixa_redes_sociais{
+/* REDES SOCIAIS */
+#redes_sociais{
    width: 50px;
    height: 150px;
    margin-left: 1510px;
    position: fixed; 
    margin-top: -5px;
 }
-#caixa_redes_sociais div{
-   height: 48px;
-   width: 48px;
-   margin-left: 1px;
-   margin-top: 1px;
-   margin-bottom: 1px;
+.redes_sociais_icones img{
+    height: 48px;
+    width: 48px;
 }
-#caixa_redes_sociais div:hover{
+.redes_sociais_icones:hover{
    cursor: pointer;
 }
-#rede01{
-  background-image: url(../imgs/icon_facebook.png); 
-} 
-#rede02{
-  background-image: url(../imgs/icon_instagram.png); 
-} 
-#rede03{
-  background-image: url(../imgs/icon_twitter.png); 
-} 
 
-/* HOME */
-#home_main{
+/* PRODUTOS  */
+#home{
    height: 500px;
    display: table; 
    width: 100%;
    background-color: white;
 }
+
+/*menu lateral*/
 #home_nav{
     width: 250px;
     min-height:1000px; 
@@ -154,11 +145,6 @@ figcaption {
     box-sizing: border-box;
     text-align: center;
     padding-top: 15px;
-}
-#home_conteudo{
-    width: 1250px;
-    padding-top: 100px;
-    min-height: 500px;
 }
 .home_nav_itens{
     height: 50px;
@@ -172,14 +158,21 @@ figcaption {
    background-color: #d47e46; 
    cursor: pointer;
 }
-.home_caixa_produtos{
+
+/*produtos*/
+#home_conteudo_main{
+    width: 1250px;
+    padding-top: 100px;
+    min-height: 500px;
+}
+.home_produtos{
     height: 360px;
     width: 1100px;
     margin-left: 50px;
     margin-bottom: 10px;
     margin-top: 30px;
 }
-.home_produtos{
+.produtos{
     width: 300px;
     margin-left: 31px;
     margin-right: 31px;
@@ -190,14 +183,14 @@ figcaption {
     border: solid 2px;
     box-shadow: 4px 4px 5px #363636;
 }
-.home_produtos:hover{
+.produtos:hover{
     width: 310px;
     margin-left: 26px;
     margin-right: 26px;
     margin-top: 0px;
     height: inherit;
 }
-.home_produtos_img{
+.produtos_img{
     width: 170px;
     height: 170px;
     margin-top: 15px;
@@ -205,14 +198,14 @@ figcaption {
    background-size: cover;
     background-repeat: no-repeat;
 }
-.home_produtos_detalhes{
+.produtos_detalhes{
     width: 250px;
     height: 135px;
     margin-top: 15px;
     padding-top: 5px;
     box-sizing: border-box;
 }
-.home_btn_detalhes{
+.btn_detalhes{
     text-align: center;
     text-decoration: none;
     width: 120px;

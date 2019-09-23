@@ -1,4 +1,4 @@
-/* PRODUTO DO MES*/
+/* Padronização */
 #produto_mes_main{
    width: 100%;
    height: 780px;
@@ -8,7 +8,7 @@
 #produto_mes_main .conteudo{
     background-image: url(../imgs/produtoMesfundo.png);
 }
-#produto_mes_img{
+#img_limao{
    width: 640px;
    height: 424px;
    margin-top: 150px;
@@ -18,7 +18,7 @@
    float: left;
    background-image: url(../imgs/limao.png);
 }
-#produto_mes_txt{
+.texto{
    height: 680px;
    width: 600px;
    float: left;
@@ -33,19 +33,21 @@
    margin-left: 140px;
    text-align: right;
 }
-#produto_mes_txt p{
+.fonte p{
    margin-bottom: 25px;
    font-size: 18px;
    line-height: 1.5;
 }
-#produto_mes_txt h2{
+.fonte h2{
    margin-bottom: 30px;
    font-size: 25px;
 }
-#produto_mes_caixa{
+
+/* botões */
+#botoes{
     width: 400px;
     height: 50px;
-    margin-top: 45px;
+    margin-top: 25px;
     margin-left: 100px;
 }
 .produto_mes_btn{
