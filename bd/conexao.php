@@ -4,7 +4,7 @@
         
         $server = (string) "localhost";
         $user = (string) "root";
-        $password = (string) "";
+        $password = (string) "bcd127";
         $database = (string) "dbcontatos2019projeto";
         $conexao = mysqli_connect($server, $user, $password, $database);
         return $conexao;

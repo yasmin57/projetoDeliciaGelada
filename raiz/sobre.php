@@ -128,7 +128,7 @@
                     </div>
                     <!-- valores -->
                     <div class="sobre_valores float">
-                        <h2> Valores </h2>
+                        <h1> Valores </h1>
                         <div class="center icones_valores">
                             <img alt="imagem" src="../imgs/icon_value1.png">
                         </div>

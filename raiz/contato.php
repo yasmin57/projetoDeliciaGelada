@@ -57,34 +57,34 @@
                                 <p class="float">Serviço de Atendimento Delicia Gelada </p>
                                 <div class="float back" id="icon_gmail"></div> <p class="float"> sagd@zanlorenzi.com.br </p>
                             </td>
-                            <!--  Parte direita -->
+                            <!--  Parte direita (formulário) -->
                             <td id="formulario" class="fonte">
                                 <p> Preencha o formulário abaixo para enviar um e-mail direto para a nossa caixa de entrada. </p>
                                 <form method="get" name="frmcontato" action="../bd/inserir.php">
                                     <table>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">Nome*:</td>
-                                            <td>  <input class="input" onkeypress="return validarEntrada(event, 'string');" type="text" maxlength="30" name="txtnome" size="45" required > </td>
+                                            <td>  <input class="input" onkeypress="return validarEntrada(event, 'string');" type="text" maxlength="100" name="txtnome" size="45" required > </td>
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td  class="texto_frm">Telefone:</td>
-                                            <td>  <input class="input" onkeypress="return mascaraFone(this, event);" type="text" maxlength="30" name="txttelefone" size="45" id="tel"> </td>
+                                            <td>  <input class="input" onkeypress="return mascaraFone(this, event);" type="text" maxlength="15" name="txttelefone" size="45" id="tel"> </td>
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">Celular*:</td>
-                                            <td>  <input class="input" onkeypress="return mascaraFone(this, event);" type="text" maxlength="30" name="txtcelular" size="45" id="cel" required > </td>
+                                            <td>  <input class="input" onkeypress="return mascaraFone(this, event);" type="text" maxlength="15" name="txtcelular" size="45" id="cel" required > </td>
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">email*:</td>
-                                            <td>  <input class="input" type="email" maxlength="30" name="txtemail" size="45" required> </td>
+                                            <td>  <input class="input" type="email" maxlength="100" name="txtemail" size="45" required> </td>
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">home page:</td>
-                                            <td>  <input class="input" type="text" maxlength="30" name="txthomepage" size="45" placeholder="digite o link da sua pagina home"> </td>
+                                            <td>  <input class="input" type="text" maxlength="2048" name="txthomepage" size="45" placeholder="digite o link da sua pagina home"> </td>
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">facebook:</td>
-                                            <td>  <input class="input" type="text" maxlength="30" name="txtfacebook" size="45" placeholder="digite o link do seu facebook"> </td>
+                                            <td>  <input class="input" type="text" maxlength="2048" name="txtfacebook" size="45" placeholder="digite o link do seu facebook"> </td>
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">tipo: </td>
@@ -97,7 +97,7 @@
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">Mensagem*:</td>
-                                            <td> <textarea class="sexo fonte" name="txtmensagem" required cols="53" rows="5"></textarea> </td>
+                                            <td> <textarea class="sexo fonte" maxlength="4000" name="txtmensagem" required cols="53" rows="5"></textarea> </td>
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">sexo*:</td>
@@ -108,7 +108,7 @@
                                         </tr>
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">profissão*:</td>
-                                            <td>  <input class="input" type="text" onkeypress="return validarEntrada(event, 'string');" maxlength="30" name="txtprofissao" size="45" required> </td>
+                                            <td>  <input class="input" type="text" onkeypress="return validarEntrada(event, 'string');" maxlength="100" name="txtprofissao" size="45" required> </td>
                                         </tr>
                                         <tr class="itens_frm">
                                             <td colspan="2"> <input type="submit" value="ENVIAR" name="btnenviar" class="btn_enviar botao fonte back_yellow"></td>

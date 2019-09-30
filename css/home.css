@@ -115,7 +115,7 @@ figcaption {
 #redes_sociais{
    width: 50px;
    height: 150px;
-   margin-left: 1510px;
+   margin-left: 1490px;
    position: fixed; 
    margin-top: -5px;
 }
@@ -166,7 +166,7 @@ figcaption {
     min-height: 500px;
 }
 .home_produtos{
-    height: 360px;
+    min-height: 360px;
     width: 1100px;
     margin-left: 50px;
     margin-bottom: 10px;
@@ -177,7 +177,7 @@ figcaption {
     margin-left: 31px;
     margin-right: 31px;
     margin-top: 5px;
-    height: 350px;
+    min-height: 350px;
     background-color: #ede6dd;
     border-radius: 30px;
     border: solid 2px;

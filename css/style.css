@@ -42,7 +42,6 @@ p{
 }
 .botao:hover{
     cursor: pointer;
-    
 }
 
 /* CABEÇALHO */
@@ -202,7 +201,7 @@ footer .conteudo{
   margin-left: 170px;
 }
 
-/* CORES NO MEU PC */
+/* CORES */
 .back_orange{
     background-color: #d47e46;
 }
@@ -210,10 +209,10 @@ footer .conteudo{
     background-color: #870c4a;
 }
 .back_yellow{
-    background-color: #FCC351;
+    background-color: #dbcc40;
 }
 .back_green_limao{
-    background-color: #7bcc35;
+    background-color: #81b356;
 }
 .back_green_limao_light{
     background-color: #a6d498;
