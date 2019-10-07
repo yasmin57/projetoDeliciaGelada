@@ -1,0 +1,243 @@
+/* Padronização */
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.color_white{
+    color: white;
+}
+.conteudo{
+    width: 1400px;
+    height:inherit; 
+    background-color: white;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.back{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.back img{
+    width: inherit;
+    height: inherit;
+}
+.botao:hover{
+    cursor: pointer;
+}
+.fonte{
+  font-family: "Century Gothic";
+  font-size: 19px;   
+}
+.float{
+   float: left;
+}
+/* Cores */
+.back_pink{
+    background-color: #946f82;
+}
+.back_pink_light{
+    background-color: #9e8592;
+}
+.back_green{
+    background-color: #4c8a75;
+}
+.back_black{
+    background-color: black;
+}
+a{
+    text-decoration: none;
+}
+
+/* Cabeçalho */
+header{
+    width: 100%;
+    height: 200px;
+}
+#header_title{
+    width: 1100px;
+    height: 50px;
+    box-sizing: border-box;
+    margin-top: 78px;
+    border-top: solid 1px #61b096;
+    border-bottom: solid 1px #61b096;
+    padding-left: 100px;
+}
+#header_title p{
+   padding-top: 12px; 
+   padding-left: 15px;
+}
+#header_img{
+    width: 300px;
+    height: 190px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-image: url(../imgs/cms2.png);
+    border-radius: 20px;
+}
+/* Menu de opções */
+#menu{
+    width: 100%;
+    height: 230px;
+}
+#menu table{
+    width: inherit;
+    height: inherit;
+}
+.menu_itens{
+    width: 225px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* icones */
+.menu_icon{
+    width: 160px;
+    height: 160px;
+    margin-left: 32px;
+    margin-right: 33px;
+}
+#adm_conteudo{
+    background-image: url(../imgs/icon_adm_conteudo.png)
+}
+#adm_fale{
+    background-image: url(../imgs/icon_adm_fale.png)
+}
+#adm_usuarios{
+    background-image: url(../imgs/icon_adm_usuarios.png);
+}
+
+/**/
+.menu_option{
+    width: inherit;
+    height: 40px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    text-align: center;
+}
+.menu_option a{
+    font-size: 15px;
+    color: white;
+}
+.menu_mensagem{
+    height: 40px;
+    box-sizing: border-box;
+    padding-left: 65px;
+    padding-top: 10px;
+    margin-bottom: 40px;
+    margin-top: 20px; 
+    color: white;
+}
+.logout{
+    width: 100px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    text-align: center;
+    padding-left: 0px;
+    padding-top: 14px;
+    border-radius: 10px;
+}
+/* Rodapé */
+footer{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+}
+#footer{
+    box-sizing: border-box;
+    padding-top: 26px;
+}
+
+/* *********************** PAGINAS  *********************** */
+/*INDEX*/
+#bemvindo{
+    width: 100%;
+    height: 500px;
+}
+
+/* ADM CONTEUDO */
+#conteudo_opcoes .conteudo{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+}
+#conteudo_opcoes {
+    width: 100%;
+    height: 450px;
+}
+.conteudo_opcoes{
+    width: 350px;
+    height: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.conteudo_img_page{
+    width: 100px;
+    height: 100px;
+}
+.conteudo_name_page{
+    width: 250px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-top: 40px;
+    padding-left: 30px;
+}
+
+/* ADM FALE CONOSCO */
+#contatos{
+    width: 100%;
+    min-height: 600px;
+}
+#contatos_table{
+    width: 1300px; /* 1400px*/
+    min-height: 50px; 
+}
+.contatos_linha{
+    width: inherit;
+    height: 50px;
+}
+.contatos_coluna{
+    height: inherit;
+    text-align: center;
+}
+#contatos h1{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.contatos_icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.contatos_icon img{
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
