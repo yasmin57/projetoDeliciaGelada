@@ -11,7 +11,7 @@
         <?php require_once("header.php"); ?>
         
         <div id="bemvindo">
-            <section class="conteudo center"> <h1> Bem Vindo ao CMS</h1> </section>
+            <section class="conteudo center fonte"> <h1> Bem Vindo ao CMS</h1> </section>
         </div>
         
         <!-- RODAPÉ  -->
