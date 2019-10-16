@@ -22,16 +22,20 @@
                 $('.visualizar').click(function(){
                     $('#container').fadeIn(1000);
                 });
+                
+                $('#fechar_modal').click(function(){
+                    $('#container').fadeOut(1000);
+                })
             });
             
             function verDados(idItem)
             {
                 $.ajax({
-                    type:"GET",
-                    url:"",
-                    data: {modo:'visualizar', id:idItem},
+                    type:"POST",
+                    url:"modalContatos.php",
+                    data: {modo:'visualizar', codigo:idItem},
                     success: function(dados){
-                        $('#modal').html(dados);
+                        $('#modalDados').html(dados);
                     }
                 })
             }
@@ -39,14 +43,15 @@
         </script>
     </head>
     <body>
+        <div id="container">
+            <div id="modal">
+                <div id="modalDados"></div>
+                <div id="fechar_modal" class="botao back_pink_light color_white fonte">Fechar</div>
+            </div>
+        </div>
+        
         <!-- CABEÇALHO E MENU -->
         <?php require_once("header.php"); ?>
-        
-<!--
-        <div id="container">
-            <div id="modal"><span>Fechar</span></div>
-        </div>
--->
         
         <div id="contatos">
             <section class="conteudo center fonte">
@@ -97,8 +102,8 @@
                         <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['sexo'] ?> </td>
                         <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['profissao'] ?> </td>
                         <td class="contatos_coluna color_white back_pink_light"> 
-                            <a class="contatos_icon float botao" href="../bd/deletar.php?modo=excluir&codigo=<?=$rsContatos['id']?>"><img src="../imgs/icon_excluir.png"></a>
-                            <a class="contatos_icon float botao visualizar" onclick="verDados(<?=$rsContatos['id']?>);" ><img src="../imgs/icon_ver.png"></a>
+                            <a class="contatos_icon float botao" onclick="return confirm('Deseja escluir esse registro ?');" href="../bd/deletar.php?modo=excluir&codigo=<?=$rsContatos['id']?>"><img src="../imgs/icon_excluir.png"></a>
+                            <a href="#" class="contatos_icon float botao visualizar" onclick="verDados(<?=$rsContatos['id']?>);" ><img src="../imgs/icon_ver.png"></a>
                         </td>
                     </tr>
                     <?php } ?>
