@@ -89,6 +89,7 @@
                                         <tr class="itens_frm fonte">
                                             <td class="texto_frm">tipo: </td>
                                             <td>  <select id="select" class="input" name="slcmsg">
+                                                <!-- Mudar p/ radio -->
                                                     <option class="fonte" value="" selected> Selecione o tipo de mensagem </option>
                                                     <option class="fonte" value="sugestao"> Sugestão </option>
                                                     <option class="fonte" value="critica"> Crítica </option>

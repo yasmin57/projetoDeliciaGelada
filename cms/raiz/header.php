@@ -22,7 +22,7 @@
                         <td class="menu_itens"></td>
                         <td class="menu_itens">
                             <div class="menu_icon back" id="adm_usuarios"></div>
-                            <div class="menu_option fonte botao"><a>Adm. Usuários</a></div>
+                            <div class="menu_option fonte botao"><a href="adm_usuarios.php">Adm. Usuários</a></div>
                         </td>
                         <td class="menu_itens" colspan="2">
                             <div class="menu_mensagem fonte"><p> Bem Vindo, Yasmin Pereira da Silva</p></div>
