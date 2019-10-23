@@ -362,19 +362,24 @@ footer{
 }
 
 /*Criar usuarios */
-.itens_frm_users{
-    margin-top: 20px;
-    margin-bottom: 20px;
+#frm_usuarios{
+    width: 420px;
+    min-height: 50px;
+    background-color: aquamarine;
 }
-.itens_frm_users .btn_users{
+#frm_usuarios tr{
+    height: 50px;
+}
+.frm_usuarios_name{
+    width: 140px;
+}
+#frm_users_select{
+    width: 275px;
+}
+#frm_usuarios .btn_users{
+    margin-bottom: 0px;
     padding-top: 0px;
 }
-.checkbox_nivel{
-    
-}
-
-
-
 
 
 
