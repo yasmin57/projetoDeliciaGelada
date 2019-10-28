@@ -63,8 +63,10 @@ h1{
     margin-bottom: 30px;
 }
 .icon_user{
-   background-size: cover;
    background-image: url(../imgs/icon_user.png); 
+}
+.icon_level{
+    background-image: url(../imgs/icon_level.png); 
 }
 /* Cabeçalho */
 header{
@@ -312,25 +314,23 @@ footer{
 }
 
 /* Adm - Usuários */
-#usuarios_container{
+#usuarios{
     width: 100%;
-    min-height: 500px;
+    min-height: 200px;
+    padding-bottom: 10px;
 }
-#card_container{
+/* #card_container{
    width: 1400px;
    min-height: 400px; 
-}
+} */
 /*Botão p/ criar */
 .btn_users{
     width: 150px;
     height: 40px;
-    box-sizing: border-box;
-    padding-top: 10px;
-    margin-bottom: 30px;
 }
 
 /*Card dos usuários */
-.card_user{
+/* .card_user{
     float: left;
     width: 225px;
     height: 290px;
@@ -368,38 +368,47 @@ footer{
    padding-top: 10px;
    margin-left: auto;
    border-radius: 8px;
-}
+} */
 
-/*Criar usuarios */
-#frm_usuarios{
-    width: 760px;
+/*Criar usuarios/Níveis */
+.frm_usuarios{
+    width: 850px;
     min-height: 50px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
+    padding: 15px;
+    margin-bottom: 30px;
 }
-#frm_usuarios tr{
+.frm_usuarios tr{
     height: 50px;
 }
 .frm_usuarios_name{
     width: 140px;
 }
 #frm_users_select{
-    width: 275px;
+    width: 378px;
 }
-#frm_usuarios .btn_users{
-    margin-bottom: 0px;
-    padding-top: 0px;
-}
-#frm_usuarios_img{
+.frm_usuarios_img{
     width: 300px;
 }
-#div_usuarios_img{
+.div_usuarios_img{
     height: 300px;
     margin-top: 12px;
 }
-
-
-
-
+.checkbox_nivel_container{
+    height: 40px;
+    box-sizing: border-box;
+    padding-top: 7px;
+}
+.checkbox_nivel{
+    height: 25px;
+    width: 25px;
+    margin-right: 15px;
+}
+.div_level_img{
+    height: 300px;
+    border-radius: 160px;
+    background-color: #78ACAC;
+    background-size: 250px 250px;
+    background-position: center;
+    border: solid 1px #946F82;
+}
 
