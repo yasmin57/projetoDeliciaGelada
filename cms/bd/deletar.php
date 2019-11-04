@@ -28,10 +28,10 @@
                     echo('Erro ao deletar registro');
                 
             }
-            elseif($page == 'admniveis')
+            elseif($page == 'admusuarios')
             {
                 //Script para deletar
-                $sql = "delete from tblniveis where codigo =".$codigo;
+                $sql = "delete from tblusuarios where codigo =".$codigo;
                 
                 if(mysqli_query($conexao, $sql))
                     header('location:../raiz/crud_usuarios.php');

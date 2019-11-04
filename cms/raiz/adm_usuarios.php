@@ -215,7 +215,7 @@
                                         //exibe enquanto exitir dados no array
                                         while($rsNiveis = mysqli_fetch_array($select)){
                                     ?>
-                                        <option value="<?=$rsNiveis['codigo']?>"> <?=$rsNiveis['nome']?> </option>
+                                        <option value="<?=$rsNiveis['codigo']?>"> <?=$rsNiveis['descricao']?> </option>
                                     <?php
                                         }
                                     ?>

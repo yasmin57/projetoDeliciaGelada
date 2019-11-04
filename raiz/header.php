@@ -15,12 +15,12 @@
                 <li class="menu_itens float"> <a href="contato.php"> entre em contato </a></li>
             </ul>
         </nav>
-        <form method="post" name="frmlogin" action="home.php" id="header_login" class="float">
+        <form method="post" name="frmlogin" action="../bd/autenticacao.php" id="header_login" class="float">
             <div class="login_txt float">
-                Usuário: <input type="text" maxlength="15" size="13" name="txt_user">
+                Usuário: <input type="text" maxlength="100" size="13" name="txt_user" required>
             </div>
             <div class="login_txt float">
-                Senha: <input type="text" maxlength="15" size="13" name="txt_password">
+                Senha: <input type="password" maxlength="20" size="13" name="txt_password" required>
             </div>
                 <input type="submit" name="btnlogar" value="OK" id="header_botao" class="float back_orange">
         </form>

@@ -24,7 +24,18 @@
         $cpf = $_POST['txtcpf'];
         $nivel = $_POST['slcnivel'];
         $senha = $_POST['txtsenha'];
+        $status = 1;
 
+        if(isset($_SESSION['status'])){
+            if($_GET['status'] == 1){
+                $status = 0;
+            }
+            else{
+                $status = 1;
+            } 
+        }
+        
+        
         //CRIPTOGRAFIA DA SENHA
         $senha_cripty = md5($senha);
 
@@ -40,7 +51,7 @@
             //SCRIPT P/ ATUALIZAR DADOS NO BD
             $sql = "update tblusuarios set nome ='".$nome."', email = '".$email."', celular = '".$celular."'
                     , login ='".$usuario."', rg ='".$rg."', cpf='".$cpf."', senha='".$senha_cripty."',
-                    codenivel =".$nivel;
+                    codenivel =".$nivel.", status = ".$status." where codigo =".$_SESSION['codigo'];
         }
 
         //VERIFICA SE A CONEXÃO FOI BEM SUCEDIDA 

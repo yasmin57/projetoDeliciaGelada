@@ -59,7 +59,7 @@ DROP TABLE IF EXISTS `tblniveis`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `tblniveis` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
+  `descricao` varchar(100) NOT NULL,
   `adm_conteudo` tinyint(4) NOT NULL DEFAULT '0',
   `adm_cliente` tinyint(4) NOT NULL DEFAULT '0',
   `adm_usuarios` tinyint(4) NOT NULL DEFAULT '0',
@@ -93,10 +93,11 @@ CREATE TABLE `tblusuarios` (
   `login` varchar(100) NOT NULL,
   `rg` varchar(12) NOT NULL,
   `cpf` varchar(14) NOT NULL,
-  `senha` varchar(20) NOT NULL,
-  `codenivel` tinyint(4) NOT NULL,
+  `senha` varchar(2000) NOT NULL,
+  `codenivel` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,6 +106,7 @@ CREATE TABLE `tblusuarios` (
 
 LOCK TABLES `tblusuarios` WRITE;
 /*!40000 ALTER TABLE `tblusuarios` DISABLE KEYS */;
+INSERT INTO `tblusuarios` VALUES (1,'Yasmin Silva','yasmin@gmail.com','(055) 5555-5555','yasmin123','22.222.222-2','222.222.555-98','202cb962ac59075b964b07152d234b70',1,1),(2,'Pedro Meideiros','pedrinho@machoalfa.com','(011) 9999-9999','pedro','11.111.111-5','111.111.111-11','202cb962ac59075b964b07152d234b70',2,1),(4,'Ingrid Pereira da Silva','ingrid@gmail.com','(011) 9999-9999','ingrid','11.111.111-5','222.222.555-98','202cb962ac59075b964b07152d234b70',3,1);
 /*!40000 ALTER TABLE `tblusuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -117,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-28 15:58:48
+-- Dump completed on 2019-11-04 16:27:57

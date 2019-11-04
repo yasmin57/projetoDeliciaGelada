@@ -3,7 +3,7 @@
     require_once('../../bd/conexao.php');
         
     //CHAMA A FUNÇÃO QUE FAZ A CONEXÃO;
-    $conexao = conexaoMysql();
+    $conexao = conexaoMysql();   
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +12,7 @@
             CMS | Delicia Gelada
         </title>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
-        <script src="js/jquery.js"></script>
+        <script src="../js/jquery.js"></script>
 
         <!-- CODE JS - MODAL -->
         <script>
@@ -31,14 +31,13 @@
             {
                 $.ajax({
                     type:"POST",
-                    url:"modalContatos.php",
+                    url:"modalUsuarios.php",
                     data: {modo:'visualizar', codigo:idItem},
                     success: function(dados){
                         $('#modalDados').html(dados);
                     }
                 })
             }
-        
         </script>
     </head>
     <body>
@@ -74,7 +73,7 @@
                             <p> Usuário:</p>
                         </td>
                         <td>
-                            <p> CPF:</p>
+                            <p> Nível:</p>
                         </td>
                         <td>
                             <p> Opções:</p>
@@ -82,7 +81,7 @@
                     </tr>
                     <?php 
                         //SCRIPT P/ MANDAR P/ O BANCO
-                        $sql = "select * from tblusuarios";
+                        $sql = "select tblusuarios.*, tblniveis.descricao from tblusuarios inner join tblniveis on tblniveis.codigo = tblusuarios.codenivel";
                     
                         //EXECUTA O SCRIPT NO BANCO
                         $select = mysqli_query($conexao, $sql);
@@ -101,7 +100,7 @@
                             <p> <?=$rsUsuarios['login']?></p>
                         </td>
                         <td>
-                            <p> <?=$rsUsuarios['cpf']?></p>
+                            <p> <?=$rsUsuarios['descricao']?></p>
                         </td>
                         <td>
                             <!-- ICONE LAPIS -->
@@ -109,8 +108,20 @@
                                 <img src="../imgs/icon_edit.png">
                             </a>
                             <!-- ICONE LUPA -->
-                            <a href="#" class="visualizar contatos_icon float botao visualizar" onclick="visualizarDados(<?=$rsUsuarios['codigo']?>);">
+                            <a href="#" class="contatos_icon float botao visualizar" onclick="verDados(<?=$rsUsuarios['codigo']?>);" >
                                 <img src="../imgs/icon_ver.png">
+                            </a>
+                            <!-- ICONE EXCLUIR -->
+                            <a class="contatos_icon float botao" onclick="return confirm('Deseja excluir esse usuário?');" href="../bd/deletar.php?modo=excluir&codigo=<?=$rsUsuarios['codigo']?>&page=admusuarios" >
+                                <img src="../imgs/icon_excluir.png">
+                            </a>
+                            <!-- ICONE ATIVO/DESATIVO -->
+                            <a class="contatos_icon float botao" href="adm.php?modo=editar&codigo=<?=$rsUsuarios['codigo']?>&form=usuario&status=<?=$rsUsuarios['status']?>">
+                                <?php if($rsUsuarios['status'] == 1) { ?>
+                                    <img src="../imgs/icon_on.png"> 
+                                <?php } else { ?>
+                                    <img src="../imgs/icon_off.png">
+                                <?php } ?>
                             </a>
                         </td>
                     </tr>
