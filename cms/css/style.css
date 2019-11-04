@@ -228,7 +228,7 @@ footer{
     width: 100%;
     min-height: 600px;
 }
-#contatos_table{
+.contatos_table{
     width: 1300px; /* 1400px*/
     min-height: 50px; 
 }

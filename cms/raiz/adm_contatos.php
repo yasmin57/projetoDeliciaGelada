@@ -65,7 +65,7 @@
                     </select>
                     <input type="submit" value="filtrar" class="back_green fonte color_white botao" id="btnfiltrarmsg" name="btnfiltrar">
                 </form>
-                <table id="contatos_table" class="center">
+                <table class="center contatos_table">
                     <tr class="contatos_linha">
                         <td class="contatos_coluna  back_green color_white"><p>Nome</p></td>
                         <td class="contatos_coluna  back_green color_white"><p>Telefone</p></td>
