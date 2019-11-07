@@ -24,18 +24,7 @@
         $cpf = $_POST['txtcpf'];
         $nivel = $_POST['slcnivel'];
         $senha = $_POST['txtsenha'];
-        $status = 1;
 
-        if(isset($_SESSION['status'])){
-            if($_GET['status'] == 1){
-                $status = 0;
-            }
-            else{
-                $status = 1;
-            } 
-        }
-        
-        
         //CRIPTOGRAFIA DA SENHA
         $senha_cripty = md5($senha);
 
@@ -47,16 +36,17 @@
                     values('".$nome."', '".$email."', '".$celular."',
                     '".$usuario."', '".$rg."', '".$cpf."', '".$senha_cripty."', ".$nivel.")";
         }
-        elseif(strtoupper($_POST['btncreateuser']) == 'EDITAR'){
+        elseif(strtoupper($_POST['btncreateuser']) == 'EDITAR' ){
             //SCRIPT P/ ATUALIZAR DADOS NO BD
             $sql = "update tblusuarios set nome ='".$nome."', email = '".$email."', celular = '".$celular."'
                     , login ='".$usuario."', rg ='".$rg."', cpf='".$cpf."', senha='".$senha_cripty."',
-                    codenivel =".$nivel.", status = ".$status." where codigo =".$_SESSION['codigo'];
+                    codenivel =".$nivel." where codigo =".$_SESSION['codigo'];
+            $_SESSION['nomeUsuario'] = $nome;
         }
 
         //VERIFICA SE A CONEXÃO FOI BEM SUCEDIDA 
         if(mysqli_query($conexao, $sql)){
-            header('location:../raiz/adm_usuarios.php');
+            header('location:../raiz/crud_usuarios.php');
         }
         else{
             echo("Error: ".$sql);

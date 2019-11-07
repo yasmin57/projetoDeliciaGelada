@@ -1,4 +1,5 @@
 <?php
+
     //VERIFICA A AÇÃO DO BOTÃO LOGIN
     if(isset($_POST['btnlogar'])){
         
@@ -22,23 +23,33 @@
         {
             //TRANSFORMA EM ARRAY
             $rsLogin = mysqli_fetch_array($select);
-            
-            //INICIA VARIÁVEL DE SESSÃO
-            if(!isset($_SESSION))
+
+            //VERIFICA SE O USUÁRIO ESTÁ ATIVADO
+            if($rsLogin['status'] == 1)
             {
-                session_start();
+                //INICIA VARIÁVEL DE SESSÃO
+                if(!isset($_SESSION))
+                {
+                    session_start();
+                }
+            
+                //RESGATE DE DADOS NECESSÁRIOS/ VARIAVEIS DE SESSÃO
+                $_SESSION['nomeUsuario'] = $rsLogin['nome'];
+                $_SESSION['codenivel'] = $rsLogin['codenivel'];
+            
+                //REDIRECIONA P/ A PÁGINA DO CMS
+                header('location:../cms/raiz/index.php');
             }
-            
-            //RESGATE DE DADOS NECESSÁRIOS/ VARIAVEIS DE SESSÃO
-            $_SESSION['nomeUsuario'] = $rsLogin['nome'];
-            $_SESSION['codenivel'] = $rsLogin['codenivel'];
-            
-            //REDIRECIONA P/ A PÁGINA DO CMS
-            header('location:../cms/raiz/index.php');
+            else
+            {
+                define("ERROR_LOGIN", "usuário desativado");
+                header('location:../raiz/home.php');
+            }
         }
         else
         {
-            
+           define("ERROR_LOGIN", "usuário ou senha inválidos");
+           header('location:../raiz/home.php');
         }
  
     }

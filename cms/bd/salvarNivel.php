@@ -48,7 +48,7 @@
         
         //CONFERE SE INSERIU OS DADOS E REDIRECIONA P/ OUTRA PAG
         if(mysqli_query($conexao, $sql))
-            header('location:../raiz/adm_usuarios.php');
+            header('location:../raiz/crud_niveis.php');
         else
             echo("Error: ".$sql);
     }

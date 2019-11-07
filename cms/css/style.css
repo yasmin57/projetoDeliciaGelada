@@ -36,6 +36,11 @@
 .txt_center{
     text-align: center;
 }
+.link_menu{
+    font-size: 24px;
+    padding-bottom: 13px;
+    margin-left: 20px;
+}
 /* Cores */
 .back_pink{
     background-color: #946f82;
@@ -55,6 +60,9 @@
 .back_black{
     background-color: black;
 }
+.back_green_limon{
+    background-color: #09A37A;
+}
 a{
     text-decoration: none;
 }
@@ -62,7 +70,6 @@ h1{
     margin-top: 30px;
     margin-bottom: 30px;
 }
-
 /* Icones */
 .icon_user{
    background-image: url(../imgs/icon_user.png); 
@@ -72,6 +79,14 @@ h1{
 }
 .icon_eye{
     background-image: url(../imgs/icon_eye.png); 
+}
+
+/* Bordas */
+.border_bottom{
+    border-bottom: solid 1px black
+}
+.border_right{
+    border-right: solid 1px black
 }
 
 /* Cabeçalho */
@@ -319,12 +334,44 @@ footer{
     border: solid 1px black;
 }
 
-/* Adm - Usuários */
+/* Adm - Usuários - Index */
 #usuarios{
     width: 100%;
     min-height: 200px;
     padding-bottom: 10px;
 }
+#usuarios_table{
+    width: 1000px;
+    min-height: 150px;
+    border: solid 1px black;
+}
+#usuarios_table tr{
+    height: 60px;
+}
+.usuarios_column{
+    width: 250px;
+}
+.icon_usuarios{
+    width: 250px;
+    height: 250px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.border_radius_usuarios{
+    border-radius: 140px;
+    border: solid 1px black;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /*Botão p/ criar */
 .btn_users{

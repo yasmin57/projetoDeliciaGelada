@@ -60,6 +60,13 @@
                  </nav>  
                 <!-- produtos -->
                 <div id="home_conteudo_main" class="float">
+                   <?php 
+                        require_once("../bd/autenticacao.php");
+
+                        if(defined('ERROR_LOGIN')){
+                            echo('<p>'.ERROR_LOGIN.'</p>');
+                        }
+                    ?>
                    <div class="home_produtos">
                         <div class="produtos float back">
                             <div class="produtos_img center">
