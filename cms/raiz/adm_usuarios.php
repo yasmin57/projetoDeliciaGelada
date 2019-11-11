@@ -5,6 +5,7 @@
             CMS | ADM USUARIOS
         </title>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
+        <link type="text/css" href="../css/usersAndChat.css" rel="stylesheet">
     </head>
     <body>
         <!-- CABEÇALHO E MENU-->

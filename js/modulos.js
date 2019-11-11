@@ -8,6 +8,7 @@ function validarEntrada (caracter, tipoAceito){
     var tipo = tipoAceito;
     console.log(tipoAceito);
     
+    //verifica o tipo aceito
     if(tipo == "string"){
        //valida apenas a digitação de letras
         if(asc >= 48 && asc <= 57)

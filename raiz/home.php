@@ -1,3 +1,10 @@
+<?php
+    //INICIA A VARIÁVEL DE SESSÃO
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -61,10 +68,8 @@
                 <!-- produtos -->
                 <div id="home_conteudo_main" class="float">
                    <?php 
-                        require_once("../bd/autenticacao.php");
-
-                        if(defined('ERROR_LOGIN')){
-                            echo('<p>'.ERROR_LOGIN.'</p>');
+                        if(isset($_SESSION['error'])){
+                            echo('<p class="fonte" id="msgErro">'.$_SESSION['error'].'</p>');
                         }
                     ?>
                    <div class="home_produtos">
@@ -136,6 +141,12 @@
         </div>
        <?php
              require_once("footer.php");
+
+             //DESTRÓI A VARIÁVEL DE SESSÃO
+            if(isset($_SESSION))
+            {
+                session_destroy();
+            }
          ?>
-    </body>
+    </body>                         
 </html>

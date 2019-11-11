@@ -3,6 +3,11 @@
   font-family: "Century Gothic";
   font-size: 18px;  
 }
+#msgErro{
+    text-align: center;
+    color: red;
+    font-size: 22px;
+}
 .float{
    float: left;
 }

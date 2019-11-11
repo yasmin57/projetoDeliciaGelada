@@ -15,6 +15,7 @@
         </title>
         <meta charset="utf-8"/>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
+        <link type="text/css" href="../css/usersAndChat.css" rel="stylesheet">
         <script src="../js/jquery.js"></script>
         <script>
             $(document).ready(function(){
@@ -104,9 +105,9 @@
                         <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['profissao'] ?> </td>
                         <td class="contatos_coluna color_white back_pink_light"> 
                             <!-- Deletar-->
-                            <a class="contatos_icon float botao" onclick="return confirm('Deseja escluir esse registro ?');" href="../bd/deletar.php?modo=excluir&codigo=<?=$rsContatos['id']?>&page=admcontatos"><img src="../imgs/icon_excluir.png"></a>
+                            <a class="contatos_icon float botao" onclick="return confirm('Deseja escluir esse registro ?');" href="../bd/deletar.php?modo=excluir&codigo=<?=$rsContatos['id']?>&page=admcontatos"><img src="../imgs/icon_excluir.png" alt="imagem"></a>
                             <!-- Modal -->
-                            <a href="#" class="contatos_icon float botao visualizar" onclick="verDados(<?=$rsContatos['id']?>);" ><img src="../imgs/icon_ver.png"></a>
+                            <a href="#" class="contatos_icon float botao visualizar" onclick="verDados(<?=$rsContatos['id']?>);" ><img src="../imgs/icon_ver.png" alt="imagem"></a>
                         </td>
                     </tr>
                     <?php } ?>

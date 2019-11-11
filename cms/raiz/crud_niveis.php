@@ -85,11 +85,24 @@
                 }
                 
             }
-            
-            
-            
         }
     }
+
+    //Cor
+    function mostrarPermissao($valor)
+    {
+        if($valor == 1)
+        {
+            return $color = 'style="background-color: #1dcf38;"';
+        }
+        else
+        {
+            return $color = 'style="background-color: #c91c1c;"';
+        }
+    }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -98,33 +111,9 @@
             CMS | Delicia Gelada
         </title>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
+        <link type="text/css" href="../css/usersAndChat.css" rel="stylesheet">
         <script src="../js/jquery.js"></script>
-
-        <!-- CODE JS - MODAL -->
-        <script>
-            $(document).ready(function(){
-                //abre a modal
-                $('.visualizar').click(function(){
-                    $('#container').fadeIn(1000);
-                });
-                
-                $('#fechar_modal').click(function(){
-                    $('#container').fadeOut(1000);
-                })
-            });
-            
-            function verDados(idItem)
-            {
-                $.ajax({
-                    type:"POST",
-                    url:"modalUsuarios.php",
-                    data: {modo:'visualizar', codigo:idItem},
-                    success: function(dados){
-                        $('#modalDados').html(dados);
-                    }
-                })
-            }
-        </script>
+        <script src="../js/ancora.js"></script>
     </head>
     <body>
         <!-- MODAL -->
@@ -141,7 +130,10 @@
         <!-- CONTEÚDO -->
         <div id="usuarios">
             <section class="conteudo center fonte">
-                <h1 class="txt_center">Administração de Usuários </h1>
+                <h1 class="txt_center">Administração de Níveis </h1>
+
+                <!-- Botao p/ gerenciar usuários -->
+                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green txt_center"><a class="color_white" href="crud_usuarios.php">Gerencie Usuários</a></div>
 
                 <!-- Formulário Para Criar Níveis -->
                 <form method="post" action="../bd/salvarNivel.php" name="frmniveis" >
@@ -234,17 +226,49 @@
                             <p> <?=$rsNiveis['descricao']?></p>
                         </td>
                         <td>
-                            <p> <?=$rsNiveis['adm_conteudo']?></p>
+                            <p> 
+                                <?php 
+                                    $style = mostrarPermissao($rsNiveis['adm_conteudo']);
+                                ?>
+                                <div class="bola_permissao center" <?=$style?>>
+                            </p>
                         </td>
                         <td>
-                            <p> <?=$rsNiveis['adm_cliente']?></p>
+                            <p> 
+                                <?php 
+                                    $style = mostrarPermissao($rsNiveis['adm_cliente']);
+                                ?>
+                                <div class="bola_permissao center" <?=$style?>>
+                            </p>
                         </td>
                         <td>
-                            <p> <?=$rsNiveis['adm_usuarios']?></p>
+                            <p> 
+                                <?php 
+                                    $style = mostrarPermissao($rsNiveis['adm_usuarios']);
+                                ?>
+                                <div class="bola_permissao center" <?=$style?>>
+                            </p>
                         </td>
                         <td>
-                            <a href="adm_usuarios.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>&form=nivel" class="contatos_icon float botao visualizar">
-                                <img src="../imgs/icon_edit.png">
+                            <!-- Editar -->
+                            <a href="crud_niveis.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>&form=nivel" class="contatos_icon float botao visualizar">
+                                <img src="../imgs/icon_edit.png" alt="imagem">
+                            </a>
+                            <!-- Ativar/desativar -->
+                            <a class="contatos_icon float botao"
+                                <?php
+                                    if($rsNiveis['codigo'] == $_SESSION['codenivel']) {
+                                ?>
+                                        onclick = "return alert('Você não pode desativar o nível de seu próprio usuário')"
+                                <?php } else {?>
+                                    href="../bd/on_off.php?status=<?=$rsNiveis['status']?>&codigo=<?=$rsNiveis['codigo']?>&form=niveis"
+                                <?php } ?>
+                            >
+                                <?php if($rsNiveis['status'] == 1) { ?>
+                                    <img src="../imgs/icon_on.png" alt="imagem">
+                                <?php } else { ?>
+                                    <img src="../imgs/icon_off.png" alt="imagem">
+                                <?php } ?>
                             </a>
                         </td>
                     </tr>

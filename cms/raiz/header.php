@@ -37,30 +37,30 @@
                             <?php
                                if($rsLogin['adm_conteudo'] == 1){ 
                             ?>
-                                <div class="menu_icon back" id="adm_conteudo"></div>
-                                <div class="menu_option fonte botao"><a href="adm_conteudo.php">Adm. Conteúdo</a></div>
+                                <a href="adm_conteudo.php"><div class="menu_icon back" id="adm_conteudo"></div></a>
+                                <div class="menu_option fonte botao"><a class="color_white" href="adm_conteudo.php">Adm. Conteúdo</a></div>
                             <?php } ?>
                         </td>
                         <td class="menu_itens">
                             <?php
                                if($rsLogin['adm_cliente'] == 1){ 
                             ?>
-                                <div class="menu_icon back" id="adm_fale"></div>
-                                <div class="menu_option fonte botao"><a href="adm_contatos.php">Adm. Fale Conosco</a></div>
+                                <a href="adm_contatos.php"><div class="menu_icon back" id="adm_fale"></div></a>
+                                <div class="menu_option fonte botao"><a class="color_white" href="adm_contatos.php">Adm. Fale Conosco</a></div>
                             <?php } ?>
                         </td>
                         <td class="menu_itens">
                             <?php
                                if($rsLogin['adm_usuarios'] == 1){ 
                             ?>
-                                <div class="menu_icon back" id="adm_usuarios"></div>
-                                <div class="menu_option fonte botao"><a href="adm_usuarios.php">Adm. Usuários</a></div>
+                                <a href="adm_usuarios.php"><div class="menu_icon back" id="adm_usuarios"></div></a>
+                                <div class="menu_option fonte botao"><a class="color_white" href="adm_usuarios.php">Adm. Usuários</a></div>
                             <?php } ?>
                         </td>
                         <td class="menu_itens"></td>
                         <td class="menu_itens" colspan="2">
-                            <div class="menu_mensagem fonte"><p> Bem Vindo, <?=$_SESSION['nomeUsuario']?></p></div>
-                            <div class="menu_mensagem fonte botao logout back_green"><a href="../../raiz/home.php">logout</a></div>
+                            <div class="menu_mensagem fonte color_white"><p> Bem Vindo, <?=$_SESSION['nomeUsuario']?></p></div>
+                            <div class="menu_mensagem fonte botao logout back_green"><a class="color_white" href="../../raiz/home.php">logout</a></div>
                         </td>
                     </tr>
                 </table>

@@ -1,4 +1,12 @@
 <?php
+    //INICIA VARIÁVEL DE SESSÃO
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+
+    //VARIAVEL ERRO
+    $_SESSION['error'] = "";
 
     //VERIFICA A AÇÃO DO BOTÃO LOGIN
     if(isset($_POST['btnlogar'])){
@@ -14,8 +22,8 @@
         $senha_cripty = md5($senha);
         
         //SCRIPT P/ O BD 
-        $sql = "select * from tblusuarios where tblusuarios.login ='".$usuario."' and tblusuarios.senha ='".$senha_cripty."'";
-        
+       // $sql = "select * from tblusuarios where tblusuarios.login ='".$usuario."' and tblusuarios.senha ='".$senha_cripty."'";
+        $sql = "select * from tblusuarios where tblusuarios.login ='".$usuario."'";
         $select = mysqli_query($conexao, $sql);
         
         //VERIFICA SE O SELECT FUNCIONOU
@@ -24,33 +32,39 @@
             //TRANSFORMA EM ARRAY
             $rsLogin = mysqli_fetch_array($select);
 
-            //VERIFICA SE O USUÁRIO ESTÁ ATIVADO
-            if($rsLogin['status'] == 1)
+            //VERIFICA SE O USUÁRIO EXISTE
+            if($rsLogin <> '')
             {
-                //INICIA VARIÁVEL DE SESSÃO
-                if(!isset($_SESSION))
+                //VERIFICA SE A SENHA ESTÁ CORRETA
+                if($rsLogin['senha'] == $senha_cripty)
                 {
-                    session_start();
+                    //VERIFICA SE O USUÁRIO ESTÁ ATIVADO
+                    if($rsLogin['status'] <> 0)
+                    {
+                        //RESGATE DE DADOS NECESSÁRIOS/ VARIAVEIS DE SESSÃO
+                        $_SESSION['nomeUsuario'] = $rsLogin['nome'];
+                        $_SESSION['codenivel'] = $rsLogin['codenivel'];
+                                
+                        //REDIRECIONA P/ A PÁGINA DO CMS
+                        header('location:../cms/raiz/index.php');
+                    }
+                    //Caso o usuário esteja desativado
+                    else
+                    {   $_SESSION['error'] = "usuário desativado";
+                        header('location:../raiz/home.php'); }
                 }
-            
-                //RESGATE DE DADOS NECESSÁRIOS/ VARIAVEIS DE SESSÃO
-                $_SESSION['nomeUsuario'] = $rsLogin['nome'];
-                $_SESSION['codenivel'] = $rsLogin['codenivel'];
-            
-                //REDIRECIONA P/ A PÁGINA DO CMS
-                header('location:../cms/raiz/index.php');
+                //Caso a senha esteja incorreta
+                else{ $_SESSION['error'] = "senha inválida";
+                     header('location:../raiz/home.php'); }
             }
+            //Caso o usuario esteja incorreto
             else
-            {
-                define("ERROR_LOGIN", "usuário desativado");
-                header('location:../raiz/home.php');
-            }
+            {  $_SESSION['error'] = "usuário inválido";
+               header('location:../raiz/home.php');  }       
         }
+        //Caso ocorra erro no script
         else
-        {
-           define("ERROR_LOGIN", "usuário ou senha inválidos");
-           header('location:../raiz/home.php');
-        }
+        { echo($sql); }
  
     }
 ?>

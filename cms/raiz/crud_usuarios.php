@@ -79,7 +79,11 @@
             CMS | Delicia Gelada
         </title>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
+        <link type="text/css" href="../css/usersAndChat.css" rel="stylesheet">
         <script src="../js/jquery.js"></script>
+        <script src="../../js/modulos.js"></script>
+        <script src="../js/modulos.js"></script>
+        <script src="../js/ancora.js"></script>
 
         <!-- CODE JS - MODAL -->
         <script>
@@ -124,6 +128,9 @@
             <section class="conteudo center fonte">
                 <h1 class="txt_center">Administração de Usuários </h1>
 
+                <!-- Botao p/ gerenciar níveis -->
+                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green txt_center"><a class="color_white" href="crud_niveis.php">Gerencie Níveis</a></div>
+                
                 <!-- Formulário Para Criar Usuários -->
                 <form method="post" action="../bd/salvarUsuario.php" name="frmusuarios" >
                     <table class="frm_usuarios center fonte back_green_dark color_white">
@@ -144,7 +151,7 @@
                             <td class="frm_usuarios_name txt_center">
                                 <p> Nome: </p>
                             </td>
-                            <td> <input value="<?=@$nomeUsuario?>" name="txtnome" placeholder="Digite seu nome" class="fonte" type="text" maxlength="100" required size="41"> </td>
+                            <td> <input onkeypress="return validarEntrada(event, 'string');" value="<?=@$nomeUsuario?>" name="txtnome" placeholder="Digite seu nome" class="fonte" type="text" maxlength="100" required size="41"> </td>
                         </tr>
                         <tr>
                             <td class="frm_usuarios_name txt_center">
@@ -156,7 +163,7 @@
                             <td class="frm_usuarios_name  txt_center">
                                 <p> Celular: </p>
                             </td>
-                            <td> <input value="<?=@$celular?>" name="txtcelular" placeholder="Digite seu celular" class="fonte" type="text" maxlength="15" required size="41"> </td>
+                            <td> <input id="celular" onkeypress="return  mascaraFone(this, event);" value="<?=@$celular?>" name="txtcelular" placeholder="Digite seu celular" class="fonte" type="text" maxlength="15" required size="41"> </td>
                         </tr>
                         <tr>
                             <td class="frm_usuarios_name  txt_center">
@@ -168,13 +175,13 @@
                             <td class="frm_usuarios_name txt_center">
                                 <p> RG: </p>
                             </td>
-                            <td> <input value="<?=@$rg?>" name="txtrg" placeholder="00.000.000-0" class="fonte" type="text" maxlength="12" required size="41"> </td>
+                            <td> <input id="rg" onkeypress="return mascaraRg(this, event);" value="<?=@$rg?>" name="txtrg" placeholder="00.000.000-0" class="fonte" type="text" maxlength="12" required size="41"> </td>
                         </tr>
                         <tr>
                             <td class="frm_usuarios_name txt_center">
                                 <p> CPF: </p>
                             </td>
-                            <td> <input value="<?=@$cpf?>" name="txtcpf" placeholder="000.000.000-00" class="fonte" type="text" maxlength="14" required size="41"> </td>
+                            <td> <input id="cpf" onkeypress="return mascaraCpf(this, event);" value="<?=@$cpf?>" name="txtcpf" placeholder="000.000.000-00" class="fonte" type="text" maxlength="14" required size="41"> </td>
                         </tr>
                         <tr>
                             <td class="frm_usuarios_name txt_center">
@@ -213,7 +220,12 @@
                             <td class="frm_usuarios_name txt_center">
                                 <p> Senha: </p>
                             </td>
-                            <td> <input name="txtsenha" placeholder="Digite seu senha" class="fonte" type="text" maxlength="20" required size="41"> </td>
+                            <td> 
+                                <input id="senha" name="txtsenha" placeholder="Digite seu senha" class="fonte float" type="password" maxlength="20" required size="33"> 
+                                <a class="botao float" onclick="mostrarSenha()">
+                                    <img id="icon_senha" alt="imagem" src="../imgs/icon_eye_off.png">
+                                </a>
+                            </td>
                         </tr>
                         <tr>
                             <td class="txt_center" colspan="2">
@@ -271,11 +283,11 @@
                         <td>
                             <!-- ICONE LAPIS -->
                             <a href="crud_usuarios.php?modo=editar&codigo=<?=$rsUsuarios['codigo']?>&form=usuario" class="contatos_icon float botao visualizar">
-                                <img src="../imgs/icon_edit.png">
+                                <img src="../imgs/icon_edit.png" alt="imagem">
                             </a>
                             <!-- ICONE LUPA -->
                             <a href="#" class="contatos_icon float botao visualizar" onclick="verDados(<?=$rsUsuarios['codigo']?>);" >
-                                <img src="../imgs/icon_ver.png">
+                                <img src="../imgs/icon_ver.png" alt="imagem">
                             </a>
                             <!-- ICONE EXCLUIR -->
                             <a class="contatos_icon float botao"
@@ -292,7 +304,7 @@
                                     } 
                                 ?>
                              >
-                                <img src="../imgs/icon_excluir.png">
+                                <img src="../imgs/icon_excluir.png" alt="imagem">
                             </a>
                             
                             <!-- ICONE ATIVO/DESATIVO -->
@@ -311,9 +323,9 @@
                                 ?>    
                             >
                                 <?php if($rsUsuarios['status'] == 1) { ?>
-                                    <img src="../imgs/icon_on.png"> 
+                                    <img src="../imgs/icon_on.png" alt="imagem"> 
                                 <?php } else { ?>
-                                    <img src="../imgs/icon_off.png">
+                                    <img src="../imgs/icon_off.png" alt="imagem">
                                 <?php } ?>
                             </a>
                         </td>
