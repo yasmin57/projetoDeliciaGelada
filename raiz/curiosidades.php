@@ -1,3 +1,8 @@
+<?php
+    require_once('../bd/conexao.php');
+
+    $conexao = conexaoMysql();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -20,8 +25,43 @@
             
             <div id="curiosidades_titulo_main" class="fonte back_goiaba"> Curiosidades </div>
             
+            <?php
+                $sql="select tblcuriosidades.*, tblcolors.classe_css from tblcuriosidades inner join tblcolors on tblcolors.codigo = tblcuriosidades.codecor";
+
+                $select = mysqli_query($conexao, $sql);
+
+                while($rsCuriosidades = mysqli_fetch_array($select)){
+            ?>
+                <div class="<?=$rsCuriosidades['classe_css']?> curiosidades_faixa">
+                    <div class="conteudo center <?=$rsCuriosidades['classe_css']?>">
+                        <table class="curiosidades_table">
+                            <tr>
+                                <td class="curiosidades_img">
+                                    <img alt="imagem" title="imagem" src="../imgs/<?=$rsCuriosidades['foto']?>">
+                                </td>
+                                <td class="curiosidades_texto fonte">
+                                    <h1> <?=$rsCuriosidades['titulo']?> </h1>
+                                    <p> <?=$rsCuriosidades['texto']?> </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                    <?php
+                    if($rsCuriosidades){            
+                    ?>
+                    <div class="back curiosidades_imgs_fundo img_abacate" >
+                    <div class="mascara_preta"></div>
+            <?php
+                    }
+                }
+            ?>
+            
+            <div class="back curiosidades_imgs_fundo img_abacate" >
+                <div class="mascara_preta"></div>
+
             <!-- faixa 01 - sistema digestivo -->
-            <div class="back_goiaba curiosidades_faixa">
+            <!-- <div class="back_goiaba curiosidades_faixa">
                 <div class="conteudo center back_goiaba">
                     <table class="curiosidades_table">
                         <tr>
@@ -35,14 +75,14 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+            </div> -->
             <!--  1º imagem que separa  -->
-            <div class="back curiosidades_imgs_fundo img_abacate" >
+            <!-- <div class="back curiosidades_imgs_fundo img_abacate" >
                 <div class="mascara_preta"></div>
-            </div>
+            </div> -->
             
             <!-- faixa 02 - enxaqueca  -->
-            <div class="back_green curiosidades_faixa">
+            <!-- <div class="back_green curiosidades_faixa">
                 <div class="conteudo center back_green">
                     <table class="curiosidades_table">
                         <tr>
@@ -56,14 +96,14 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+            </div> -->
             <!-- 2º imagem que separa  -->
-            <div class="back curiosidades_imgs_fundo img_laranja" >
+            <!-- <div class="back curiosidades_imgs_fundo img_laranja" >
                 <div class="mascara_preta"></div>
-            </div>
+            </div> -->
             
             <!-- faixa 03 - bem-estar -->
-            <div class="back_goiaba curiosidades_faixa">
+            <!-- <div class="back_goiaba curiosidades_faixa">
                 <div class="conteudo center back_goiaba">
                     <table class="curiosidades_table">
                         <tr>
@@ -77,14 +117,14 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+            </div> -->
             <!-- 3º imagem que separa  -->
-            <div class="back curiosidades_imgs_fundo img_limao" >
+            <!-- <div class="back curiosidades_imgs_fundo img_limao" >
                 <div class="mascara_preta"></div>
-            </div>
+            </div> -->
             
             <!-- faixa 04 - diversos sabores  -->
-            <div class="back_green curiosidades_faixa">
+            <!-- <div class="back_green curiosidades_faixa">
                 <div class="conteudo center back_green">
                     <table class="curiosidades_table">
                         <tr>
@@ -98,7 +138,7 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+            </div> -->
         </div>
         
         <!-- RODAPÉ  -->

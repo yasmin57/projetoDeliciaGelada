@@ -120,7 +120,7 @@
         <div id="container">
             <div id="modal">
                 <div id="modalDados"></div>
-                <div id="fechar_modal" class="botao back_pink_light color_white fonte">Fechar</div>
+                <div id="fechar_modal" class="botao back_pink_light_cms color_white fonte">Fechar</div>
             </div>
         </div>
 
@@ -133,18 +133,18 @@
                 <h1 class="txt_center">Administração de Níveis </h1>
 
                 <!-- Botao p/ gerenciar usuários -->
-                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green txt_center"><a class="color_white" href="crud_usuarios.php">Gerencie Usuários</a></div>
+                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green_cms txt_center"><a class="color_white" href="crud_usuarios.php">Gerencie Usuários</a></div>
 
                 <!-- Formulário Para Criar Níveis -->
                 <form method="post" action="../bd/salvarNivel.php" name="frmniveis" >
-                    <table class="frm_usuarios center fonte back_green_dark color_white">
+                    <table class="frm_usuarios center fonte back_green_dark_cms color_white">
                         <tr>
-                            <td colspan="3" class="txt_center back_pink">
+                            <td colspan="3" class="txt_center back_pink_cms">
                                 <h2>  Crie Níveis </h2>
                             </td>
                         </tr>
                         <tr> 
-                            <td  class="frm_usuarios_img back_green_light" rowspan="7">
+                            <td  class="frm_usuarios_img back_green_light_cms" rowspan="7">
                                 <div class="icon_level div_level_img back"></div>
                             </td>
                             <td colspan="2">
@@ -183,7 +183,7 @@
                         </tr>
                         <tr>
                             <td class="txt_center"  colspan="2">
-                                <input class="botao back_green color_white fonte btn_users" type="submit" value="<?=$botaoNivel?>" name="btncreatenivel">
+                                <input class="botao back_green_cms color_white fonte btn_users" type="submit" value="<?=$botaoNivel?>" name="btncreatenivel">
                             </td>
                         </tr>
                     </table>
@@ -194,7 +194,7 @@
                     <tr class="contatos_linha">
                         <td colspan="5"><h1> Níveis </h1></td>
                     </tr>
-                    <tr class="contatos_linha back_pink color_white">
+                    <tr class="contatos_linha back_pink_cms color_white">
                         <td>
                             <p> Nome:</p>
                         </td>
@@ -221,7 +221,7 @@
                         //LAÇO P/ EXIBIR ENQUANTO HAVER CONTEÚDO
                         while($rsNiveis = mysqli_fetch_array($select)){
                     ?>
-                    <tr class="contatos_linha back_green color_white">
+                    <tr class="contatos_linha back_green_cms color_white">
                         <td>
                             <p> <?=$rsNiveis['descricao']?></p>
                         </td>

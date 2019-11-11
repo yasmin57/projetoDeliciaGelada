@@ -37,31 +37,31 @@
 
 <table id="table_modal">
     <tr>
-        <td class="contatos_coluna fonte back_green color_white"> <p> Nome: </p></td>
-        <td class="contatos_coluna fonte back_green color_white"> <p><?=$nome?></p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p> Nome: </p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p><?=$nome?></p></td>
     </tr>
     <tr>
-        <td class="contatos_coluna fonte back_green color_white"> <p> Email: </p></td>
-        <td class="contatos_coluna fonte back_green color_white"> <p><?=$email?></p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p> Email: </p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p><?=$email?></p></td>
     </tr>
     <tr>
-        <td class="contatos_coluna fonte back_green color_white"> <p> Celular: </p></td>
-        <td class="contatos_coluna fonte back_green color_white"> <p><?=$celular?></p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p> Celular: </p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p><?=$celular?></p></td>
     </tr>
     <tr>
-        <td class="contatos_coluna fonte back_green color_white"> <p> Usuário: </p></td>
-        <td class="contatos_coluna fonte back_green color_white"> <p><?=$login?></p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p> Usuário: </p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p><?=$login?></p></td>
     </tr>
     <tr>
-        <td class="contatos_coluna fonte back_green color_white"> <p> RG: </p></td>
-        <td class="contatos_coluna fonte back_green color_white"> <p><?=$rg?></p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p> RG: </p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p><?=$rg?></p></td>
     </tr>
     <tr>
-        <td class="contatos_coluna fonte back_green color_white"> <p> CPF: </p></td>
-        <td class="contatos_coluna fonte back_green color_white"> <p><?=$cpf?></p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p> CPF: </p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p><?=$cpf?></p></td>
     </tr>
     <tr>
-        <td class="contatos_coluna fonte back_green color_white"> <p> Nível: </p></td>
-        <td class="contatos_coluna fonte back_green color_white"> <p><?=$nivel?></p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p> Nível: </p></td>
+        <td class="contatos_coluna fonte back_green_cms color_white"> <p><?=$nivel?></p></td>
     </tr>
 </table>

@@ -116,7 +116,7 @@
         <div id="container">
             <div id="modal">
                 <div id="modalDados"></div>
-                <div id="fechar_modal" class="botao back_pink_light color_white fonte">Fechar</div>
+                <div id="fechar_modal" class="botao back_pink_light_cms color_white fonte">Fechar</div>
             </div>
         </div>
 
@@ -129,17 +129,17 @@
                 <h1 class="txt_center">Administração de Usuários </h1>
 
                 <!-- Botao p/ gerenciar níveis -->
-                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green txt_center"><a class="color_white" href="crud_niveis.php">Gerencie Níveis</a></div>
+                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green_cms txt_center"><a class="color_white" href="crud_niveis.php">Gerencie Níveis</a></div>
                 
                 <!-- Formulário Para Criar Usuários -->
                 <form method="post" action="../bd/salvarUsuario.php" name="frmusuarios" >
-                    <table class="frm_usuarios center fonte back_green_dark color_white">
+                    <table class="frm_usuarios center fonte back_green_dark_cms color_white">
                         <tr>
-                            <td colspan="3" class="txt_center back_pink">
+                            <td colspan="3" class="txt_center back_pink_cms">
                                 <h2>  Crie Usuários </h2>
                             </td>
                         </tr>
-                            <td  class="frm_usuarios_img back_green_light" rowspan="10">
+                            <td  class="frm_usuarios_img back_green_light_cms" rowspan="10">
                                 <div class="icon_user div_usuarios_img back"></div>
                             </td>
                             <td colspan="2">
@@ -229,7 +229,7 @@
                         </tr>
                         <tr>
                             <td class="txt_center" colspan="2">
-                                <input class="botao back_green color_white fonte btn_users" type="submit" value="<?=$botaoUsuario?>" name="btncreateuser">
+                                <input class="botao back_green_cms color_white fonte btn_users" type="submit" value="<?=$botaoUsuario?>" name="btncreateuser">
                             </td>
                         </tr>
                     </table>
@@ -240,7 +240,7 @@
                     <tr class="contatos_linha">
                         <td colspan="5"><h1> Usuários </h1></td>
                     </tr>
-                    <tr class="contatos_linha back_pink color_white">
+                    <tr class="contatos_linha back_pink_cms color_white">
                         <td>
                             <p> Nome:</p>
                         </td>
@@ -267,7 +267,7 @@
                         //LAÇO P/ EXIBIR ENQUANTO HAVER CONTEÚDO
                         while($rsUsuarios = mysqli_fetch_array($select)){
                     ?>
-                    <tr class="contatos_linha back_green color_white">
+                    <tr class="contatos_linha back_green_cms color_white">
                         <td>
                             <p> <?=$rsUsuarios['nome']?></p>
                         </td>

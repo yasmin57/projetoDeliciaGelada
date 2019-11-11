@@ -38,43 +38,43 @@
 <!-- Html da modal -->
     <table id="table_modal">
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>Nome:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$nome?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>Nome:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$nome?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>telefone:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$telefone?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>telefone:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$telefone?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>celular:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$celular?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>celular:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$celular?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>email:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$email?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>email:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$email?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>homepage:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$homepage?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>homepage:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$homepage?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>facebook:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$facebook?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>facebook:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$facebook?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>tipo:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$tipo?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>tipo:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$tipo?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>mensagem:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$mensagem?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>mensagem:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$mensagem?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>sexo:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$sexo?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>sexo:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$sexo?></p></td>
         </tr>
         <tr>
-            <td class="contatos_coluna fonte back_green color_white"><p>profissão:</p></td>
-            <td class="contatos_coluna fonte color_white back_pink_light"><p><?=$profissao?></p></td>
+            <td class="contatos_coluna fonte back_green_cms color_white"><p>profissão:</p></td>
+            <td class="contatos_coluna fonte color_white back_pink_light_cms"><p><?=$profissao?></p></td>
         </tr>
     </table>

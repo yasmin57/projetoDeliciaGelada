@@ -16,8 +16,8 @@
             <section class="conteudo center fonte">
                 <h1 class="txt_center">Administração de Usuários </h1>
                 
-                <table id="usuarios_table" class="center back_green_limon color_white fonte">
-                    <tr class="txt_center back_green_dark">
+                <table id="usuarios_table" class="center back_green_limon_cms color_white fonte">
+                    <tr class="txt_center back_green_dark_cms">
                         <td colspan="2" class="border_bottom border_right"><h2> Gerencie Usuários </h2></td>
                         <td colspan="2" class="border_bottom"><h2> Gerencie Níveis</h2></td>
                     </tr>
@@ -35,7 +35,7 @@
                         </td>
                         <td class="usuarios_column" rowspan="5">
                             <a href="crud_niveis.php" class="back center icon_usuarios">
-                                <img src="../imgs/icon_level.png" class="border_radius_usuarios back_green_light" title="gerencie níveis" alt="imagem"/>
+                                <img src="../imgs/icon_level.png" class="border_radius_usuarios back_green_light_cms" title="gerencie níveis" alt="imagem"/>
                             </a>
                         </td>
                         <td class="usuarios_column" rowspan="5">

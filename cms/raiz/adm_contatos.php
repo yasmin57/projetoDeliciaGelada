@@ -47,7 +47,7 @@
         <div id="container">
             <div id="modal">
                 <div id="modalDados"></div>
-                <div id="fechar_modal" class="botao back_pink_light color_white fonte">Fechar</div>
+                <div id="fechar_modal" class="botao back_pink_light_cms color_white fonte">Fechar</div>
             </div>
         </div>
         
@@ -64,17 +64,17 @@
                         <option  value="sugestao">Sugestão</option>
                         <option value="critica">Crítica</option>
                     </select>
-                    <input type="submit" value="filtrar" class="back_green fonte color_white botao" id="btnfiltrarmsg" name="btnfiltrar">
+                    <input type="submit" value="filtrar" class="back_green_cms fonte color_white botao" id="btnfiltrarmsg" name="btnfiltrar">
                 </form>
                 <table class="center contatos_table">
                     <tr class="contatos_linha">
-                        <td class="contatos_coluna  back_green color_white"><p>Nome</p></td>
-                        <td class="contatos_coluna  back_green color_white"><p>Telefone</p></td>
-                        <td class="contatos_coluna  back_green color_white"><p>Celular</p></td>
-                        <td class="contatos_coluna  back_green color_white"><p>Email</p></td>
-                        <td class="contatos_coluna  back_green color_white"><p>Sexo</p></td>
-                        <td class="contatos_coluna  back_green color_white"><p>Profissão</p></td>
-                        <td class="contatos_coluna  back_green color_white"><p> Opções </p></td>
+                        <td class="contatos_coluna  back_green_cms color_white"><p>Nome</p></td>
+                        <td class="contatos_coluna  back_green_cms color_white"><p>Telefone</p></td>
+                        <td class="contatos_coluna  back_green_cms color_white"><p>Celular</p></td>
+                        <td class="contatos_coluna  back_green_cms color_white"><p>Email</p></td>
+                        <td class="contatos_coluna  back_green_cms color_white"><p>Sexo</p></td>
+                        <td class="contatos_coluna  back_green_cms color_white"><p>Profissão</p></td>
+                        <td class="contatos_coluna  back_green_cms color_white"><p> Opções </p></td>
                     </tr>
                     <?php 
                         // Script para vizualizar dados
@@ -97,13 +97,13 @@
                         while($rsContatos = mysqli_fetch_array($select)){
                     ?>
                     <tr class="contatos_linha">
-                        <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['nome'] ?> </td>
-                        <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['telefone'] ?> </td>
-                        <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['celular'] ?> </td>
-                        <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['email'] ?> </td>
-                        <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['sexo'] ?> </td>
-                        <td class="contatos_coluna color_white back_pink_light"> <?=$rsContatos['profissao'] ?> </td>
-                        <td class="contatos_coluna color_white back_pink_light"> 
+                        <td class="contatos_coluna color_white back_pink_light_cms"> <?=$rsContatos['nome'] ?> </td>
+                        <td class="contatos_coluna color_white back_pink_light_cms"> <?=$rsContatos['telefone'] ?> </td>
+                        <td class="contatos_coluna color_white back_pink_light_cms"> <?=$rsContatos['celular'] ?> </td>
+                        <td class="contatos_coluna color_white back_pink_light_cms"> <?=$rsContatos['email'] ?> </td>
+                        <td class="contatos_coluna color_white back_pink_light_cms"> <?=$rsContatos['sexo'] ?> </td>
+                        <td class="contatos_coluna color_white back_pink_light_cms"> <?=$rsContatos['profissao'] ?> </td>
+                        <td class="contatos_coluna color_white back_pink_light_cms"> 
                             <!-- Deletar-->
                             <a class="contatos_icon float botao" onclick="return confirm('Deseja escluir esse registro ?');" href="../bd/deletar.php?modo=excluir&codigo=<?=$rsContatos['id']?>&page=admcontatos"><img src="../imgs/icon_excluir.png" alt="imagem"></a>
                             <!-- Modal -->

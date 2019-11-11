@@ -38,6 +38,9 @@
                 //VERIFICA SE A SENHA ESTÁ CORRETA
                 if($rsLogin['senha'] == $senha_cripty)
                 {
+                    //SCRIPT P/ RESGATAR O STATUS DO NÍVEL
+                    $sql = "select tblniveis.status where tblniveis.codigo =".$rsLogin['codenivel'];
+
                     //VERIFICA SE O USUÁRIO ESTÁ ATIVADO
                     if($rsLogin['status'] <> 0)
                     {

@@ -29,8 +29,8 @@
         <div id="header_img" class="float back"></div>
     </div>
 </header>
-        <div id="menu" class="back_pink">
-            <div class="conteudo center back_pink">
+        <div id="menu" class="back_pink_cms">
+            <div class="conteudo center back_pink_cms">
                 <table>
                     <tr>
                         <td class="menu_itens">
@@ -60,7 +60,7 @@
                         <td class="menu_itens"></td>
                         <td class="menu_itens" colspan="2">
                             <div class="menu_mensagem fonte color_white"><p> Bem Vindo, <?=$_SESSION['nomeUsuario']?></p></div>
-                            <div class="menu_mensagem fonte botao logout back_green"><a class="color_white" href="../../raiz/home.php">logout</a></div>
+                            <div class="menu_mensagem fonte botao logout back_green_cms"><a class="color_white" href="../../raiz/home.php">logout</a></div>
                         </td>
                     </tr>
                 </table>

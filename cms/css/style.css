@@ -42,25 +42,25 @@
     margin-left: 20px;
 }
 /* Cores */
-.back_pink{
+.back_pink_cms{
     background-color: #946f82;
 }
-.back_pink_light{
+.back_pink_light_cms{
     background-color: #9e8592;
 }
-.back_green{
+.back_green_cms{
     background-color: #4c8a75;
 }
-.back_green_dark{
+.back_green_dark_cms{
     background-color: #48706b;
 }
-.back_green_light{
+.back_green_light_cms{
     background-color: #7aa395;
 }
 .back_black{
     background-color: black;
 }
-.back_green_limon{
+.back_green_limon_cms{
     background-color: #09A37A;
 }
 a{

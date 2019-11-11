@@ -3,31 +3,31 @@
     width: 410px;
 }
 /* CORES DO SITE */
-.color_site01{
+.back_orange{
     background-color: #d47e46;
 }
-.color_site02{
+.back_pink{
     background-color: #870c4a;
 }
-.color_site03{
+.back_yellow{
     background-color: #dbcc40;
 }
-.color_site04{
+.back_green_limao{
     background-color: #81b356;
 }
-.color_site05{
+.back_green_limao_light{
     background-color: #a6d498;
 }
-.color_site06{
+.back_green{
     background-color: #32a881;
 }
-.color_site07{
+.back_goiaba{
     background-color: #ba6159;
 }
 
 /* Radios das cores */
 .colors{
-    width: 200px;
+    width: 400px;
     height: 40px;
 }
 .color{
@@ -44,10 +44,14 @@
     margin-top: 5px;
 }
 .title_color{
-    width: 100px;
+    width: 300px;
     height: inherit;
     box-sizing: border-box;
     padding-top: 8px;
+}
+.space_colors{
+    width: inherit;
+    height: 10px;
 }
 
 
@@ -85,14 +89,25 @@
     padding-bottom: 10px;
 }
 .frm_curiosidades{
-    width: 850px;
+    width: 1000px;
     min-height: 50px;
     padding: 15px;
     margin-bottom: 30px;
 }
-.frm_curiosidades tr{
-    height: 50px;
-}
 .frm_curiosidades_name{
     width: 140px;
+}
+#frm_curiosidades_foto{
+    width: 400px;
+}
+
+.btn_users{
+    width: 150px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 150px;
+}
+.caixa_texto{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
