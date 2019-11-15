@@ -27,16 +27,25 @@
 
 /* Radios das cores */
 .colors{
-    width: 400px;
-    height: 40px;
+    width: 850px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.color_container{
+    width: 283px;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 .color{
-    height: inherit;
+    height: 40px;
     width: 40px;
     border-radius: 10px;
     border: solid 1px black;
-    margin-right: 15px;
     text-align: center;
+    margin-right: 15px;
 }
 .radio{
     height: 30px;
@@ -44,15 +53,13 @@
     margin-top: 5px;
 }
 .title_color{
-    width: 300px;
-    height: inherit;
+    height: 50px;
     box-sizing: border-box;
-    padding-top: 8px;
+    padding-top: 13px;
+
 }
-.space_colors{
-    width: inherit;
-    height: 10px;
-}
+
+
 
 
 /* ADM CONTEUDO */
@@ -83,31 +90,90 @@
     padding-left: 30px;
 }
 /* CURIOSIDADES */
+
+/* Formulário */
+.form_curiosidades{
+    width: 1300px;
+    display: flex;
+    padding: 20px;
+}
+
+/* Mostrar img */
+#img_curiosidades{
+    width: 300px;
+    height: 300px;
+}
+
+/* Restante do formulário */
 #curiosidades{
     width: 100%;
     min-height: 200px;
     padding-bottom: 10px;
 }
-.frm_curiosidades{
+#card_curiosidades{
     width: 1000px;
-    min-height: 50px;
-    padding: 15px;
-    margin-bottom: 30px;
+    min-height: 100px;
+    flex-wrap: wrap;
+    display: flex;
 }
-.frm_curiosidades_name{
-    width: 140px;
+.card_curiosidades{
+    width: inherit;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-#frm_curiosidades_foto{
-    width: 400px;
+.card_curiosidades_big{
+    width: inherit;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-
-.btn_users{
+.card_curiosidades_name{
+    width: 150px;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_curiosidades_input{
+    width: 850px;
+    height: inherit;
+}
+.card_curiosidades_file{
+    width: 850px;
+    margin-top: 12px;
+}
+.btn_curiosidades{
     width: 150px;
     height: 40px;
-    margin-top: 15px;
-    margin-left: 150px;
 }
-.caixa_texto{
-    margin-top: 15px;
-    margin-bottom: 15px;
+
+/* Topo da curiosidades */
+#card_curiosidades_topo{
+    width: 800px;
+    min-height: 100px;
+    flex-wrap: wrap;
+    display: flex;
+}
+#img_curiosidades_topo{
+    width: 400px;
+    height: 300px;
+}
+.card_curiosidades_input_topo{
+    width: 700px;
+    height: inherit;
+}
+.btn_adm_usuarios{
+    width: 300px;
+    padding-left: 0px;
+}
+.img_cadastro{
+    height: 80px;
+    width: 100px;
+}
+.img_cadastro_topo{
+    height: 80px;
+    width: 200px;
 }

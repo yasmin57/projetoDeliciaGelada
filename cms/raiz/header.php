@@ -59,7 +59,7 @@
                         </td>
                         <td class="menu_itens"></td>
                         <td class="menu_itens" colspan="2">
-                            <div class="menu_mensagem fonte color_white"><p> Bem Vindo, <?=$_SESSION['nomeUsuario']?></p></div>
+                            <div class="menu_mensagem fonte color_white"><p> Bem Vindo, <?=$_SESSION['nomeUsuarioLogin']?></p></div>
                             <div class="menu_mensagem fonte botao logout back_green_cms"><a class="color_white" href="../../raiz/home.php">logout</a></div>
                         </td>
                     </tr>

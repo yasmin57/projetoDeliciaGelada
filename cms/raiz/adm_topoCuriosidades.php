@@ -10,49 +10,6 @@
 
     //VARIAVEL P/ O SELECT DAS CORES e SEPARADOR DE SESSÃO
     $codecor = 0;
-    $codeimg = 0;
-
-
-    //VERIFICA SE EXISTE A VARIAVEL MODO NA URL
-    if(isset($_GET['modo'])){
-        //VERIFICA SE A VAR MODO TEM A FUNÇÃO DE EDITAR
-        if($_GET['modo'] == 'editar')
-        {
-            //ATIVA O RECURSO DE VARIAVEL DE SESSÃO
-            if(!isset($_SESSION)){
-                session_start();
-            }
-
-            $codigo = $_GET['codigo'];
-
-            //VARIAVEL DE SESSÃO COM O CODIGO
-            $_SESSION['codigoFaixa'] = $codigo;
-
-            //SCRIPT P/ RESGATAR OS DADOS
-            $sql = "select tblcuriosidades.*, tblseparasessao.nome from tblcuriosidades 
-                    inner join tblseparasessao on tblseparasessao.codigo = tblcuriosidades.codeimg  where tblcuriosidades.codigo=".$codigo;
-
-            //MANDA O SCRIPT P/ O BD
-            $select = mysqli_query($conexao, $sql);
-
-            //TRANSFORMA OS DADOS EM UM ARRAY
-            $rsCuriosidades = mysqli_fetch_array($select);
-
-            //RESGATA OS DADOS E GUARDA-OS SEPARADAMENTE EM VARIÁVEIS
-            $titulo = $rsCuriosidades['titulo'];
-            $texto = $rsCuriosidades['texto'];
-            $codecor = $rsCuriosidades['codecor'];
-            $foto = $rsCuriosidades['foto'];
-            $codeimg = $rsCuriosidades['codeimg'];
-            $nomeImg = $rsCuriosidades['nome'];
-
-            //VARIAVEL DE SESSÃO P/ GUARDAR NOME DA FOTO E APAGAR NO CASO DO USUÁRIO EDITA-LA
-            $_SESSION['nomeFoto'] = $foto;
-
-            //MUDA O VALUE DO BOTÃO
-            $botao = "EDITAR";
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -72,13 +29,13 @@
                 <h1 class="txt_center">Administração das Curiosidades </h1>
 
                 <!-- Botao p/ gerenciar o topo da página -->
-                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green_cms txt_center"><a class="color_white" href="adm_topoCuriosidades.php"> Gerencie o Topo da Página </a></div>
+                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green_cms txt_center"><a class="color_white" href="adm_curiosidades.php"> Gerencie as Sessões da Página </a></div>
 
-                <h1 class="txt_center"> Crie Sessões</h1>
-                <!-- Formulário Para Criar Páginas -->
-                <form method="post"  action="../bd/salvarCuriosidade.php"  class="color_white center back_green_dark_cms form_curiosidades" name="frmcuriosidades" enctype="multipart/form-data">
+                <!-- Formulário p/ o topo da página -->
+                <h1 class="txt_center"> Topo da página</h1>
+                <form method="post" action="../bd/topoCuriosidade.php" class="center back_green_dark_cms form_curiosidades color_white" name="frmtopocuriosidades" enctype="multipart/form-data">
                     <!-- Mostrar Imagem -->
-                    <div id="img_curiosidades" class="back back_green_light_cms">
+                    <div id="img_curiosidades_topo" class="back back_green_light_cms">
                         <?php if(isset($_GET['modo'])) {?>
                             <img src="../../imgs/<?=$foto?>" alt="imagem"/>
                         <?php } else{?>
@@ -86,17 +43,11 @@
                         <?php }?>
                     </div>
 
-                    <!-- Restante do formulário -->
-                    <div id="card_curiosidades">
-                            <!-- TITULO -->
+                    <div id="card_curiosidades_topo fonte">
+                        <!-- TITULO -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Título:</p>  </div>
-                            <input value="<?=@$titulo?>" name="txttitulo" placeholder="Digite o titulo da curiosidade" class="fonte card_curiosidades_input" type="text" maxlength="150" required size="45">
-                        </div>
-                            <!-- TEXTO -->
-                        <div class="card_curiosidades_big">
-                            <div class="card_curiosidades_name"> <p>Texto:</p>  </div>
-                            <textarea class="card_curiosidades_input fonte" maxlength="4000" name="txttexto" required ><?=@$texto?></textarea>
+                            <input value="<?=@$titulo?>" name="txttitulo" placeholder="Digite o titulo que aparecerá no topo da página" class="fonte card_curiosidades_input_topo" type="text" maxlength="150" required size="45">
                         </div>
                         <!-- CORES  -->
                         <div class="card_curiosidades_big">
@@ -148,45 +99,19 @@
                             <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
                             <input class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
                         </div>
-                        <div class="card_curiosidades">
-                            <div class="card_curiosidades_name"> <p>Separador de Sessões:</p>  </div>
-                            <select name="slcseparasessao" class="fonte card_curiosidades_input">
-                                    <?php 
-                                        if(isset($_GET['modo'])){
-                                            if($_GET['modo'] == 'editar'){
-                                    ?>
-                                            <option value="<?=$codeimg?>"> <?=$nomeImg?></option> 
-                                    <?php 
-                                            }
-                                        }
-                                    ?>
-                                    <?php 
-                                        $sql = "select * from tblseparasessao where codigo <>".$codeimg;
-
-                                        $select = mysqli_query($conexao, $sql);
-
-                                        while($rsSepara = mysqli_fetch_array($select)){
-                                    ?>
-                                            <option value="<?=$rsSepara['codigo']?>"> <?=$rsSepara['nome']?></option>
-                                    <?php }?>
-                            </select>
-                        </div>
                         <!-- BOTÃO -->
                         <div class="card_curiosidades">
                             <input style="margin-top: 15px" class="botao back_green_cms color_white fonte btn_curiosidades center" type="submit" value="<?=$botao?>" name="btncuriosidades">
                         </div>
-                    </div>    
+                    </div>
                 </form>
 
                 <!-- EXIBIR DADOS -->
                 <table id="ver" class="center fonte txt_center exibir_table">
                     <tr class="exibir_linha">
-                        <td colspan="5"><h1> Sessões Existentes: </h1></td>
+                        <td colspan="5"><h1> Modifique: </h1></td>
                     </tr>
                     <tr class="exibir_linha back_pink_cms color_white">
-                        <td>
-                            <p> Faixa: </p>
-                        </td>
                         <td>
                             <p> Foto: </p>
                         </td>
@@ -202,28 +127,23 @@
                     </tr>
                     <?php 
                         //SCRIPT P/ MANDAR P/ O BANCO
-                        $sql = "select tblcuriosidades.*, tblcolors.classe_css from tblcuriosidades inner join tblcolors on tblcolors.codigo = tblcuriosidades.codecor";
+                        $sql = "select tbltopocuriosidades.*, tblcolors.classe_css from tbltopocuriosidades inner join tblcolors on tblcolors.codigo = tbltopocuriosidades.codecor";
                     
                         //EXECUTA O SCRIPT NO BANCO
                         $select = mysqli_query($conexao, $sql);
 
-                        $faixa = 1;
-                    
                         //LAÇO P/ EXIBIR ENQUANTO HAVER CONTEÚDO
                         while($rsCuriosidades = mysqli_fetch_array($select)){
                     ?>
                     <tr class="exibir_linha back_green_cms color_white">
                         <td>
-                            <p> <?=$faixa?> </p>
-                        </td>
-                        <td>
-                        <img src="../../imgs/<?=$rsCuriosidades['foto']?>" alt="imagem" class="img_cadastro">
+                             <img src="../../imgs/<?=$rsCuriosidades['foto']?>" alt="imagem" class="img_cadastro_topo">
                         </td>
                         <td colspan="2">
                             <p> <?=$rsCuriosidades['titulo']?></p>
                         </td>
                         <td>
-                            <div class="color <?=$rsCuriosidades['classe_css']?> center"></div>
+                            <div class="color <?=$rsCuriosidades['classe_css']?>" ></div>
                         </td>
                         <td>
                             <!-- ICONE LAPIS -->
@@ -251,10 +171,9 @@
                         </td>
                     </tr>
                     <?php
-                        $faixa = $faixa +1;
+                        
                          } ?>
                 </table>
-
             </section>
         </div>
 

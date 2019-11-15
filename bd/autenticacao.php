@@ -18,8 +18,8 @@
         
         //RESGATE DOS DADOS E CRIPTOGRAFIA
         $usuario = $_POST['txt_user'];
-        $senha = $_POST['txt_password'];
-        $senha_cripty = md5($senha);
+        $senhaLogin = $_POST['txt_password'];
+        $senha_criptyLogin = md5($senhaLogin);
         
         //SCRIPT P/ O BD 
        // $sql = "select * from tblusuarios where tblusuarios.login ='".$usuario."' and tblusuarios.senha ='".$senha_cripty."'";
@@ -36,7 +36,7 @@
             if($rsLogin <> '')
             {
                 //VERIFICA SE A SENHA ESTÁ CORRETA
-                if($rsLogin['senha'] == $senha_cripty)
+                if($rsLogin['senha'] == $senha_criptyLogin)
                 {
                     //SCRIPT P/ RESGATAR O STATUS DO NÍVEL
                     $sql = "select tblniveis.status where tblniveis.codigo =".$rsLogin['codenivel'];
@@ -45,7 +45,7 @@
                     if($rsLogin['status'] <> 0)
                     {
                         //RESGATE DE DADOS NECESSÁRIOS/ VARIAVEIS DE SESSÃO
-                        $_SESSION['nomeUsuario'] = $rsLogin['nome'];
+                        $_SESSION['nomeUsuarioLogin'] = $rsLogin['nome'];
                         $_SESSION['codenivel'] = $rsLogin['codenivel'];
                                 
                         //REDIRECIONA P/ A PÁGINA DO CMS

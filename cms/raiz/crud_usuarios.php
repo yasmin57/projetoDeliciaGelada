@@ -17,6 +17,8 @@
     $checked3 = "";
     $botaoUsuario = "CRIAR";
     $codeNivel = 0;
+    $usuario = "";
+    $senha = "";
 
 //****************** PARA EDITAR USUÁRIOS ******************/
     //valida se existe a variável modo
@@ -292,7 +294,7 @@
                             <!-- ICONE EXCLUIR -->
                             <a class="contatos_icon float botao"
                                 <?php
-                                    if($rsUsuarios['nome'] == $_SESSION['nomeUsuario'])
+                                    if($rsUsuarios['nome'] == $_SESSION['nomeUsuarioLogin'])
                                     {
                                 ?>
                                     onclick = "return alert('Você não pode excluir seu próprio usuário')"
@@ -310,7 +312,7 @@
                             <!-- ICONE ATIVO/DESATIVO -->
                             <a class="contatos_icon float botao" 
                                 <?php
-                                    if($rsUsuarios['nome'] == $_SESSION['nomeUsuario'])
+                                    if($rsUsuarios['nome'] == $_SESSION['nomeUsuarioLogin'])
                                     {
                                 ?>
                                     onclick = "return alert('Você não pode desativar seu próprio usuário')"
