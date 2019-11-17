@@ -56,6 +56,12 @@
         <title>CMS | Delicia Gelada</title>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
         <link type="text/css" href="../css/conteudo.css" rel="stylesheet">
+        <?php 
+                if (isset($_SESSION['erroUpload'])){
+                     echo($_SESSION['erroUpload']);
+                     unset($_SESSION['erroUpload']);
+                }
+        ?>
     </head>
     <body>
         <!-- CABEÇALHO E MENU-->
@@ -85,7 +91,7 @@
                         <!-- TITULO -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Título:</p>  </div>
-                            <input value="<?=@$titulo?>" name="txttitulo" placeholder="Digite o titulo que aparecerá no topo da página" class="fonte card_curiosidades_input_topo" type="text" maxlength="150" required size="45">
+                            <input value="<?=@$titulo?>" name="txttitulo" placeholder="Digite o titulo que aparecerá no topo da página" class="fonte card_curiosidades_input_topo" type="text" maxlength="100" required size="45">
                         </div>
                         <!-- CORES  -->
                         <div class="card_curiosidades_big">
@@ -103,7 +109,7 @@
                                 ?>
                                             <div class="color_container">
                                                 <div class="color <?=$rsColors['classe_css']?>">
-                                                    <input checked name="rdocolor" value="<?=$rsColors['codigo']?>" type="radio" class="radio">
+                                                    <input required checked name="rdocolor" value="<?=$rsColors['codigo']?>" type="radio" class="radio">
                                                 </div>
                                                 <div class="title_color"> <p> <?=$rsColors['nome']?> </p></div>
                                             </div>  
@@ -123,7 +129,7 @@
                                 ?>
                                         <div class="color_container">
                                             <div class="color <?=$rsColors['classe_css']?>">
-                                                <input name="rdocolor" value="<?=$rsColors['codigo']?>" type="radio" class="radio">
+                                                <input name="rdocolor" required value="<?=$rsColors['codigo']?>" type="radio" class="radio">
                                             </div>
                                             <div class="title_color"> <p> <?=$rsColors['nome']?> </p></div>
                                         </div>
@@ -135,7 +141,7 @@
                         <!-- FOTO -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                            <input class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                            <input required class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
                         </div>
                         <!-- BOTÃO -->
                         <div class="card_curiosidades">

@@ -12,6 +12,8 @@
         if(!isset($_SESSION)){
             session_start();
         }
+
+        $_SESSION['erroUpload'] = "";
             
         //RESGATA DADOS ENVIADOS PELO FORMULÁRIO
         $titulo = $_POST['txttitulo'];
@@ -88,27 +90,39 @@
                             header('location:../raiz/adm_topoCuriosidades.php');
                         }
                         else{
-                            echo($sql);
-                        }
+                            $_SESSION['erroUpload'] = "Erro ao executar o script: ".$sql;
+                            header('location:../raiz/adm_topoCuriosidades.php');
+                        }  
+                    } 
+                    else{
+                        $_SESSION['erroUpload'] = "<script> 
+                            alert('Não foi possível enviar o arquivo para o servidor');
+                            </script>";
+                        header('location:../raiz/adm_topoCuriosidades.php');
                     }
                 }
-                else{
-                    echo("<script> 
-                    alert('tamanho de arquivo não pode ser maior do que 2Mb');
-                    </script>");
+                else
+                {
+                    $_SESSION['erroUpload'] = "<script> 
+                            alert('tamanho de arquivo não pode ser maior do que 2Mb');
+                            </script>";
+                    header('location:../raiz/adm_topoCuriosidades.php');
                 }
             }
-            else{
-                echo("<script> 
+            else
+            {
+                $_SESSION['erroUpload'] = "<script> 
                         alert('tipo de arquivo não pode ser upado p/ o servidor (arquivos permitidos: jpeg, jpg, png)');
-                        </script>");
+                        </script>";
+                header('location:../raiz/adm_topoCuriosidades.php');
             }
-            
         }
-        else{
-            echo("<script> 
-                        alert('Arquivo não seleciopnado conforme o tamanho ou o tipo');
-                    </script>"); 
+        else
+        {
+            $_SESSION['erroUpload'] = "<script> 
+                        alert('Arquivo não selecionado!');
+                        </script>";
+            header('location:../raiz/adm_topoCuriosidades.php');
         }
 
     }

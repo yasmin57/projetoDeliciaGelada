@@ -12,17 +12,18 @@
     $codecor = 0;
     $codeimg = 0;
 
+    //ATIVA O RECURSO DE VARIAVEL DE SESSÃO
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
 
     //VERIFICA SE EXISTE A VARIAVEL MODO NA URL
     if(isset($_GET['modo'])){
         //VERIFICA SE A VAR MODO TEM A FUNÇÃO DE EDITAR
         if($_GET['modo'] == 'editar')
         {
-            //ATIVA O RECURSO DE VARIAVEL DE SESSÃO
-            if(!isset($_SESSION)){
-                session_start();
-            }
-
+        
             $codigo = $_GET['codigo'];
 
             //VARIAVEL DE SESSÃO COM O CODIGO
@@ -61,6 +62,12 @@
         <title>CMS | Delicia Gelada</title>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
         <link type="text/css" href="../css/conteudo.css" rel="stylesheet">
+
+        <?php if (isset($_SESSION['erroUpload'])){
+                     echo($_SESSION['erroUpload']);
+                     unset($_SESSION['erroUpload']);
+                }
+        ?>
     </head>
     <body>
         <!-- CABEÇALHO E MENU-->
@@ -98,7 +105,7 @@
                             <!-- TEXTO -->
                         <div class="card_curiosidades_big">
                             <div class="card_curiosidades_name"> <p>Texto:</p>  </div>
-                            <textarea class="card_curiosidades_input fonte" maxlength="4000" name="txttexto" required ><?=@$texto?></textarea>
+                            <textarea class="card_curiosidades_input fonte" maxlength="3000" name="txttexto" required ><?=@$texto?></textarea>
                         </div>
                         <!-- CORES  -->
                         <div class="card_curiosidades_big">
@@ -116,7 +123,7 @@
                                 ?>
                                             <div class="color_container">
                                                 <div class="color <?=$rsColors['classe_css']?>">
-                                                    <input checked name="rdocolor" value="<?=$rsColors['codigo']?>" type="radio" class="radio">
+                                                    <input required checked name="rdocolor" value="<?=$rsColors['codigo']?>" type="radio" class="radio">
                                                 </div>
                                                 <div class="title_color"> <p> <?=$rsColors['nome']?> </p></div>
                                             </div>  
@@ -136,7 +143,7 @@
                                 ?>
                                         <div class="color_container">
                                             <div class="color <?=$rsColors['classe_css']?>">
-                                                <input name="rdocolor" value="<?=$rsColors['codigo']?>" type="radio" class="radio">
+                                                <input required name="rdocolor" value="<?=$rsColors['codigo']?>" type="radio" class="radio">
                                             </div>
                                             <div class="title_color"> <p> <?=$rsColors['nome']?> </p></div>
                                         </div>
@@ -148,7 +155,7 @@
                         <!-- FOTO -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                            <input class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                            <input required class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
                         </div>
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Separador de Sessões:</p>  </div>

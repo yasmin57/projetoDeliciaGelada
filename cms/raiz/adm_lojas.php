@@ -59,8 +59,12 @@
         <script src="../js/jquery.js"></script>
         <script src="../../js/modulos.js"></script>
 
+        <?php if (isset($_SESSION['erroUpload'])){
+                     echo($_SESSION['erroUpload']);
+                     unset($_SESSION['erroUpload']);
+                }
+        ?>
         <!-- SCRIPT P/ ABRIR A MODAL -->
-        <!-- CODE JS - MODAL -->
         <script>
             $(document).ready(function(){
                 //abre a modal
@@ -138,44 +142,44 @@
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p> Local:</p>  </div>
                             <input name="txtlocal" placeholder="Ex: Shopping XXX" value="<?=@$local?>" 
-                            class="fonte card_curiosidades_input" type="text" maxlength="100" required size="45">
+                            class="fonte card_curiosidades_input" type="text" maxlength="150" required size="45">
                         </div>
                         <!-- Endereço -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p> Endereço:</p>  </div>
                             <input name="txtendereco" placeholder="Ex: Rua Alameda XXX" value="<?=@$endereco?>"
-                            class="fonte card_curiosidades_input" type="text" maxlength="100" required size="45">
+                            class="fonte card_curiosidades_input" type="text" maxlength="3000" required size="45">
                         </div>
                         <!-- Número -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p> Número:</p>  </div>
                             <input name="txtnumero" placeholder="Ex: 000"  value="<?=@$numero?>"
-                            class="fonte card_curiosidades_input" type="text" maxlength="100" required size="45">
+                            class="fonte card_curiosidades_input" type="text" maxlength="5" required size="45">
                         </div>
                         <!-- Telefone -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p> Telefone:</p>  </div>
                             <input name="txttelefone" placeholder="Ex: (000) 1111-2222" value="<?=@$telefone?>" 
-                             class="fonte card_curiosidades_input" type="text" maxlength="100" required size="45"
+                             class="fonte card_curiosidades_input" type="text" maxlength="15" required size="45"
                              id="tel" onkeypress="return  mascaraFone(this, event);">
                         </div>
                         <!-- Celular -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p> Celular:</p>  </div>
                             <input name="txtcelular" placeholder="Ex: (000) 1111-2222"  value="<?=@$celular?>"
-                             class="fonte card_curiosidades_input" type="text" maxlength="100" required size="45"
+                             class="fonte card_curiosidades_input" type="text" maxlength="15" required size="45"
                              id="cel" onkeypress="return  mascaraFone(this, event);">
                         </div>
                          <!-- Horário de funcionamento -->
                          <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p> Horário:</p>  </div>
                             <input name="txthorario" placeholder="Ex: Segunda à Sábado das 10h às 22h." value="<?=@$horario?>"
-                            class="fonte card_curiosidades_input" type="text" maxlength="100" required size="45">
+                            class="fonte card_curiosidades_input" type="text" maxlength="3000" required size="45">
                         </div>
                         <!-- Foto -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                            <input class="card_curiosidades_file fonte" type="file" name="flefoto" 
+                            <input required class="card_curiosidades_file fonte" type="file" name="flefoto" 
                             accept="image/jpeg, image/png, image/jpg">
                         </div>
                         <!-- Botão -->
