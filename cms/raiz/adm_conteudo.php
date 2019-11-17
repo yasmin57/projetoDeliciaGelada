@@ -19,8 +19,8 @@
                     <div class="conteudo_name_page float fonte botao"> <a href="adm_curiosidades.php"> Curiosidades </a></div>
                 </div>
                 <div class="conteudo_opcoes">
-                    <img src="../imgs/icon_option.png" title="sobre" alt="imagem" class="conteudo_img_page float botao">
-                    <div class="conteudo_name_page float fonte botao"> <a> Sobre </a></div>
+                    <a href="adm_sobre.php"><img src="../imgs/icon_option.png" title="sobre" alt="imagem" class="conteudo_img_page float botao"></a>
+                    <div class="conteudo_name_page float fonte botao"> <a href="adm_sobre.php"> Sobre </a></div>
                 </div>
                 <div class="conteudo_opcoes">
                     <a href="adm_lojas.php"> <img src="../imgs/icon_option.png" title="lojas" alt="imagem" class="conteudo_img_page float botao"> </a>

@@ -58,6 +58,16 @@ INSERT INTO `tbllojas` VALUES (1,'Bauru - SP','Shopping Bauru','RUA HENRIQUE SAV
 UNLOCK TABLES;
 
 --
+-- Dumping data for table `tblmodo`
+--
+
+LOCK TABLES `tblmodo` WRITE;
+/*!40000 ALTER TABLE `tblmodo` DISABLE KEYS */;
+INSERT INTO `tblmodo` VALUES (1,'Modo 1: Foto a esquerda e texto a direita'),(2,'Modo 2: Foto em cima e texto em baixo');
+/*!40000 ALTER TABLE `tblmodo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping data for table `tblniveis`
 --
 
@@ -78,6 +88,26 @@ INSERT INTO `tblseparasessao` VALUES (1,'7a1cdb5c10c1c4895dc5117fe6a01348.png','
 UNLOCK TABLES;
 
 --
+-- Dumping data for table `tblsobre`
+--
+
+LOCK TABLES `tblsobre` WRITE;
+/*!40000 ALTER TABLE `tblsobre` DISABLE KEYS */;
+INSERT INTO `tblsobre` VALUES (1,'O QUE FAZEMOS?','Acreditamos que saudável também deve ser sinônimo de gostoso. E vamos combinar: com tanto carinho, frutas gostosas, paixão e vegetais selecionados não tem como dar errado, não é mesmo?\r\n</p>\r\n<p>\r\nAs bebidas da nossa família são a união da energia e dos benefícios das frutas e vegetais da natureza com o trabalho de especialistas, pesquisadores e detalhistas. Cuidamos de cada etapa com muito carinho e dedicação, investimos na produção própria e na transparência dos processos para buscar a sua plena satisfação.','c4364672618756dccc7848b35bc60703.png',1,1),(2,'COMO FAZEMOS?','Assim como todas as frutas, as nossas também vêm das fazendas. A diferença é que nossas fazendas são selecionadas. Todas seguem padrões internacionais de qualidade extremamente rigorosos. Assim, garantimos que as frutas e os vegetais que saem dos pomares e das hortas de todo o Brasil sejam preservados ao máximo até chegar à sua casa com tudo o que eles têm de melhor.','daf3c133777ce51a39f5e2f801435c2b.png',2,1);
+/*!40000 ALTER TABLE `tblsobre` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `tblsobredestaque`
+--
+
+LOCK TABLES `tblsobredestaque` WRITE;
+/*!40000 ALTER TABLE `tblsobredestaque` DISABLE KEYS */;
+INSERT INTO `tblsobredestaque` VALUES (1,'A Delícia Gelada é brasileira e nasceu da vontade de oferecer um produto diferente de tudo o que você já experimentou.\r\n</p>\r\n<p>\r\nForam anos trabalhando com parceiros de tecnologia da Alemanha, EUA, França, Holanda, Japão e Suécia para fazer um suco de verdade, 100% natural e que preserva ao máximo o sabor de cada ingrediente, porque é produzido a partir de frutas e vegetais frescos.\r\n</p>\r\n<p>\r\nHoje, brasileiros e pessoas do mundo todo já aproveitam os benefícios do suco da tampinha verde que você toma aí na sua casa.\r\n</p>\r\n<p>\r\nQueremos estar presentes no seu dia, na sua casa e na sua vida de um jeito natural, assim como tudo o que fazemos.',1);
+/*!40000 ALTER TABLE `tblsobredestaque` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping data for table `tbltopocuriosidades`
 --
 
@@ -93,7 +123,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `tbltopolojas` WRITE;
 /*!40000 ALTER TABLE `tbltopolojas` DISABLE KEYS */;
-INSERT INTO `tbltopolojas` VALUES (1,'822082fd15afc0010bda4cdbcf033ea3.png',1),(3,'9a0c9e0324f1d9f67e27671e1f90aa6b.png',0);
+INSERT INTO `tbltopolojas` VALUES (1,'822082fd15afc0010bda4cdbcf033ea3.png',1);
 /*!40000 ALTER TABLE `tbltopolojas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,4 +154,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-17 10:17:17
+-- Dump completed on 2019-11-17 19:37:19

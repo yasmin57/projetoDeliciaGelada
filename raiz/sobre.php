@@ -1,3 +1,8 @@
+<?php
+    require_once("../bd/conexao.php");
+    $conexao = conexaoMysql();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -23,32 +28,13 @@
                                 Sobre - nós
                             </td>
                             <td class="fonte textos">
-                                <p>
-                                    A Delícia Gelada é brasileira e nasceu
-                                    da vontade de oferecer um produto
-                                    diferente de tudo o que você já experimentou.
-                                </p>
-                                <p>
-                                    Foram anos trabalhando com parceiros
-                                    de tecnologia da Alemanha, EUA, França,
-                                    Holanda, Japão e Suécia para fazer
-                                    um suco de verdade, 100% natural
-                                    e que preserva ao máximo o sabor
-                                    de cada ingrediente, porque é produzido
-                                    a partir de frutas e vegetais frescos.
-                                </p>
-                                <p>
-                                    Hoje, brasileiros e pessoas do mundo todo
-                                    já aproveitam os benefícios do suco
-                                    da tampinha verde que você toma
-                                    aí na sua casa.
-                                </p>
-                                <p>
-                                    Queremos estar presentes no seu dia,
-                                    na sua casa e na sua vida
-                                    de um jeito natural,
-                                    assim como tudo o que fazemos.
-                                </p>
+                                <?php 
+                                    $sql = "select * from tblsobredestaque where status = 1";
+                                    $select = mysqli_query($conexao, $sql);
+                                    $rsSobre = mysqli_fetch_array($select);
+                                    $texto = $rsSobre['texto'];
+                                ?>
+                                <p><?=$texto?></p>
                             </td>
                         </tr>
                     </table>
@@ -62,41 +48,59 @@
                      </section>
                  </div>
             </div>
+            <?php
+                $sql = "select * from tblsobre where status = 1";
+
+                $select = mysqli_query($conexao, $sql);
+
+                while($rsSobre = mysqli_fetch_array($select)){
+                    
+                    if($rsSobre['modo'] == 1){
+            ?>
+                    <div id="oque_fazemos" class="back_goiaba">
+                        <div class="conteudo center back_goiaba">
+                            <table id="table_oque_fazemos" class="center">
+                                <tr>
+                                    <td id="img_oque_fazemos" style="background-image: url('../imgs/<?=$rsSobre['foto']?>')" class="back">
+                                    </td>
+                                    <td class="fonte textos">
+                                        <h2> <?=$rsSobre['titulo']?></h2>
+                                        <p>
+                                            <?=$rsSobre['texto']?>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+            <?php   } 
+                    else 
+                    { 
+            ?>
+                        <div id="como_fazemos" class="back_green">
+                            <div class="conteudo center back_green">
+                                <table id="table_como_fazemos" class="center">
+                                    <tr id="linha_img_como_fazemos">
+                                        <td id="img_como_fazemos" style="background-image: url('../imgs/<?=$rsSobre['foto']?>')"  class="back">
+                                        </td>
+                                    </tr>
+                                    <tr id="linha_txt_como_fazemos">
+                                        <td class="textos fonte center">
+                                            <h2><?=$rsSobre['titulo']?></h2>
+                                            <p> <?=$rsSobre['texto']?></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+            <?php   } ?>
+            <?php
+                }
+            ?>
             <!-- O que fazemos? -->
-            <div id="oque_fazemos" class="back_goiaba">
-                 <div class="conteudo center back_goiaba">
-                     <table id="table_oque_fazemos" class="center">
-                        <tr>
-                            <td id="img_oque_fazemos" class="back">
-                            </td>
-                            <td class="fonte textos">
-                                <h2> O que fazemos?</h2>
-                                 <p>Acreditamos que saudável também deve ser sinônimo de gostoso. E vamos combinar: com tanto carinho, frutas gostosas, paixão e vegetais selecionados não tem como dar errado, não é mesmo?</p>
-                                <p>
-                                As bebidas da nossa família são a união da energia e dos benefícios das frutas e vegetais da natureza com o trabalho de especialistas, pesquisadores e detalhistas. Cuidamos de cada etapa com muito carinho e dedicação, investimos na produção própria e na transparência dos processos para buscar a sua plena satisfação.
-                                </p>
-                            </td>
-                        </tr>
-                     </table>
-                 </div>
-            </div>
+            
             <!-- Como fazemos? -->
-            <div id="como_fazemos" class="back_green">
-                 <div class="conteudo center back_green">
-                     <table id="table_como_fazemos" class="center">
-                         <tr id="linha_img_como_fazemos">
-                            <td id="img_como_fazemos"  class="back">
-                            </td>
-                        </tr>
-                        <tr id="linha_txt_como_fazemos">
-                            <td class="textos fonte center">
-                                <h2>Como Fazemos?</h2>
-                                 <p>Assim como todas as frutas, as nossas também vêm das fazendas. A diferença é que nossas fazendas são selecionadas. Todas seguem padrões internacionais de qualidade extremamente rigorosos. Assim, garantimos que as frutas e os vegetais que saem dos pomares e das hortas de todo o Brasil sejam preservados ao máximo até chegar à sua casa com tudo o que eles têm de melhor.</p>
-                            </td>
-                        </tr>
-                     </table>
-                 </div>
-            </div>
+            
             <!-- missão, visão e valores-->
             <div id="valores" class="back_orange">
                 

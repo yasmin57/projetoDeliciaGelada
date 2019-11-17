@@ -62,14 +62,48 @@
         <title>CMS | Delicia Gelada</title>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
         <link type="text/css" href="../css/conteudo.css" rel="stylesheet">
+        <script src="../js/jquery.js"></script>
 
         <?php if (isset($_SESSION['erroUpload'])){
                      echo($_SESSION['erroUpload']);
                      unset($_SESSION['erroUpload']);
                 }
         ?>
+        <!-- SCRIPT P/ ABRIR A MODAL -->
+        <script>
+            $(document).ready(function(){
+                //abre a modal
+                $('.visualizar').click(function(){
+                    $('#container').fadeIn(1000);
+                });
+                
+                $('#fechar_modal').click(function(){
+                    $('#container').fadeOut(1000);
+                })
+            });
+            
+            function verDados(idItem)
+            {
+                $.ajax({
+                    type:"POST",
+                    url:"modalCuriosidades.php",
+                    data: {modo:'visualizar', codigo:idItem}, 
+                    success: function(dados){
+                        $('#modalDados').html(dados);
+                    }
+                })
+            }
+        </script>
     </head>
     <body>
+        <!-- MODAL -->
+        <div id="container">
+            <div id="modal">
+                <div id="modalDados"></div>
+                <div id="fechar_modal" class="botao back_pink_light_cms color_white fonte">Fechar</div>
+            </div>
+        </div>
+
         <!-- CABEÇALHO E MENU-->
         <?php require_once("header.php"); ?>
                 
@@ -245,6 +279,11 @@
                                 onclick="return confirm('Deseja excluir esse usuário?');" href="../bd/deletarCuriosidade.php?modo=excluir&codigo=<?=$rsCuriosidades['codigo']?>&nomeFoto=<?=$rsCuriosidades['foto']?>"
                              >
                                 <img src="../imgs/icon_excluir.png" alt="imagem">
+                            </a>
+
+                            <!-- ICONE LUPA -->
+                            <a href="#" class="exibir_icon float botao visualizar" onclick="verDados(<?=$rsCuriosidades['codigo']?>);" >
+                                <img src="../imgs/icon_ver.png" alt="imagem">
                             </a>
                             
                             <!-- ICONE ATIVO/DESATIVO -->
