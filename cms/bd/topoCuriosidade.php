@@ -25,7 +25,7 @@
             //VERIFICA SE A CONEXÃO FOI BEM SUCEDIDA 
             if(mysqli_query($conexao, $sql)){  
                 //RETORNA P/ A PAG DO FORMULÁRIO
-                header('location:../raiz/adm_curiosidades.php');
+                header('location:../raiz/adm_topoCuriosidades.php');
             }
             else{
                 echo($sql);

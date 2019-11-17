@@ -72,7 +72,9 @@
                 <h1 class="txt_center">Administração das Curiosidades </h1>
 
                 <!-- Botao p/ gerenciar o topo da página -->
-                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green_cms txt_center"><a class="color_white" href="adm_topoCuriosidades.php"> Gerencie o Topo da Página </a></div>
+                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green_cms txt_center">
+                    <a class="color_white" href="adm_topoCuriosidades.php"> Gerencie o Topo da Página </a>
+                </div>
 
                 <h1 class="txt_center"> Crie Sessões</h1>
                 <!-- Formulário Para Criar Páginas -->
@@ -82,13 +84,13 @@
                         <?php if(isset($_GET['modo'])) {?>
                             <img src="../../imgs/<?=$foto?>" alt="imagem"/>
                         <?php } else{?>
-                            <img src="../imgs/icon_image.png" alt="imagem" title="ver usuários">
+                            <img src="../imgs/icon_image.png" alt="imagem">
                         <?php }?>
                     </div>
 
                     <!-- Restante do formulário -->
                     <div id="card_curiosidades">
-                            <!-- TITULO -->
+                        <!-- TITULO -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Título:</p>  </div>
                             <input value="<?=@$titulo?>" name="txttitulo" placeholder="Digite o titulo da curiosidade" class="fonte card_curiosidades_input" type="text" maxlength="150" required size="45">

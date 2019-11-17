@@ -10,6 +10,44 @@
 
     //VARIAVEL P/ O SELECT DAS CORES e SEPARADOR DE SESSÃO
     $codecor = 0;
+
+    //INICIA O RECURSO DA VARIAVEL DE SESSÃO
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+    //VERIFICA SE A VARIVEL MODO EXISTE
+    if(isset($_GET['modo'])){
+         //VERIFICA SE A VAR MODO TEM A FUNÇÃO DE EDITAR
+        if($_GET['modo'] == 'editar')
+        {
+            //RESGATA O CÓDIGO
+            $codigo = $_GET['codigo'];
+
+            //SCRIPT P/ O SELECT
+            $sql = "select * from tbltopocuriosidades where codigo=".$codigo;
+
+            //MANDA P/ O BD
+            $select = mysqli_query($conexao, $sql);
+
+            //TRANSFORMA EM ARRAY
+            $rsCuriosidades = mysqli_fetch_array($select);
+
+            //RESGATA OS DADOS E GUARDA EM VARIAVEIS
+            $titulo = $rsCuriosidades['titulo'];
+            $foto = $rsCuriosidades['foto'];
+            $codecor = $rsCuriosidades['codecor'];
+
+            //MODIFICA O VALUE DO BOTÃO
+            $botao = "EDITAR";
+
+            //CRIA AS VARIÁVEIS DE SESSÃO DO CÓDIGO E DO NOME DA FOTO
+            $_SESSION['codigoTopo'] = $codigo;
+            $_SESSION['nomeImg'] = $foto;
+
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -39,7 +77,7 @@
                         <?php if(isset($_GET['modo'])) {?>
                             <img src="../../imgs/<?=$foto?>" alt="imagem"/>
                         <?php } else{?>
-                            <img src="../imgs/icon_image.png" alt="imagem" title="ver usuários">
+                            <img src="../imgs/icon_image.png" alt="imagem">
                         <?php }?>
                     </div>
 
@@ -109,10 +147,10 @@
                 <!-- EXIBIR DADOS -->
                 <table id="ver" class="center fonte txt_center exibir_table">
                     <tr class="exibir_linha">
-                        <td colspan="5"><h1> Modifique: </h1></td>
+                        <td colspan="5"><h1> Modifique:</h1></td>
                     </tr>
                     <tr class="exibir_linha back_pink_cms color_white">
-                        <td>
+                        <td colspan="2">
                             <p> Foto: </p>
                         </td>
                         <td colspan="2">
@@ -136,7 +174,7 @@
                         while($rsCuriosidades = mysqli_fetch_array($select)){
                     ?>
                     <tr class="exibir_linha back_green_cms color_white">
-                        <td>
+                        <td colspan="2">
                              <img src="../../imgs/<?=$rsCuriosidades['foto']?>" alt="imagem" class="img_cadastro_topo">
                         </td>
                         <td colspan="2">
@@ -147,20 +185,40 @@
                         </td>
                         <td>
                             <!-- ICONE LAPIS -->
-                            <a href="adm_curiosidades.php?modo=editar&codigo=<?=$rsCuriosidades['codigo']?>" class="exibir_icon float botao visualizar">
+                            <a href="adm_topoCuriosidades.php?modo=editar&codigo=<?=$rsCuriosidades['codigo']?>" class="exibir_icon float botao visualizar">
                                 <img src="../imgs/icon_edit.png" alt="imagem">
                             </a>
 
                             <!-- ICONE EXCLUIR -->
                             <a class="exibir_icon float botao"
-                                onclick="return confirm('Deseja excluir esse usuário?');" href="../bd/deletarCuriosidade.php?modo=excluir&codigo=<?=$rsCuriosidades['codigo']?>&nomeFoto=<?=$rsCuriosidades['foto']?>"
+                                <?php
+                                    if($rsCuriosidades['status'] == 1){
+                                ?>
+                                    onclick = "alert('Você não pode excluir essa sessão enquanto ela estiver ativada!');"
+                                <?php
+                                    } else {
+                                ?>
+                                    onclick="return confirm('Deseja excluir essa sessão?');" href="../bd/deletarTopoCuriosidade.php?modo=excluir&codigo=<?=$rsCuriosidades['codigo']?>&nomeFoto=<?=$rsCuriosidades['foto']?>"
+                                <?php
+                                    }
+                                ?>
                              >
                                 <img src="../imgs/icon_excluir.png" alt="imagem">
                             </a>
                             
                             <!-- ICONE ATIVO/DESATIVO -->
                             <a class="exibir_icon float botao" 
-                                href="../bd/on_offCuriosidades.php?status=<?=$rsCuriosidades['status']?>&codigo=<?=$rsCuriosidades['codigo']?>"  
+                                <?php
+                                    if($rsCuriosidades['status'] == 1){
+                                ?>
+                                    onclick = "alert('Você não pode manter desativada essa sessão! Clique na sessão que deseja ativar');"
+                                <?php
+                                    } else {
+                                ?>
+                                    href="../bd/on_offTopoCuriosidades.php?status=<?=$rsCuriosidades['status']?>&codigo=<?=$rsCuriosidades['codigo']?>"  
+                                <?php
+                                    }
+                                ?>
                             >
                                 <?php if($rsCuriosidades['status'] == 1) { ?>
                                     <img src="../imgs/icon_on.png" alt="imagem"> 

@@ -20,16 +20,28 @@
         <!-- CONTEUDO -->
         <div id="curiosidades">
             <!-- topo da pag -->
-            <div id="curiosidades_img_top" class="back"></div>
+            <?php
+                //SCRIPT P/ FAZER O SELECT
+                $sql = "select tbltopocuriosidades.*, tblcolors.classe_css from tbltopocuriosidades
+                         inner join tblcolors on tblcolors.codigo = tbltopocuriosidades.codecor 
+                        where tbltopocuriosidades.status <> 0";
+
+                //MANDA O SCRIPT P/ O BD 
+                $select = mysqli_query($conexao, $sql);
+
+                //TRANSFORMA EM ARRAY
+                while($rsTopoCuriosidades = mysqli_fetch_array($select)){
+            ?>
+                 <div id="curiosidades_img_top" style="background-image: url(../imgs/<?=$rsTopoCuriosidades['foto']?>)" class="back"></div>
             
-            <div id="curiosidades_titulo_main" class="fonte back_goiaba"> Curiosidades </div>
+                <div id="curiosidades_titulo_main" class="fonte <?=$rsTopoCuriosidades['classe_css']?>"> <?=$rsTopoCuriosidades['titulo']?> </div>
             
             <?php
+                }
                 //SCRIPT P/ FAZER O SELECT
                 $sql="select tblcuriosidades.*, tblcolors.classe_css, tblseparasessao.background from tblcuriosidades inner join tblcolors on tblcolors.codigo = tblcuriosidades.codecor inner join tblseparasessao on tblseparasessao.codigo = tblcuriosidades.codeimg where tblcuriosidades.status <> 0";
 
                 //MANDA O SCRIPT P/ O BD 
-                //
                 $select = mysqli_query($conexao, $sql);
 
                 //ENQUANTO TIVER CONTEÚDO MOSTRA O CONTEÚDO

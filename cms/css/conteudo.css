@@ -25,6 +25,68 @@
     background-color: #ba6159;
 }
 
+/* Modal */
+#container{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 999;
+    display: none;
+}
+.lojas_coluna{
+    height: inherit;
+    text-align: center;
+}
+#modal{
+    width: 580px;
+    box-sizing: border-box;
+    padding: 15px;
+    height: 640px;
+    background-color: #fff;
+    margin-right: auto; 
+    margin-left: auto;
+    margin-top: 10vh;
+}
+#modalDados{
+    width: 550px;
+    height: 550px;
+    overflow: auto;
+}
+#table_modal{
+    width: inherit;
+    height: inherit;  
+    background: black;
+}
+#table_modal tr{
+    height: 50px;
+    width: inherit;
+}
+#table_modal .lojas_coluna p{
+    font-size: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+#table_modal .lojas_coluna{
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#fechar_modal{
+    width: 180px;
+    height: 50px;
+    margin-top: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding-top: 15px;
+    text-align: center;
+    border: solid 1px black;
+}
+#img_modal{
+    width: inherit;
+    height: 300px;
+}
+
 /* Radios das cores */
 .colors{
     width: 850px;
@@ -115,6 +177,13 @@
     min-height: 100px;
     flex-wrap: wrap;
     display: flex;
+}
+#card_lojas_topo{
+    width: 650px;
+    min-height: 100px;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 15px;
 }
 .card_curiosidades{
     width: inherit;

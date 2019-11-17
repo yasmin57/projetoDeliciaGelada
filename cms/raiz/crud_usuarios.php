@@ -105,7 +105,7 @@
                 $.ajax({
                     type:"POST",
                     url:"modalUsuarios.php",
-                    data: {modo:'visualizar', codigo:idItem},
+                    data: {modo:'visualizar', codigo:idItem}, 
                     success: function(dados){
                         $('#modalDados').html(dados);
                     }
