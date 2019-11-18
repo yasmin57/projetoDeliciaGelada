@@ -5,6 +5,10 @@
 
         $conexao = conexaoMysql();
 
+        if(!isset($_SESSION)){
+            session_start();
+        }
+
         $texto = $_POST['txttexto'];
 
         if($_POST['btnsobredestaque'] == "CRIAR"){

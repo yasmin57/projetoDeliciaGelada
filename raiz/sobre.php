@@ -97,29 +97,35 @@
             <?php
                 }
             ?>
-            <!-- O que fazemos? -->
-            
-            <!-- Como fazemos? -->
-            
             <!-- missão, visão e valores-->
             <div id="valores" class="back_orange">
                 
                 <div class="conteudo center back_orange">
                     <h2 class="fonte"> Quais são os nossos valores?</h2>
+
+                    <?php 
+                        $sql = "select * from tblvalores where status = 1 order by id";
+                        $select = mysqli_query($conexao, $sql);
+
+                        while($rsSobre = mysqli_fetch_array($select)){
+                    ?>
+                        <div class="sobre_valores float">
+                            <h1> <?=$rsSobre['titulo']?> </h1>
+                            <div class="icones_valores center">
+                                <img alt="imagem" src="../imgs/<?=$rsSobre['icone']?>">
+                            </div>
+                            <div class="fonte center textos_valores">
+                                <p>
+                                   <?=$rsSobre['texto']?>
+                                </p>
+                            </div>
+                        </div>
+                    <?php } ?>
+
                     <!-- missão -->
-                    <div class="sobre_valores float">
-                        <h1> Missão </h1>
-                        <div class="icones_valores center">
-                            <img alt="imagem" src="../imgs/icon_mission2.png">
-                        </div>
-                        <div class="fonte center textos_valores">
-                            <p>
-                                SER UMA EMPRESA DE EXCELÊNCIA NA PRODUÇÃO DE SUCOS E DERIVADOS, ATENDENDO TODOS OS PADRÕES DE QUALIDADE, COM CONSCIÊNCIA AMBIENTAL E RESPEITO À COMUNIDADE.
-                            </p>
-                        </div>
-                    </div>
+                    
                     <!-- visão -->
-                    <div class="sobre_valores float">
+                    <!-- <div class="sobre_valores float">
                         <h1> Visão </h1>
                         <div class="center icones_valores">
                             <img alt="imagem" src="../imgs/icon_vision.png">
@@ -129,9 +135,9 @@
                                 TORNAR-SE A MARCA DE SUCOS NATURAIS MAIS CONSUMIDA NO MERCADO NACIONAL, OFERECENDO PRODUTOS DE ALTA QUALIDADE E DE SABOR INCOMPARÁVEL.
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- valores -->
-                    <div class="sobre_valores float">
+                    <!-- <div class="sobre_valores float">
                         <h1> Valores </h1>
                         <div class="center icones_valores">
                             <img alt="imagem" src="../imgs/icon_value1.png">
@@ -141,7 +147,7 @@
                                 Proporcionar momentos alegres e saudáveis para todos com INTEGRIDADE, TRANSPARÊNCIA, COMPROMETIMENTO, INOVAÇÃO E QUALIDADE.
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 
             </div>

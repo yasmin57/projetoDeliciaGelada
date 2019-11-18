@@ -105,20 +105,39 @@
                             header("location:../raiz/adm_sobre.php");
                         }
                         else{
-                            echo($sql);
+                            $_SESSION['erroUpload'] = "Erro ao executar o script: ".$sql;
+                            header('location:../raiz/adm_curiosidades.php');
                         }
                     }
                     else{
-                        //erro ao mover
+                        $_SESSION['erroUpload'] = "<script> 
+                            alert('Não foi possível enviar o arquivo para o servidor');
+                            </script>";
+                        header('location:../raiz/adm_curiosidades.php');
                     }
                 }
-                else{
-                    //tamanho
+                else
+                {
+                    $_SESSION['erroUpload'] = "<script> 
+                            alert('tamanho de arquivo não pode ser maior do que 2Mb');
+                            </script>";
+                    header('location:../raiz/adm_curiosidades.php');
                 }
             }
-            else{
-                //extensão
+            else
+            {
+                $_SESSION['erroUpload'] = "<script> 
+                        alert('tipo de arquivo não pode ser upado p/ o servidor (arquivos permitidos: jpeg, jpg, png)');
+                        </script>";
+                header('location:../raiz/adm_curiosidades.php');
             }
+        }
+        else
+        {
+            $_SESSION['erroUpload'] = "<script> alert('Arquivo não seleciopnado conforme o 
+                                                         tamanho ou o tipo');
+                                        </script>"; 
+            header('location:../raiz/adm_curiosidades.php');
         }
 
     }

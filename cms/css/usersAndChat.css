@@ -1,15 +1,4 @@
 /* *********************** PAGINAS  *********************** */
-/*INDEX*/
-#bemvindo{
-    width: 100%;
-    height: 460px;
-    text-align: center;
-}
-#bemvindo .conteudo{
-    box-sizing: border-box;
-    padding-top: 200px;
-    font-size: 30px;
-}
 
 /* ADM FALE CONOSCO */
 #contatos{

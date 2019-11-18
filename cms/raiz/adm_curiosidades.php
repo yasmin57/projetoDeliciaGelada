@@ -224,7 +224,7 @@
                 <!-- EXIBIR DADOS -->
                 <table id="ver" class="center fonte txt_center exibir_table">
                     <tr class="exibir_linha">
-                        <td colspan="5"><h1> Sessões Existentes: </h1></td>
+                        <td colspan="6"><h1> Sessões Existentes: </h1></td>
                     </tr>
                     <tr class="exibir_linha back_pink_cms color_white">
                         <td>

@@ -57,8 +57,7 @@
                                 <div class="menu_option fonte botao"><a class="color_white" href="adm_usuarios.php">Adm. Usuários</a></div>
                             <?php } ?>
                         </td>
-                        <td class="menu_itens"></td>
-                        <td class="menu_itens" colspan="2">
+                        <td class="menu_itens_big">
                             <div class="menu_mensagem fonte color_white"><p> Bem Vindo, <?=$_SESSION['nomeUsuarioLogin']?></p></div>
                             <div class="menu_mensagem fonte botao logout back_green_cms"><a class="color_white" href="../../raiz/home.php">logout</a></div>
                         </td>

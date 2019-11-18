@@ -223,7 +223,7 @@
                                 <p> Senha: </p>
                             </td>
                             <td> 
-                                <input id="senha" name="txtsenha" placeholder="Digite seu senha" class="fonte float" type="password" maxlength="20" required size="33"> 
+                                <input id="senha" name="txtsenha" placeholder="Digite seu senha" class="fonte float" type="password" maxlength="13" required size="33"> 
                                 <a class="botao float" onclick="mostrarSenha()">
                                     <img id="icon_senha" alt="imagem" src="../imgs/icon_eye_off.png">
                                 </a>

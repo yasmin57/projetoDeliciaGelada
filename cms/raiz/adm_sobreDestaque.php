@@ -38,38 +38,6 @@
         <title>CMS | Delicia Gelada</title>
         <link type="text/css" href="../css/style.css" rel="stylesheet">
         <link type="text/css" href="../css/conteudo.css" rel="stylesheet">
-        <script src="../js/jquery.js"></script>
-
-        <?php if (isset($_SESSION['erroUpload'])){
-                     echo($_SESSION['erroUpload']);
-                     unset($_SESSION['erroUpload']);
-                }
-        ?>
-        <!-- SCRIPT P/ ABRIR A MODAL -->
-        <script>
-            $(document).ready(function(){
-                //abre a modal
-                $('.visualizar').click(function(){
-                    $('#container').fadeIn(1000);
-                });
-                
-                $('#fechar_modal').click(function(){
-                    $('#container').fadeOut(1000);
-                })
-            });
-            
-            function verDados(idItem)
-            {
-                $.ajax({
-                    type:"POST",
-                    url:"modalSobre.php",
-                    data: {modo:'visualizar', codigo:idItem}, 
-                    success: function(dados){
-                        $('#modalDados').html(dados);
-                    }
-                })
-            }
-        </script>
     </head>
     <body>
         <!-- MODAL -->
@@ -88,12 +56,16 @@
             <section class="conteudo center fonte">
                 <h1 class="txt_center">Administração Sobre a Empresa </h1>
 
-                <!-- Botao p/ gerenciar o topo da página -->
-                <div class="menu_mensagem fonte botao btn_adm_usuarios back_green_cms txt_center">
+                <!-- Botao p/ gerenciar as sessões -->
+                <div class="menu_mensagem fonte botao float btn_adm_usuarios back_green_cms txt_center">
                     <a class="color_white" href="adm_sobre.php"> Gerencie os outros textos </a>
                 </div>
+                <!-- Botao p/ gerenciar as sessões -->
+                <div class="menu_mensagem fonte botao float btn_adm_usuarios back_green_cms txt_center">
+                    <a class="color_white" href="adm_sobreValores.php"> Valores da Empresa </a>
+                </div>
 
-                <h1 class="txt_center"> Gerencie o Texto Destaque</h1>
+                <h1 style="clear: both;" class="txt_center"> Gerencie o Texto Destaque</h1>
 
                 <!-- Formulário Para Criar Páginas -->
                 <form method="post"  action="../bd/salvarSobreDestaque.php"  class="color_white center back_green_dark_cms form_curiosidades" name="frmsobre" enctype="multipart/form-data">
@@ -114,7 +86,7 @@
                 <!-- EXIBIR DADOS -->
                 <table id="ver" class="center fonte txt_center exibir_table">
                     <tr class="exibir_linha">
-                        <td colspan="4"><h1> Sessões Existentes: </h1></td>
+                        <td colspan="4"><h1> Textos Existentes: </h1></td>
                     </tr>
                     <tr class="exibir_linha back_pink_cms color_white">
                         <td colspan="3">
