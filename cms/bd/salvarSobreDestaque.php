@@ -11,7 +11,7 @@
             $sql = "insert into tblsobredestaque (texto) values ('".$texto."')";
         }
         else{
-            $sql = "update tblsobredestaque set texto = '".$texto."'";
+            $sql = "update tblsobredestaque set texto = '".$texto."' where codigo =".$_SESSION['codigo'];
         }
 
         $insert = mysqli_query($conexao, $sql);

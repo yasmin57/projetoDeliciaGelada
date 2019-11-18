@@ -13,6 +13,12 @@
 
             $code = $_GET['codigo'];
 
+            if(!isset($_SESSION)){
+                session_start();
+            }
+
+            $_SESSION['codigo'] = $code;
+
             $sql = "select * from tblsobredestaque where codigo =".$code;
 
             $select = mysqli_query($conexao, $sql);
