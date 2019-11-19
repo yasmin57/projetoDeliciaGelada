@@ -141,7 +141,7 @@
                         <!-- FOTO -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                            <input required class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                            <input class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
                         </div>
                         <!-- BOTÃO -->
                         <div class="card_curiosidades">
