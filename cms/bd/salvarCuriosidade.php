@@ -82,7 +82,7 @@
                         //VERIFICA SE O SCRIPT É P/ CRIAR OU ATUALIZAR
                         if($_POST['btncuriosidades'] == 'CRIAR'){
                             $sql = "insert into tblcuriosidades (titulo, texto, foto, codecor, codeimg)
-                            values('".$titulo."', '".$texto."', '".$foto."', ".$cor.", ".$codeimg.")"; 
+                            values('".$titulo."', '".$texto."', '".$foto."', ".$cor.", ".$codeimg.");"; 
                         }
                         elseif($_POST['btncuriosidades'] == 'EDITAR'){
                             $sql = "update tblcuriosidades set titulo='".$titulo."', texto='".$texto."',

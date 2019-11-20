@@ -20,9 +20,11 @@
 
         //SE DEU CERTO E REDIRECIONA P/ A PAGE DO FORM/CONSULTA
         if($insert){
-            header("location:../raiz/adm_topoLoja.php");
+            //header("location:../raiz/adm_topoLoja.php");
+            echo($sql);
         }
         else{
+            echo("erro");
             echo($sql);
         }
 

@@ -189,7 +189,7 @@
                         <!-- FOTO -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                            <input required class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                                <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
                         </div>
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Separador de Sessões:</p>  </div>
@@ -276,7 +276,7 @@
 
                             <!-- ICONE EXCLUIR -->
                             <a class="exibir_icon float botao"
-                                onclick="return confirm('Deseja excluir esse usuário?');" href="../bd/deletarCuriosidade.php?modo=excluir&codigo=<?=$rsCuriosidades['codigo']?>&nomeFoto=<?=$rsCuriosidades['foto']?>"
+                                onclick="return confirm('Deseja excluir essa sessão?');" href="../bd/deletarCuriosidade.php?modo=excluir&codigo=<?=$rsCuriosidades['codigo']?>&nomeFoto=<?=$rsCuriosidades['foto']?>"
                              >
                                 <img src="../imgs/icon_excluir.png" alt="imagem">
                             </a>

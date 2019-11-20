@@ -1,0 +1,186 @@
+CREATE TABLE `dbcontatos2019projeto`.`tblcolors` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NOT NULL,
+  `classe_css` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblcontatos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `telefone` VARCHAR(15) NULL,
+  `celular` VARCHAR(15) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `homepage` VARCHAR(2048) NULL,
+  `facebook` VARCHAR(2048) NULL,
+  `tipo` VARCHAR(10) NULL,
+  `mensagem` TEXT NOT NULL,
+  `sexo` VARCHAR(1) NOT NULL,
+  `profissao` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblcuriosidades` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(150) NOT NULL,
+  `texto` TEXT NOT NULL,
+  `foto` VARCHAR(3000) NOT NULL,
+  `codecor` INT NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT '1',
+  `codeimg` INT NOT NULL,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tbllojas` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `cidadeestado` VARCHAR(100) NOT NULL,
+  `local` VARCHAR(150) NOT NULL,
+  `endereco` VARCHAR(3000) NOT NULL,
+  `numero` INT NOT NULL,
+  `telefone` VARCHAR(15) NULL,
+  `celular` VARCHAR(15) NULL,
+  `horario` VARCHAR(3000) NOT NULL,
+  `foto` VARCHAR(3000) NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblmodo` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblniveis` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(100) NOT NULL,
+  `adm_conteudo` TINYINT NOT NULL,
+  `adm_cliente` TINYINT NOT NULL,
+  `adm_usuarios` TINYINT NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblseparasessao` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `background` VARCHAR(3000) NOT NULL,
+  `nome` VARCHAR(200) NOT NULL,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblsobre` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(100) NOT NULL,
+  `texto` TEXT NOT NULL,
+  `foto` VARCHAR(3000) NOT NULL,
+  `modo` INT NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblsobredestaque` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `texto` TEXT NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tbltopocuriosidades` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(150) NOT NULL,
+  `foto` VARCHAR(3000) NOT NULL,
+  `codecor` INT NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tbltopolojas` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(3000) NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblusuarios` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NULL,
+  `email` VARCHAR(1000) NULL,
+  `celular` VARCHAR(15) NULL,
+  `login` VARCHAR(100) NOT NULL,
+  `rg` VARCHAR(12) NOT NULL,
+  `cpf` VARCHAR(14) NOT NULL,
+  `senha` VARCHAR(2000) NOT NULL,
+  `codenivel` INT NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `dbcontatos2019projeto`.`tblvalores` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
+  `titulo` VARCHAR(45) NOT NULL,
+  `texto` VARCHAR(300) NOT NULL,
+  `icone` VARCHAR(3000) NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`codigo`));
+
+insert into tblmodo (descricao) values('Modo 1: Foto a Esquerda e Texto a Direita');
+
+insert into tblmodo (descricao) values('Modo 2: Foto em Cima e Texto em Baixo');
+
+insert into tblseparasessao (background, nome) values('7a1cdb5c10c1c4895dc5117fe6a01348.png', 'Foto de Abacates');
+
+insert into tblseparasessao (background, nome) values('270b8e3aada3c20800ed03bd6ca28f19.jpg', 'Foto de Laranjas');
+
+insert into tblseparasessao (background, nome) values('94221b5e43adb994760488ed6716bdb9.jpg', 'Foto de Limões');
+
+insert into tblcolors (nome, classe_css) values('Laranja', 'back_orange');
+
+insert into tblcolors (nome, classe_css) values('Pink', 'back_pink');
+
+insert into tblcolors (nome, classe_css) values('Amarelo', 'back_yellow');
+
+insert into tblcolors (nome, classe_css) values('Verde Limão', 'back_green_limao');
+
+insert into tblcolors (nome, classe_css) values('Verde Limão Claro', 'back_green_limao_light');
+
+insert into tblcolors (nome, classe_css) values('Verde', 'back_green');
+
+insert into tblcolors (nome, classe_css) values('Goiaba', 'back_goiaba');
+
+insert into tblusuarios (nome, email, celular, login, rg, cpf, senha, codenivel) values('Yasmin Silva', 'yasmin@gmail', '(011) 5555-9999', 'yasmin123', '00.222.000-8', '555.555.999-89', '202cb962ac59075b964b07152d234b70', 1);
+
+insert into tblniveis (descricao, adm_conteudo, adm_cliente, adm_usuarios) values('Administrador', 1, 1, 1);
+
+insert into tblcuriosidades (titulo, texto, foto, codecor, codeimg) values('Nossos sucos atuam em prol dos sistemas digestivo e imunológico:', 'Fonte De Fibras Alimentares E Vitamina C E A, O Suco Delícia Gelada É Responsável Por Fazer Com Que O Nosso Sistema Digestivo Funcione De Maneira Correta. Além Disso, As Substâncias Antioxidantes Fortalecem O Nosso Sistema Imunológico, Prevenindo O Desenvolvimento De Gripes E Resfriados', 'ccacd758df7bea364224e5b5dfdfd021.jpg', 7, 1);
+
+insert into tblcuriosidades (titulo, texto, foto, codecor, codeimg) values(' Nossos Sucos Aliviam Os Sintomas Da Enxaqueca:', 'Para Quem Sofre Com A Incômoda Enxaqueca, O Suco Delícia Gelada Pode Auxiliar Na Diminuição Dos Sintomas, Já Que Os Ingredientes São Naturais E São Fonte De Nutrientes Como Ômega 3 E Magnésio Possuem Propriedades Anti-Inflamatórias E São Calmantes. Para Esses Casos, Dê Preferência Para A Linhaça E O Espinafre Que São Ricos Nessa Substância.', '9476cf1f2f1aae0e3028ab8f1efb098c.jpg', 6, 2);
+
+insert into tblcuriosidades (titulo, texto, foto, codecor, codeimg) values('Nossos Produtos Proporcionam Bem-Estar:', 'Com O Organismo Limpo, Livre De Toxinas, A Absorção De Nutrientes É Muito Melhor, Beneficiando O Organismo: "Por Ser Essencialmente Natural E Conter Diversos Nutrientes Em Sua Constituição, O Suco Delícia Gelada Tem Efeitos Claros No Aumento Da Sensação De Bem-Estar, Atuando, Inclusive, Na Melhoria Da Qualidade Do Sono", Analisa A Dra. Daniella Chein.', '513bba0dd0aaa3e03aa4acb5586584db.jpg', 2, 3);
+
+insert into tblcuriosidades (titulo, texto, foto, codecor, codeimg) values(' Possuímos Diversos Sabores:', 'Uma Das Principais Vantagens Do Suco Delícia Gelada É Que Ele Possui Uma Diversidade Muito Grande De Combinações. O Suco Amarelo Com Abacaxi Ou Maracujá, O Suco Vermelho Com Baterrada E Laranja, Limão Ou Cenoura, E Para O Suco Rosa, Melancia, E Gengibre, Hortelã E Outras Hortaliças De Sua Preferência.', '431862047512e40844fa7695fd32b73d.jpg', 6, 1);
+
+insert into tbltopocuriosidades (titulo, foto, codecor) values('Curiosidades', '6d9ad6036e1b67a7678f30c4e1497d8d.jpg', 7);
+
+update tbltopocuriosidades set status = 1 where codigo = 1;
+
+insert into tblsobre (titulo, texto, foto, modo) values('O QUE FAZEMOS?', 'Acreditamos Que Saudável Também Deve Ser Sinônimo De Gostoso. E Vamos Combinar: Com Tanto Carinho, Frutas Gostosas, Paixão E Vegetais Selecionados Não Tem Como Dar Errado, Não É Mesmo?
+As Bebidas Da Nossa Família São A União Da Energia E Dos Benefícios Das Frutas E Vegetais Da Natureza Com O Trabalho De Especialistas, Pesquisadores E Detalhistas. Cuidamos De Cada Etapa Com Muito Carinho E Dedicação, Investimos Na Produção Própria E Na Transparência Dos Processos Para Buscar A Sua Plena Satisfação.', '33b36da4acd506bbbdfc159e3bf318f0.png', 1);
+
+insert into tblsobre (titulo, texto, foto, modo) values('COMO FAZEMOS?', 'Assim Como Todas As Frutas, As Nossas Também Vêm Das Fazendas. A Diferença É Que Nossas Fazendas São Selecionadas. Todas Seguem Padrões Internacionais De Qualidade Extremamente Rigorosos. Assim, Garantimos Que As Frutas E Os Vegetais Que Saem Dos Pomares E Das Hortas De Todo O Brasil Sejam Preservados Ao Máximo Até Chegar À Sua Casa Com Tudo O Que Eles Têm De Melhor.', '2a1d77e15a00fc8f347ad39f9b8ff5e5.png', 2);
+
+insert into tblsobredestaque (texto) values ('A Delícia Gelada é brasileira e nasceu da vontade de oferecer um produto diferente de tudo o que você já experimentou.
+Foram anos trabalhando com parceiros de tecnologia da Alemanha, EUA, França, Holanda, Japão e Suécia para fazer um suco de verdade, 100% natural e que preserva ao máximo o sabor de cada ingrediente, porque é produzido a partir de frutas e vegetais frescos.
+
+Hoje, brasileiros e pessoas do mundo todo já aproveitam os benefícios do suco da tampinha verde que você toma aí na sua casa.
+
+Queremos estar presentes no seu dia, na sua casa e na sua vida de um jeito natural, assim como tudo o que fazemos.
+');
+
+update tblsobredestaque set status = 1 where codigo = 1;
+
+insert into tblvalores (id, titulo, texto, icone) values(1, 'Missão', 'SER UMA EMPRESA DE EXCELÊNCIA NA PRODUÇÃO DE SUCOS E DERIVADOS, ATENDENDO TODOS OS PADRÕES DE QUALIDADE, COM CONSCIÊNCIA AMBIENTAL E RESPEITO À COMUNIDADE.', '35e4ed5472f04bb199b88c5dc6b447a5.png');
+
+insert into tblvalores (id, titulo, texto, icone) values(2, 'Visão', 'TORNAR-SE A MARCA DE SUCOS NATURAIS MAIS CONSUMIDA NO MERCADO NACIONAL, OFERECENDO PRODUTOS DE ALTA QUALIDADE E DE SABOR INCOMPARÁVEL.', 'c256602f67323cae3ec75d5446186a38.png');
+
+insert into tblvalores (id, titulo, texto, icone) values(3, 'Valores', 'PROPORCIONAR MOMENTOS ALEGRES E SAUDÁVEIS PARA TODOS COM INTEGRIDADE, TRANSPARÊNCIA, COMPROMETIMENTO, INOVAÇÃO E QUALIDADE.', 'e48308a207486beef4348f57455403db.png');
+
+update tblvalores set status = 1 where codigo > 0;
+
+insert into tbllojas (cidadeestado, local, endereco, numero, telefone, celular, horario, foto) values('Bauru - SP', 'Parque Shopping', 'Rua das Plantas', 400, '(011) 1222-5555', '(011) 1111-1111', 'Segunda à Sábado das 10h às 22h.','965e62aaadd9f65371a83f56a2600167.png');
+
+insert into tbltopolojas (foto) values('efd55459c285bf1de6863e117fbc736d.png');
+
+update tbltopolojas set status = 1 where codigo = 1;
+
+insert into tblniveis (descricao, adm_conteudo, adm_cliente, adm_usuarios) values('Operador de Conteúdo', 1, 0, 0);
+
+insert into tblniveis (descricao, adm_conteudo, adm_cliente, adm_usuarios) values('Relacionamento com o Cliente', 0, 1, 0);
