@@ -1,0 +1,5 @@
+alter table tblcuriosidades add foreign key (codecor) references tblcolors (codigo);
+alter table tblcuriosidades add foreign key (codeimg) references tblseparasessao (codigo);
+alter table tblsobre add foreign key (modo) references tblmodo (codigo);
+alter table tbltopocuriosidades add foreign key (codecor) references tblcolors (codigo);
+alter table tblusuarios add foreign key (codenivel) references tblniveis (codigo);
