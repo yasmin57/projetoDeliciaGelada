@@ -179,7 +179,7 @@
                         <!-- Foto -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                            <input required class="card_curiosidades_file fonte" type="file" name="flefoto" 
+                             <input <?php if(!isset($_GET['modo'])){ ?> required <?php } ?> class="card_curiosidades_file fonte" type="file" name="flefoto" 
                             accept="image/jpeg, image/png, image/jpg">
                         </div>
                         <!-- Botão -->

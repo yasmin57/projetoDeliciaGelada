@@ -74,7 +74,7 @@
                     <table class="lojas_table">
                         <tr>
                             <td class="lojas_img back">
-                                <img title="imagem" alt="imagem" src="../imgs/lojasimg2.png">
+                                <img title="imagem" alt="imagem" src="../imgs/<?=$rsLojas['foto']?>">
                             </td>
                             <td class="textos fonte">
                                 <h2> <?=$rsLojas['cidadeestado']?> </h2>

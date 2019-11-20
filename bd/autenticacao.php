@@ -38,18 +38,30 @@
                 //VERIFICA SE A SENHA ESTÁ CORRETA
                 if($rsLogin['senha'] == $senha_criptyLogin)
                 {
-                    //SCRIPT P/ RESGATAR O STATUS DO NÍVEL
-                    $sql = "select tblniveis.status where tblniveis.codigo =".$rsLogin['codenivel'];
-
+                    
                     //VERIFICA SE O USUÁRIO ESTÁ ATIVADO
                     if($rsLogin['status'] <> 0)
                     {
-                        //RESGATE DE DADOS NECESSÁRIOS/ VARIAVEIS DE SESSÃO
-                        $_SESSION['nomeUsuarioLogin'] = $rsLogin['nome'];
-                        $_SESSION['codenivel'] = $rsLogin['codenivel'];
-                                
-                        //REDIRECIONA P/ A PÁGINA DO CMS
-                        header('location:../cms/raiz/index.php');
+                        //SCRIPT P/ RESGATAR O STATUS DO NÍVEL
+                        $sql = "select * from tblniveis where tblniveis.codigo =".$rsLogin['codenivel'];
+                        
+                        $select2 = mysqli_query($conexao, $sql);
+
+                        $rsNivel = mysqli_fetch_array($select2);
+
+                        if($rsNivel['status'] == 1){
+                            //RESGATE DE DADOS NECESSÁRIOS/ VARIAVEIS DE SESSÃO
+                            $_SESSION['nomeUsuarioLogin'] = $rsLogin['nome'];
+                            $_SESSION['codenivel'] = $rsLogin['codenivel'];
+                                    
+                            //REDIRECIONA P/ A PÁGINA DO CMS
+                            header('location:../cms/raiz/index.php');
+                        }
+                        //Caso o nivel esteja desativado
+                        else
+                        {   $_SESSION['error'] = "nivel do usuário está desativado";
+                            header('location:../raiz/home.php'); 
+                        }
                     }
                     //Caso o usuário esteja desativado
                     else
@@ -65,9 +77,5 @@
             {  $_SESSION['error'] = "usuário inválido";
                header('location:../raiz/home.php');  }       
         }
-        //Caso ocorra erro no script
-        else
-        { echo($sql); }
- 
     }
 ?>

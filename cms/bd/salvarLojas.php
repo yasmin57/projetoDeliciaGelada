@@ -35,6 +35,7 @@
 
             //VERIFICA SE ATT E RETORNA P/ A PAGE DO FORM
             if($update){
+                unset($_SESSION['fotoLoja']);
                 header('location:../raiz/adm_lojas.php');
             }
             else{

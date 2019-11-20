@@ -36,6 +36,7 @@
                         texto='".$texto."' where codigo =".$_SESSION['code'];
             //VERIFICA SE A CONEXÃO FOI BEM SUCEDIDA 
             if(mysqli_query($conexao, $sql)){  
+                unset($_SESSION['imgAntiga']);
                 //RETORNA P/ A PAG DO FORMULÁRIO
                 header('location:../raiz/adm_sobreValores.php');
             }

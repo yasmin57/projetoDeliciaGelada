@@ -30,6 +30,7 @@
             if(mysqli_query($conexao, $sql)){  
                 //RETORNA P/ A PAG DO FORMULÁRIO
                 header('location:../raiz/adm_curiosidades.php');
+                unset($_SESSION['nomeFoto']);
             }
             else{
                 echo($sql);

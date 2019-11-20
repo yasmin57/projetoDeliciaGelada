@@ -197,11 +197,9 @@
                                         <option value="<?=$codeNivel?>"> <?=$nivel?> </option>
 
                                     <?php
-                                        } else {
+                                        } 
                                     ?>
-                                        <option value=""> Selecione um nivel </option>
-                                    <?php
-                                        }    
+                                    <?php  
                                         //script p/ o bd 
                                         $sql = "select * from tblniveis where codigo <> ".$codeNivel;
 

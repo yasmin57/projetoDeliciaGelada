@@ -184,3 +184,4 @@ update tbltopolojas set status = 1 where codigo = 1;
 insert into tblniveis (descricao, adm_conteudo, adm_cliente, adm_usuarios) values('Operador de Conteúdo', 1, 0, 0);
 
 insert into tblniveis (descricao, adm_conteudo, adm_cliente, adm_usuarios) values('Relacionamento com o Cliente', 0, 1, 0);
+

@@ -49,8 +49,7 @@
             header('location:../raiz/crud_usuarios.php');
         }
         else{
-            echo("Error: ".$sql);
+            echo("erro");
         }
-
     }
 ?>

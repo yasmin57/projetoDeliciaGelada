@@ -34,6 +34,7 @@
 
             //VERIFICA SE DEU CERTO E REDIRECIONA P/ O FORM
             if($update){
+                unset($_SESSION['imgAntiga']);
                 header("location:../raiz/adm_sobre.php");
             }
             else{

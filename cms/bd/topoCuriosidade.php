@@ -25,7 +25,8 @@
             $sql = "update tbltopocuriosidades set titulo='".$titulo."',
                     codecor=".$cor." where codigo =".$_SESSION['codigoTopo'];
             //VERIFICA SE A CONEXÃO FOI BEM SUCEDIDA 
-            if(mysqli_query($conexao, $sql)){  
+            if(mysqli_query($conexao, $sql)){ 
+                unset($_SESSION['nomeImg']); 
                 //RETORNA P/ A PAG DO FORMULÁRIO
                 header('location:../raiz/adm_topoCuriosidades.php');
             }
