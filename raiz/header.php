@@ -14,6 +14,18 @@
                 <li class="menu_itens float"> <a href="produto.php"> produto do mês </a></li>
                 <li class="menu_itens float"> <a href="contato.php"> entre em contato </a></li>
             </ul>
+            <div id="menu_mobile" class="back">
+                <ul id="ul_menu_mobile">
+                    <li class="menu_itens_mobile"> <a href="home.php"> Home </a></li>
+                    <li class="menu_itens_mobile"> <a href="curiosidades.php"> Curiosidades</a></li>
+                    <li class="menu_itens_mobile"> <a href="sobre.php"> sobre </a></li>
+                    <li class="menu_itens_mobile"> <a href="promocoes.php"> promoções </a></li>
+                    <li class="menu_itens_mobile"> <a href="lojas.php"> lojas </a></li>
+                    <li class="menu_itens_mobile"> <a href="produto.php"> produto do mês </a></li>
+                    <li class="menu_itens_mobile"> <a href="contato.php"> entre em contato </a></li>
+                </ul>
+            </div>
+            
         </nav>
         <form method="post" name="frmlogin" action="../bd/autenticacao.php" id="header_login" class="float">
             <div class="login_txt float">
