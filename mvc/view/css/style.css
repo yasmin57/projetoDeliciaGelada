@@ -1,0 +1,315 @@
+/* Padronização */
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.color_white{
+    color: white;
+}
+.conteudo{
+    width: 1400px;
+    height:inherit; 
+    background-color: white;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.back{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.back img{
+    width: inherit;
+    height: inherit;
+}
+.botao:hover{
+    cursor: pointer;
+}
+.fonte{
+  font-family: "Century Gothic";
+  font-size: 19px;   
+}
+.float{
+   float: left;
+}
+.txt_center{
+    text-align: center;
+}
+.link_menu{
+    font-size: 24px;
+    padding-bottom: 13px;
+    margin-left: 20px;
+}
+
+/* Cores */
+.back_pink_cms{
+    background-color: #946f82;
+}
+.back_pink_light_cms{
+    background-color: #9e8592;
+}
+.back_green_cms{
+    background-color: #4c8a75;
+}
+.back_green_dark_cms{
+    background-color: #48706b;
+}
+.back_green_light_cms{
+    background-color: #7aa395;
+}
+.back_black{
+    background-color: black;
+}
+.back_green_limon_cms{
+    background-color: #09A37A;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+h1{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/* Icones */
+.icon_user{
+   background-image: url(../imgs/icon_user.png); 
+}
+.icon_level{
+    background-image: url(../imgs/icon_level.png); 
+}
+.icon_eye{
+    background-image: url(../imgs/icon_eye.png); 
+}
+
+/* Bordas */
+.border_bottom{
+    border-bottom: solid 1px black
+}
+.border_right{
+    border-right: solid 1px black
+}
+
+/* Cabeçalho */
+header{
+    width: 100%;
+    height: 200px;
+}
+#header_title{
+    width: 1100px;
+    height: 50px;
+    box-sizing: border-box;
+    margin-top: 78px;
+    border-top: solid 1px #61b096;
+    border-bottom: solid 1px #61b096;
+    padding-left: 100px;
+}
+#header_title h1{
+   margin-top: 0px;
+   margin-bottom: 0px; 
+}
+#header_title p{
+   padding-top: 12px; 
+   padding-left: 15px;
+}
+#header_img{
+    width: 300px;
+    height: 190px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-image: url(../imgs/cms2.png);
+    border-radius: 20px;
+}
+/* Menu de opções */
+#menu{
+    width: 100%;
+    height: 230px;
+}
+#menu table{
+    width: inherit;
+    height: inherit;
+}
+.menu_itens{
+    width: 225px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.menu_itens_big{
+    width: 450px;
+    height: inherit;
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: right;
+}
+
+/* icones */
+.menu_icon{
+    width: 160px;
+    height: 160px;
+    margin-left: 32px;
+    margin-right: 33px;
+}
+#adm_conteudo{
+    background-image: url(../imgs/icon_adm_conteudo.png)
+}
+
+
+/**/
+.menu_option{
+    width: inherit;
+    height: 40px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    text-align: center;
+}
+.menu_option a{
+    font-size: 15px;
+}
+.menu_mensagem{
+    height: 40px;
+    box-sizing: border-box;
+    padding-left: 65px;
+    padding-top: 10px;
+    margin-bottom: 40px;
+    margin-top: 20px; 
+}
+.logout{
+    width: 100px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    text-align: center;
+    padding-left: 0px;
+    padding-top: 14px;
+    border-radius: 10px;
+}
+.caixa_texto{
+    width: 410px;
+    height: 200px;
+}
+
+/* Tabela p/ exibir os dados */
+.exibir_table{
+    width: 1300px; /* 1400px*/
+    min-height: 50px; 
+}
+.exibir_linha{
+    width: inherit;
+    height: 50px;
+}
+.exibir_coluna{
+    height: inherit;
+    text-align: center;
+}
+.exibir_icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.exibir_icon img{
+    width: 40px;
+    height: 40px;
+}
+
+
+/* Rodapé */
+footer{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+}
+#footer{
+    box-sizing: border-box;
+    padding-top: 26px;
+}
+
+/*INDEX*/
+#bemvindo{
+    width: 100%;
+    height: 600px;
+    text-align: center;
+}
+#bemvindo .conteudo{
+    box-sizing: border-box;
+    padding-top: 200px;
+    font-size: 30px;
+}
+
+/* Formulário */
+.form_curiosidades{
+    width: 600px;
+    display: flex;
+    padding: 20px;
+}
+
+/* Mostrar img */
+#img_curiosidades{
+    width: 300px;
+    height: 300px;
+}
+
+.btn_adm_usuarios{
+    width: 300px;
+    padding-left: 0px;
+    margin-right: 20px;
+}
+
+/* Restante do formulário */
+#categorias{
+    width: 100%;
+    min-height: 200px;
+    padding-bottom: 10px;
+}
+#card_curiosidades{
+    width: 600px;
+    min-height: 100px;
+    flex-wrap: wrap;
+    display: flex;
+}
+#card_lojas_topo{
+    width: 650px;
+    min-height: 100px;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 15px;
+}
+.card_curiosidades{
+    width: inherit;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.card_curiosidades_big{
+    width: inherit;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.card_curiosidades_name{
+    width: 150px;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_curiosidades_input{
+    width: 850px;
+    height: inherit;
+}
+.card_curiosidades_file{
+    width: 850px;
+    margin-top: 12px;
+}
+.btn_curiosidades{
+    width: 150px;
+    height: 40px;
+}
