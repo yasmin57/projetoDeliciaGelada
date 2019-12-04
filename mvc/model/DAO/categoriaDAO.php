@@ -8,10 +8,8 @@
             //Importe dos arquivos
             require_once('conexaoMysql.php');
 
-            if($_SERVER['REQUEST_METHOD'] == 'POST')
-                require_once('model/categoriaClass.php');
-            else
-                require_once('../../model/categoriaClass.php');
+            require_once('model/categoriaClass.php');
+            
 
             //Instancia da classe conexao
             $this->conexaoMysql = new ConexaoMysql();
@@ -23,13 +21,13 @@
         //Método p/ inserir
         public function insertCategoria(Categoria $categoria){
             //Script p/ o bd
-            $sql = "insert into tblcategorias(nome) values(?)";
+            $sql = "insert into tblcategorias(nome, status) values(?, ?)";
 
             //Prepara p/ mandar p/ o bd
             $statement = $this->conexao->prepare($sql);
 
             //Array com o dado
-            $statementDado = array($categoria->getNome());
+            $statementDado = array($categoria->getNome(), $categoria->getStatus());
 
             //Manda p/ o bd e retorna o resultado
             if($statement->execute($statementDado))
@@ -39,7 +37,20 @@
         }
 
         //Método p/ editar
-        public function updateCategoria(){}
+        public function updateCategoria(Categoria $categoria){
+            $sql = "update tblcategorias set nome=? where codigo =?";
+
+            $statement = $this->conexao->prepare($sql);
+
+            $statementDados = 
+            array( $categoria->getNome(), 
+                   $categoria->getCodigo() );
+
+            if($statement->execute($statementDados))
+                return true;
+            else
+                return false;
+        }
 
         //Método p/ deletar
         public function deleteCategoria($codeCategoria){
@@ -65,6 +76,7 @@
                 $listCategorias[] = new Categoria();
                 $listCategorias[$cont]->setCodigo($rs['codigo']);
                 $listCategorias[$cont]->setNome($rs['nome']);
+                $listCategorias[$cont]->setStatus($rs['status']);
 
                 $cont++;
             }
@@ -76,7 +88,42 @@
         }
 
         //Método p/ listar por id
-        public function selectByIdCategoria(){}
+        public function selectByIdCategoria($codeCategoria){
+            $sql = "select * from tblcategorias where codigo=".$codeCategoria;
+
+            $select = $this->conexao->query($sql);
+
+            $cont = 0;
+
+            while($rs = $select->fetch(PDO::FETCH_ASSOC))
+            {
+                //Instancia da classe categoria
+                $dadosCategoria = new Categoria();
+                $dadosCategoria->setCodigo($rs['codigo']);
+                $dadosCategoria->setNome($rs['nome']);
+
+                $cont++;
+            }
+
+            return $dadosCategoria;
+
+        }
+
+        //Método p/ editar status
+        public function statusCategoria(Categoria $categoria){
+            $sql = "update tblcategorias set status=? where codigo =?";
+
+            $statement = $this->conexao->prepare($sql);
+
+            $statementDados = 
+            array( $categoria->getStatus(), 
+                   $categoria->getCodigo() );
+
+            if($statement->execute($statementDados))
+                return true;
+            else
+                return false;
+        }
     }
 
 ?>

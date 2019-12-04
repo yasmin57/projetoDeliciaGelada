@@ -12,8 +12,8 @@
                 <table>
                     <tr>
                         <td class="menu_itens">
-                                <a href="view/produtos/adm_produtos.php"><div class="menu_icon back" id="adm_conteudo"></div></a>
-                                <div class="menu_option fonte botao"><a class="color_white" href="view/produtos/adm_produtos.php">Adm. Produtos </a></div>
+                                <a href="categoria.php"><div class="menu_icon back" id="adm_categorias"></div></a>
+                                <div class="menu_option fonte botao"><a class="color_white" href="categoria.php">Adm. Categorias </a></div>
                         </td>
                         <td class="menu_itens">
                         

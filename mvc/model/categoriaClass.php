@@ -3,6 +3,7 @@
         //Atributos
         private $codigo;
         private $nome;
+        private $status;
 
         public function __construct(){}
 
@@ -22,6 +23,15 @@
         public function setNome($nome)
         {
             $this->nome = $nome;
+        }
+        //GETTERS AND SETTERS DO STATUS
+        public function getStatus()
+        {
+            return $this->status;
+        }
+        public function setStatus($status)
+        {
+            $this->status = $status;
         }
     }
 ?>

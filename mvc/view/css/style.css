@@ -153,8 +153,8 @@ header{
     margin-left: 32px;
     margin-right: 33px;
 }
-#adm_conteudo{
-    background-image: url(../imgs/icon_adm_conteudo.png)
+#adm_categorias{
+    background-image: url(../imgs/icon_adm_categorias.png)
 }
 
 
@@ -204,8 +204,8 @@ header{
     height: 50px;
 }
 .exibir_coluna{
-    height: inherit;
-    text-align: center;
+    width: 700px; 
+    padding: 20px;
 }
 .exibir_icon{
     width: 40px;

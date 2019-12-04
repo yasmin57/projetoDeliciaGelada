@@ -1,6 +1,16 @@
 <?php
-    $action = '../../router.php?controller=categorias&modo=novo';
+    $action = 'router.php?controller=categorias&modo=novo';
     
+    //Verifica se existe a var modo
+    if(isset($_GET['modo'])){
+        if(strtoupper($_GET['modo']) == 'BUSCAR')
+        {
+            $nome = $dadosCategoria->getNome();
+            $codigo = $dadosCategoria->getCodigo();
+
+            $action = 'router.php?controller=categorias&modo=editar&id='.$codigo;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -9,33 +19,24 @@
         <title>
             CMS | Delicia Gelada
         </title>
-        <link type="text/css" href="../css/style.css" rel="stylesheet">
+        <link type="text/css" href="view/css/style.css" rel="stylesheet">
     </head>
     <body>
         <!-- CABEÇALHO -->
-        <?php require_once("../header.php"); ?>
+        <?php require_once("view/header.php"); ?>
         
         <div id="categorias">
         <section class="conteudo center fonte">
                 <h1 class="txt_center">Administração das Categorias </h1>
 
-                <!-- Botao p/ gerenciar os produtos -->
-                <div class="menu_mensagem fonte botao float btn_adm_usuarios back_green_cms txt_center">
-                    <a class="color_white" href="../produtos/adm_produtos.php"> Gerencie os Produtos </a>
-                </div>
-                <!-- Botao p/ gerenciar as subcategorias -->
-                <div class="menu_mensagem fonte botao float btn_adm_usuarios back_green_cms txt_center">
-                    <a class="color_white" href="../subcategorias/adm_subcategorias.php"> Gerencie as Sub-Categorias </a>
-                </div>
-
                 <!-- Formulário Para Criar Páginas -->
-                <form style="clear:both" method="post"  action="<?=$action?>"  class="center back_green_dark_cms form_curiosidades color_white" name="frmcategorias" enctype="multipart/form-data">
+                <form method="post"  action="<?=$action?>"  class="center back_green_dark_cms form_curiosidades color_white" name="frmcategorias" enctype="multipart/form-data">
                     <!-- Restante do formulário -->
                     <div id="card_curiosidades">
                         <!-- TITULO -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Nome:</p>  </div>
-                            <input value="<?=@$titulo?>" name="txtnome" placeholder="Digite o nome da categoria" class="fonte card_curiosidades_input_topo" type="text" maxlength="50" required size="45">
+                            <input value="<?=@$nome?>" name="txtnome" placeholder="Digite o nome da categoria" class="fonte card_curiosidades_input_topo" type="text" maxlength="50" required size="45">
                         </div>
                         <!-- BOTÃO -->
                         <div class="card_curiosidades">
@@ -59,7 +60,7 @@
                     </tr>
                     <?php 
                         //Importe do arquivo controller
-                        require_once('../../controller/categoriaController.php');
+                        require_once('controller/categoriaController.php');
 
                         //Instancia da classe controller
                         $categoriaController = new CategoriaController();
@@ -72,23 +73,32 @@
                         while($cont < count($dados)){
                     ?>
                     <tr class="exibir_linha back_green_cms color_white">
-                        <td colspan="3" style="width: 700px; padding: 30px;">
+                        <td colspan="3" class="exibir_coluna">
                             <p> <?=$dados[$cont]->getNome();?></p>
                         </td>
                         <td>
                             <!-- ICONE LAPIS -->
-                            <a href="" class="exibir_icon float botao visualizar">
-                                <img src="../imgs/icon_edit.png" alt="imagem">
+                            <a href="router.php?controller=categorias&modo=buscar&
+                                    id=<?=$dados[$cont]->getCodigo()?>" 
+                               class="exibir_icon float botao visualizar">
+                                <img src="view/imgs/icon_edit.png" alt="imagem">
                             </a>
                             <!-- ICONE EXCLUIR -->
-                            <a href="../../router.php?controller=categorias&modo=excluir&
+                            <a href="router.php?controller=categorias&modo=excluir&
                                 id=<?=$dados[$cont]->getCodigo()?>"
                                  class="exibir_icon float botao visualizar">
-                                <img src="../imgs/icon_excluir.png" alt="imagem">
+                                <img src="view/imgs/icon_excluir.png" alt="imagem">
                             </a>
                             <!-- ICONE STATUS -->
-                            <a href="" class="exibir_icon float botao visualizar">
-                                <img src="../imgs/icon_on.png" alt="imagem">
+                            <a href="router.php?controller=categorias&modo=status&
+                                id=<?=$dados[$cont]->getCodigo()?>&status=<?=$dados[$cont]->getStatus()?>" 
+                            
+                                class="exibir_icon float botao visualizar">
+                                <?php if($dados[$cont]->getStatus() == 1) {?> 
+                                    <img src="view/imgs/icon_on.png" alt="imagem">
+                                <?php } else { ?> 
+                                    <img src="view/imgs/icon_off.png" alt="imagem">
+                                <?php } ?> 
                             </a>
                         </td>
                     <tr>
@@ -101,6 +111,6 @@
         </div>
         
         <!-- RODAPÉ  -->
-       <?php require_once("../footer.php"); ?>
+       <?php require_once("view/footer.php"); ?>
     </body>
 </html>
