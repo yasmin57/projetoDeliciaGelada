@@ -3,3 +3,9 @@ alter table tblcuriosidades add foreign key (codeimg) references tblseparasessao
 alter table tblsobre add foreign key (modo) references tblmodo (codigo);
 alter table tbltopocuriosidades add foreign key (codecor) references tblcolors (codigo);
 alter table tblusuarios add foreign key (codenivel) references tblniveis (codigo);
+
+CREATE TABLE `dbcontatos2019projeto`.`tblcategorias` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NOT NULL,
+  `status` TINYINT NOT NULL DEFAULT '1',
+  PRIMARY KEY (`codigo`));
