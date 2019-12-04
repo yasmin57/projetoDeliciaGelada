@@ -7,7 +7,11 @@
         public function __construct(){
             //Importe dos arquivos
             require_once('conexaoMysql.php');
-            require_once('model/categoriaClass.php');
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
+                require_once('model/categoriaClass.php');
+            else
+                require_once('../../model/categoriaClass.php');
 
             //Instancia da classe conexao
             $this->conexaoMysql = new ConexaoMysql();
@@ -38,10 +42,38 @@
         public function updateCategoria(){}
 
         //Método p/ deletar
-        public function deleteCategoria(){}
+        public function deleteCategoria($codeCategoria){
+            $sql = "delete from tblcategorias where codigo=".$codeCategoria;
+
+            if($this->conexao->query($sql))
+                return true;
+            else
+                return false;
+        }
 
         //Método p/ listar
-        public function selectAllCategoria(){}
+        public function selectAllCategoria(){
+            $sql = "select * from tblcategorias";
+
+            $select = $this->conexao->query($sql);
+
+            $cont = 0;
+
+            while($rs = $select->fetch(PDO::FETCH_ASSOC))
+            {
+                //Instancia da classe categoria
+                $listCategorias[] = new Categoria();
+                $listCategorias[$cont]->setCodigo($rs['codigo']);
+                $listCategorias[$cont]->setNome($rs['nome']);
+
+                $cont++;
+            }
+
+            if(isset($listCategorias))
+                return $listCategorias;
+            else
+                return false;
+        }
 
         //Método p/ listar por id
         public function selectByIdCategoria(){}

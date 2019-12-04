@@ -1,5 +1,6 @@
 <?php
     $action = '../../router.php?controller=categorias&modo=novo';
+    
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +43,60 @@
                         </div>
                     </div>    
                 </form>
+
+                <!-- EXIBIR DADOS -->
+                <table id="ver" class="center fonte txt_center exibir_table">
+                    <tr class="exibir_linha">
+                        <td colspan="4"><h1> Categorias: </h1></td>
+                    </tr>
+                    <tr class="exibir_linha back_pink_cms color_white">
+                        <td colspan="3">
+                            <p> Nome: </p>
+                        </td>
+                        <td>
+                            <p> Opções:</p>
+                        </td>
+                    </tr>
+                    <?php 
+                        //Importe do arquivo controller
+                        require_once('../../controller/categoriaController.php');
+
+                        //Instancia da classe controller
+                        $categoriaController = new CategoriaController();
+
+                        //Método que faz o select no bd
+                        $dados = $categoriaController->listaCategoria();
+
+                        $cont = 0;
+
+                        while($cont < count($dados)){
+                    ?>
+                    <tr class="exibir_linha back_green_cms color_white">
+                        <td colspan="3" style="width: 700px; padding: 30px;">
+                            <p> <?=$dados[$cont]->getNome();?></p>
+                        </td>
+                        <td>
+                            <!-- ICONE LAPIS -->
+                            <a href="" class="exibir_icon float botao visualizar">
+                                <img src="../imgs/icon_edit.png" alt="imagem">
+                            </a>
+                            <!-- ICONE EXCLUIR -->
+                            <a href="../../router.php?controller=categorias&modo=excluir&
+                                id=<?=$dados[$cont]->getCodigo()?>"
+                                 class="exibir_icon float botao visualizar">
+                                <img src="../imgs/icon_excluir.png" alt="imagem">
+                            </a>
+                            <!-- ICONE STATUS -->
+                            <a href="" class="exibir_icon float botao visualizar">
+                                <img src="../imgs/icon_on.png" alt="imagem">
+                            </a>
+                        </td>
+                    <tr>
+                    <?php 
+                            $cont++;        
+                        }
+                    ?>
+                </table>
             </section>
         </div>
         

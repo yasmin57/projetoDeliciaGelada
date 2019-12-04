@@ -7,21 +7,24 @@
         //Construtor
         public function __construct()
         {
-            //Importe dos arquivos
-            require_once('model/DAO/categoriaDAO.php');
-            require_once('model/categoriaClass.php');
-
-            //Instancia da classe DAO
-            $this->categoriaDAO = new CategoriaDAO();
-
             //Verifica se o método é post
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                require_once('model/categoriaClass.php');
+                require_once('model/DAO/categoriaDAO.php');
+
                 //Instancia da classe categoria
                 $this->categoria = new Categoria();
 
                 //Resgata o dado via post
                 $this->categoria->setNome($_POST['txtnome']);
             }
+            else{
+                //Importe dos arquivos
+                require_once('../../model/categoriaClass.php');
+                require_once('../../model/DAO/categoriaDAO.php');
+            }
+            //Instancia da classe DAO
+            $this->categoriaDAO = new CategoriaDAO();
         }
 
         //Método p/ inserir
@@ -37,10 +40,23 @@
         public function editaCategoria(){}
 
         //Método p/ deletar
-        public function excluiCategoria(){}
+        public function excluiCategoria($idCategoria){
+            //Chama o método p excluir passando o id
+            if($this->categoriaDAO->deleteCategoria($idCategoria))
+                header('location:view/categorias/adm_categorias.php');
+            else
+                echo('Erro ao deletar registro no bd');
+        }
 
         //Método p/ listar
-        public function listaCategoria(){}
+        public function listaCategoria(){
+            $list = $this->categoriaDAO->selectAllCategoria();
+
+            if($list)
+                return $list;
+            else
+                die();
+        }
 
         //Método p/ listar por id
         public function buscaCategoria(){}

@@ -264,7 +264,7 @@ footer{
 /* Restante do formulário */
 #categorias{
     width: 100%;
-    min-height: 200px;
+    min-height: 400px;
     padding-bottom: 10px;
 }
 #card_curiosidades{
@@ -311,5 +311,29 @@ footer{
 }
 .btn_curiosidades{
     width: 150px;
+    height: 40px;
+}
+
+/* Tabela p/ exibir os dados */
+.exibir_table{
+    width: 1300px; /* 1400px*/
+    min-height: 50px; 
+}
+.exibir_linha{
+    width: inherit;
+    height: 50px;
+}
+.exibir_coluna{
+    height: inherit;
+    text-align: center;
+}
+.exibir_icon{
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.exibir_icon img{
+    width: 40px;
     height: 40px;
 }
