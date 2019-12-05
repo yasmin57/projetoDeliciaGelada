@@ -18,18 +18,25 @@
                 <h1> Deseja administrar os produtos?</h2>
                 <h4> Insira os seus dados para efetuar o login.</h4>
 
+                <div class="float back" id="imagem_adm"></div>
+
                 <form method="get" name="frmcontato" action="../bd/inserir.php">
-                    <table>
+                    <table class="float">
                         <tr class="itens_frm fonte">
-                            <td class="texto_frm">Nome*:</td>
+                            <td class="texto_frm">Nome:</td>
                             <td>  <input class="input" onkeypress="return validarEntrada(event, 'string');" type="text" maxlength="100" name="txtnome" size="45" required > </td>
                         </tr>
                         <tr class="itens_frm fonte">
-                            <td  class="texto_frm">Telefone:</td>
-                            <td>  <input class="input" onkeypress="return mascaraFone(this, event);" type="text" maxlength="15" name="txttelefone" size="45" id="tel"> </td>
+                            <td  class="texto_frm">Senha:</td>
+                            <td>  <input class="input" type="text" maxlength="15" name="txtsenha" size="45" required> </td>
+                        </tr>
+                        <tr class="itens_frm ">
+                            <td colspan="2"> <input class="botao center back_yellow fonte" type="submit" name="btnlogar" value="LOGIN"> </td>
                         </tr>
                     </table>
                 </form>
+
+                <div class="float back" id="imagem_suco"></div>
             </section>
         </div>
         
