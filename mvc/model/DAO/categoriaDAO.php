@@ -63,8 +63,8 @@
         }
 
         //Método p/ listar
-        public function selectAllCategoria(){
-            $sql = "select * from tblcategorias";
+        public function selectAllCategoria($code){
+            $sql = "select * from tblcategorias where codigo <>".$code;
 
             $select = $this->conexao->query($sql);
 

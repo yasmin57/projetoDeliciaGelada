@@ -56,8 +56,8 @@
         }
 
         //Método p/ listar
-        public function listaCategoria(){
-            $list = $this->categoriaDAO->selectAllCategoria();
+        public function listaCategoria($code){
+            $list = $this->categoriaDAO->selectAllCategoria($code);
 
             if($list)
                 return $list;

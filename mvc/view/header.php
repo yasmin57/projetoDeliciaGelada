@@ -16,7 +16,8 @@
                                 <div class="menu_option fonte botao"><a class="color_white" href="categoria.php">Adm. Categorias </a></div>
                         </td>
                         <td class="menu_itens">
-                        
+                                <a href="sub.php"><div class="menu_icon back" id="adm_sub"></div></a>
+                                <div class="menu_option fonte botao"><a class="color_white" href="sub.php">Adm. Subcategorias </a></div>
                         </td>
                         <td class="menu_itens">
                        

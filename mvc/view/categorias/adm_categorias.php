@@ -66,7 +66,7 @@
                         $categoriaController = new CategoriaController();
 
                         //Método que faz o select no bd
-                        $dados = $categoriaController->listaCategoria();
+                        $dados = $categoriaController->listaCategoria(0);
 
                         $cont = 0;
 

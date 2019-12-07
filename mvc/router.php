@@ -3,6 +3,7 @@
     $modo = strtoupper($_GET['modo']);
 
     switch ($controller) {
+        // Categorias
         case 'CATEGORIAS':
             require_once('controller/categoriaController.php');
 
@@ -63,11 +64,52 @@
 
                     break;
             }
+            break;
+        // Subategorias
+        case 'SUBCATEGORIAS':
+            //Importe do arquivo controller
+            require_once('controller/subController.php');
+
+            //Verifica o valor da var modo
+            switch ($modo){
+                case 'NOVO':
+                    //Instancia da classe controller
+                    $subcategoriaController = new SubcategoriaController();
+
+                    //Método p/ inserir
+                    $subcategoriaController->novaSubcategoria();
+
+                    break;
+
+                case 'EDITAR':
+                    $id = $_GET['id'];
+
+                    $subcategoriaController = new SubcategoriaController();
+
+                    $subcategoriaController->editaSubcategoria($id);
+
+                    break;
+
+                case 'EXCLUIR':
+                    # code...
+                    break;
+
+                case 'BUSCAR':
+                    $id = $_GET['id'];
+
+                    $subcategoriaController = new SubcategoriaController();
+
+                    $subcategoriaController->buscaSubcategoria($id);
+
+                    break;
+
+                case 'STATUS':
+                    # code...
+                    break;
+            }
 
             break;
-        case 'value':
-            
-            break;
+        // Produtos
         case 'value':
             
             break;
