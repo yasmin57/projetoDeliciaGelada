@@ -40,7 +40,7 @@
                         </div>
                         <!-- BOTÃO -->
                         <div class="card_curiosidades">
-                            <input style="margin-top: 15px" class="botao back_green_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btncategorias">
+                            <input style="margin-top: 15px" class="botao back_orange_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btncategorias">
                         </div>
                     </div>    
                 </form>
@@ -84,7 +84,8 @@
                                 <img src="view/imgs/icon_edit.png" alt="imagem">
                             </a>
                             <!-- ICONE EXCLUIR -->
-                            <a href="router.php?controller=categorias&modo=excluir&
+                            <a onclick="return confirm('deseja excluir categoria?');"
+                                href="router.php?controller=categorias&modo=excluir&
                                 id=<?=$dados[$cont]->getCodigo()?>"
                                  class="exibir_icon float botao visualizar">
                                 <img src="view/imgs/icon_excluir.png" alt="imagem">

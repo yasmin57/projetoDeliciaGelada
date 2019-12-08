@@ -64,6 +64,9 @@
 .back_green_limon_cms{
     background-color: #09A37A;
 }
+.back_orange_cms{
+    background-color: #d47e46;
+}
 a{
     text-decoration: none;
     color: black;
@@ -159,6 +162,9 @@ header{
 }
 #adm_sub{
     background-image: url(../imgs/icon_adm_categorias.png) 
+}
+#adm_produtos{
+    background-image: url(../imgs/icon_product.png) 
 }
 
 /**/

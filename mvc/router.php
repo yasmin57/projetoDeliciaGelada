@@ -91,7 +91,11 @@
                     break;
 
                 case 'EXCLUIR':
-                    # code...
+                    $id = $_GET['id'];
+
+                    $subcategoriaController = new SubcategoriaController();
+
+                    $subcategoriaController->excluiSubcategoria($id);
                     break;
 
                 case 'BUSCAR':
@@ -104,7 +108,12 @@
                     break;
 
                 case 'STATUS':
-                    # code...
+                    $id = $_GET['id'];
+                    $status = $_GET['status'];
+
+                    $subcategoriaController = new SubcategoriaController();
+
+                    $subcategoriaController->statusSubcategoria($id, $status);
                     break;
             }
 

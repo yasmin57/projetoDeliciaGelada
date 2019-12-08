@@ -1,3 +1,10 @@
+<?php
+    //INICIA A VARIÁVEL DE SESSÃO
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -17,10 +24,16 @@
             <section class="conteudo back_green txt_center center fonte color_white">
                 <h1> Deseja administrar os produtos?</h2>
                 <h4> Insira os seus dados para efetuar o login.</h4>
+                <?php 
+                    if(isset($_SESSION['error'])){
+                        echo('<p class="fonte" style="margin-bottom: 0px" id="msgErro">'.$_SESSION['error'].'</p>');
+                    }
+                ?>
 
                 <div class="float back" id="imagem_adm"></div>
 
-                <form method="get" name="frmcontato" action="../bd/inserir.php">
+                <form method="post" name="frmlogin" action="../bd/autenticar_mvc.php">
+                    
                     <table class="float">
                         <tr class="itens_frm fonte">
                             <td class="texto_frm">Nome:</td>
@@ -42,5 +55,12 @@
         
         <!-- RODAPÉ  -->
        <?php require_once("footer.php"); ?>
+       <?php
+            //DESTROI A VARIÁVEL DE SESSÃO
+            if(isset($_SESSION))
+            {
+                session_destroy();
+            }
+        ?>
     </body>
 </html>

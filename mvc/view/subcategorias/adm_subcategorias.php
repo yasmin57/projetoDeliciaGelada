@@ -80,7 +80,7 @@
                         </div>
                         <!-- BOTÃO -->
                         <div class="card_curiosidades">
-                            <input style="margin-top: 15px" class="botao back_green_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btncategorias">
+                            <input style="margin-top: 15px" class="botao back_orange_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btncategorias">
                         </div>
                     </div>    
                 </form>
@@ -132,21 +132,23 @@
                                 <img src="view/imgs/icon_edit.png" alt="imagem">
                             </a>
                             <!-- ICONE EXCLUIR -->
-                            <a href="router.php?controller=categorias&modo=excluir&
-                                "
+                            <a onclick="return confirm('deseja excluir subcategoria?');"
+                                href="router.php?controller=subcategorias&modo=excluir&
+                                id=<?=$dados[$cont]->getCodigo()?>"
                                  class="exibir_icon float botao visualizar">
                                 <img src="view/imgs/icon_excluir.png" alt="imagem">
                             </a>
                             <!-- ICONE STATUS -->
-                            <a href="router.php?controller=categorias&modo=status&
-                                " 
+                            <a href="router.php?controller=subcategorias&modo=status&
+                                status=<?=$dados[$cont]->getStatus()?>&id=<?=$dados[$cont]->getCodigo()?>" 
                             
                                 class="exibir_icon float botao visualizar">
-                                
-                                    <img src="view/imgs/icon_on.png" alt="imagem">
-                                
-                                    <!-- <img src="view/imgs/icon_off.png" alt="imagem"> -->
-                                
+                                    <?php if($dados[$cont]->getStatus()){?>
+                                        <img src="view/imgs/icon_on.png" alt="imagem" title="ativar ou desativar">
+                                    <?php } 
+                                          else { ?>
+                                        <img src="view/imgs/icon_off.png" alt="imagem" title="ativar ou desativar">
+                                    <?php } ?>
                             </a>
                         </td>
                     <tr>

@@ -59,7 +59,17 @@
         }
 
         //Delete de uma subcategoria
-        public function deleteSubcategoria(){}
+        public function deleteSubcategoria($codigoSubcategoria){
+
+            //Script
+            $sql = "delete from tblsubcategorias where codigo = ".$codigoSubcategoria;
+
+            //Manda p/ o bd e Verifica se funcionou
+            if($this->conexao->query($sql))
+                return true;
+            else
+                return false;
+        }
 
         //Select all das subcategoria
         public function selectAllSubcategoria(){
@@ -119,6 +129,14 @@
         }
 
         //Update status de uma subcategoria
-        public function updateStatusSubcategoria(){}
+        public function updateStatusSubcategoria($codigoSubcategoria, $statusSubcategoria){
+            $sql = "update tblsubcategorias set status =".$statusSubcategoria.
+                   " where codigo=".$codigoSubcategoria;
+
+            if($this->conexao->query($sql))
+                return true;
+            else
+                return false;
+        }
     }
 ?>

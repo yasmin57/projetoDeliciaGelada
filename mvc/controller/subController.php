@@ -42,18 +42,30 @@
             if($this->subDAO->updateSubcategoria($this->sub))
                 header('location:sub.php');
             else
-                echo('erro ao inserir no banco');
+                echo('erro ao editar no banco');
             
         }
 
         //Exclui uma subcategoria
-        public function excluiSubcategoria(){
-            
+        public function excluiSubcategoria($idSubcategoria){
+            if($this->subDAO->deleteSubcategoria($idSubcategoria))
+                header('location:sub.php');
+            else
+                echo('erro ao deletar no banco');
         }
 
         //Muda status de uma subcategoria
-        public function statusSubcategoria(){
-            
+        public function statusSubcategoria($idSubcategoria, $status){
+            //Muda valor do status
+            if($status)
+                $statusSubcategoria = 0;
+            else
+                $statusSubcategoria = 1;
+            //Chama o método e veridica o retorno    
+            if($this->subDAO->updateStatusSubcategoria($idSubcategoria, $statusSubcategoria))
+                header('location:sub.php');
+            else
+                echo('erro');
         }
 
         //Seleciona todas as subcategorias
