@@ -4,6 +4,11 @@
     {
         session_start();
     }
+
+    //IMPORTE DO ARQUIVO DE CONEXÃO COM O BD
+    require_once('../bd/conexao.php');
+    //CHAMADA DA FUNÇÃO QUE CONECTA COM O BD
+    $conexao = conexaoMysql();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -58,12 +63,37 @@
                  </div>
                 <!-- menu lateral -->
                  <nav id="home_nav" class="float back_pink">
-                     <div class="home_nav_itens fonte back_goiaba">
-                         item 01
-                     </div>
-                     <div class="home_nav_itens fonte back_goiaba">
-                         item 02
-                     </div>
+                    <?php
+                        //SCRIPT 
+                        $sql = "select * from tblcategorias where status =1 order by codigo";
+                        
+                        //MANDA P/ O BD
+                        $select = mysqli_query($conexao, $sql);
+                        
+                        while($rsCategorias = mysqli_fetch_array($select)){
+                    ?>
+                        <a href="">
+                            <div class="home_nav_itens fonte back_goiaba">
+                                <?=$rsCategorias['nome']?>
+                                <!-- subcategorias -->
+                                <ul class="home_nav_list">
+                                     <?php
+                                        $sql = "select * from tblsubcategorias where status =1
+                                                and idcategoria=".$rsCategorias['codigo']." order by codigo";
+
+                                        $select2 = mysqli_query($conexao, $sql);
+                                     
+                                        while($rsSub = mysqli_fetch_array($select2)){?> 
+                                        <li class="home_nav_list_elements fonte back_goiaba">
+                                            <a href=""><?=$rsSub['descricao']?></a>
+                                        </li>
+                                    <?php }?>  
+                                </ul>
+                            </div>
+                        </a>
+                    <?php
+                        }
+                    ?>
                  </nav>  
                 <!-- produtos -->
                 <div id="home_conteudo_main" class="float">

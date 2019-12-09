@@ -138,5 +138,32 @@
             else
                 return false;
         }
+
+        //Select all das subcategoria por categoria
+        public function selectAllByIdCategoria($codigoCategoria){
+            $sql = "select * from tblsubcategorias where idcategoria=".$codigoCategoria;
+
+            $select = $this->conexao->query($sql);
+
+            $cont = 0;
+
+            while($rs = $select->fetch(PDO::FETCH_ASSOC)){
+                //Coleção de objetos
+                $listSub[] = new Subcategoria();
+
+                //Guarda os dados
+                $listSub[$cont]->setCodigo($rs['codigo']);
+                $listSub[$cont]->setDescricao($rs['descricao']);
+                $listSub[$cont]->setStatus($rs['status']);
+                $listSub[$cont]->setIdCategoria($rs['idcategoria']);;
+
+                $cont++;
+            }
+
+            if(isset($listSub))
+                return $listSub;
+            else
+                return false;
+        }
     }
 ?>

@@ -1,3 +1,7 @@
+<?php 
+    if(!isset($_SESSION))
+        session_start();
+?>
 <header class="back_black">
     <div class="conteudo center back_black" id="header">
         <div id="header_title" class="fonte float color_white">
@@ -24,7 +28,7 @@
                                 <div class="menu_option fonte botao"><a class="color_white" href="produtos.php">Adm. Produtos </a></div>
                         </td>
                         <td class="menu_itens_big">
-                            <div class="menu_mensagem fonte color_white"><p> Bem Vindo, </p></div>
+                            <div class="menu_mensagem fonte color_white"><p> Bem Vindo, <?=$_SESSION['nomeUsuarioLogin']?></p></div>
                             <div class="menu_mensagem fonte botao logout back_orange_cms"><a class="color_white" href="../raiz/sistema_interno.php">logout</a></div>
                         </td>
                     </tr>

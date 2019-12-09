@@ -158,6 +158,31 @@ figcaption {
    background-color: #d47e46; 
    cursor: pointer;
 }
+.home_nav_list{
+    width: 250px;
+    min-height: 50px;
+    margin-left: 120px;
+    display: none;
+    list-style: none;
+    margin-top: -38px;
+    position: absolute;
+}
+.home_nav_list_elements{
+    width: inherit;
+    height: 50px;
+    color: white;
+    border: solid 1px white;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 15px;
+}
+.home_nav_itens:hover .home_nav_list{
+    display: block;
+ }
+ .home_nav_list_elements:hover{
+    background-color: #d47e46; 
+    cursor: pointer;
+ }
 
 /*produtos*/
 #home_conteudo_main{

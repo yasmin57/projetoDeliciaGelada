@@ -115,12 +115,57 @@
 
                     $subcategoriaController->statusSubcategoria($id, $status);
                     break;
+
+                case 'BUSCARPORCATEGORIA':
+                    $id = $_POST['sltcategorias'];
+
+                    $subcategoriaController = new SubcategoriaController();
+
+                    $subcategoriaController->buscaSubcategoriaPorCategoria($id);
+
+                    break;
             }
 
             break;
         // Produtos
-        case 'value':
+        case 'PRODUTOS':
+            //Importe do arquivo controller
+            require_once('controller/produtoController.php');
             
+            switch ($modo) {
+                case 'FOTO':
+                    require_once('controller/previewProduto.php');
+
+                    //instancia da classe controler
+                    $previewProduto = new PreviewProduto();
+
+                    //chama o método p/ fazer upload
+                    $previewProduto->previewFoto();
+
+                    break;
+                
+                case 'NOVO':
+                
+                    //instancia da classe controler
+                    $produtosController = new ProdutoController();
+
+                    $produtosController->novaCategoria();
+    
+                    break;
+                case 'BUSCAR':
+            
+                    //instancia da classe controler
+                    $produtosController = new ProdutoController();
+    
+                    break;
+                case 'EDITAR':
+        
+                    //instancia da classe controler
+                    $produtosController = new ProdutoController();
+    
+                    break;
+            }
+
             break;
         
     }

@@ -257,11 +257,16 @@ footer{
     display: flex;
     padding: 20px;
 }
-
+.form_produtos{
+    width: 600px;
+    display: flex;
+    padding: 20px;
+}
 /* Mostrar img */
 #img_curiosidades{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
+    margin-left: 20px;
 }
 
 .btn_adm_usuarios{
@@ -313,10 +318,16 @@ footer{
 .card_curiosidades_input{
     width: 430px;
     height: 40px;
+    margin-top: 7px;
 }
 .card_curiosidades_file{
     width: 850px;
     margin-top: 12px;
+}
+.card_curiosidades_texto{
+    width: 430px;
+    height: 160px;
+    margin-top: 7px;
 }
 .btn_curiosidades{
     width: 150px;
@@ -345,4 +356,39 @@ footer{
 .exibir_icon img{
     width: 40px;
     height: 40px;
+}
+/* Radios das cores */
+.colors{
+    width: 428px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-image: url('../imgs/back_risks.PNG');
+}
+.color_container{
+    width: 283px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.color{
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    border: solid 1px black;
+    text-align: center;
+    margin-right: 15px;
+}
+.radio{
+    height: 30px;
+    width: 30px;  
+    margin-top: 5px;
+}
+.title_color{
+    height: 50px;
+    box-sizing: border-box;
+    padding-top: 13px;
+    padding-left: 5px;
+    font-weight: bold;
 }

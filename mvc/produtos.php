@@ -1,0 +1,1 @@
+<?php require_once('view/produtos/adm_produtos.php') ?>
