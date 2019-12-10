@@ -3,7 +3,6 @@
         //Variaveis
         private $produto;
         private $produtoDAO;
-        //private $subcategorias;
         private $subcategorias;
         private $arraySub;
         
@@ -49,7 +48,7 @@
         }
 
         //Método p/ inserir
-        public function novaCategoria(){
+        public function novoProduto(){
             //Atribui um valor ao status
             $this->produto->setStatus(1);
 
@@ -165,23 +164,29 @@
         }
 
         //Método p/ editar
-        public function editaCategoria($idCategoria){
+        public function editaProduto($idCategoria){
         }
 
         //Método p/ deletar
-        public function excluiCategoria($idCategoria){
+        public function excluiProduto($idCategoria){
         }
 
         //Método p/ listar
-        public function listaCategoria($code){
+        public function listaProduto(){
+            $list = $this->produtoDAO->selectAllProduto();
+
+            if($list)
+                return $list;
+            else
+                die();
         }
 
         //Método p/ listar por id
-        public function buscaCategoria($idCategoria){
+        public function buscaProduto($idCategoria){
         }
 
         //Método p/ mudar o status
-        public function statusCategoria($idCategoria, $statusCategoria){
+        public function statusProduto($idCategoria, $statusCategoria){
         }
         
     }

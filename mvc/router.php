@@ -149,7 +149,7 @@
                     //instancia da classe controler
                     $produtosController = new ProdutoController();
 
-                    $produtosController->novaCategoria();
+                    $produtosController->novoProduto();
     
                     break;
                 case 'BUSCAR':

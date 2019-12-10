@@ -88,7 +88,36 @@
         }
 
         //Método p/ listar
-        public function selectAllCategoria($code){
+        public function selectAllProduto(){
+            $sql = "select * from tblprodutos ";
+
+            $select = $this->conexao->query($sql);
+
+            $cont = 0;
+
+            while($rs = $select->fetch(PDO::FETCH_ASSOC))
+            {
+                //Instancia da classe categoria
+                $listProdutos[] = new Produto();
+                $listProdutos[$cont]->setCodigo($rs['codigo']);
+                $listProdutos[$cont]->setNome($rs['nome']);
+                $listProdutos[$cont]->setNome($rs['descricao']);
+                $listProdutos[$cont]->setNome($rs['preco']);
+                $listProdutos[$cont]->setNome($rs['desconto']);
+                $listProdutos[$cont]->setNome($rs['destaque']);
+                $listProdutos[$cont]->setNome($rs['fotodestaque']);
+                $listProdutos[$cont]->setNome($rs['textodestaque']);
+                $listProdutos[$cont]->setNome($rs['foto']);
+                $listProdutos[$cont]->setNome($rs['idcategoria']);
+                $listProdutos[$cont]->setStatus($rs['status']);
+
+                $cont++;
+            }
+
+            if(isset($listProdutos))
+                return $listProdutos;
+            else
+                return false;
         }
 
         //Método p/ listar por id
