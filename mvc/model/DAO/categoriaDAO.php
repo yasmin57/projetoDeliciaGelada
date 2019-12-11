@@ -1,4 +1,13 @@
 <?php
+    /*
+        * CLASSE P/ A INTEGRAÇÃO DE CONTATO COM O BANCO DE DADOS
+        * AUTOR: YASMIN PEREIRA DA SILVA
+        * DATA DE CRIAÇÃO: 04/12/19
+        * MODIFICAÇÕES:
+         -> DATA: 05/12/19
+            ALTERAÇÕES REALIZADAS: Método p/ update, delete e selects implementados
+            NOME DO DESENVOLVEDOR: YASMIN PEREIRA DA SILVA
+    */
     class CategoriaDAO{
         
         private $conexao;

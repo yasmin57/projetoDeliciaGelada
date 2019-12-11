@@ -1,4 +1,13 @@
 <?php
+    /*
+        * CLASSE REFERENTE AO OBJETO CATEGORIA
+        * AUTOR: YASMIN PEREIRA DA SILVA
+        * DATA DE CRIAÇÃO: 04/12/19
+        * MODIFICAÇÕES:
+         -> DATA: 
+            ALTERAÇÕES REALIZADAS: 
+            NOME DO DESENVOLVEDOR: 
+    */
     class Categoria{
         //Atributos
         private $codigo;

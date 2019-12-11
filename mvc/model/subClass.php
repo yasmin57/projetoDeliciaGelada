@@ -1,13 +1,21 @@
 <?php
+    /*
+        * CLASSE REFERENTE AO OBJETO SUBCATEGORIA
+        * AUTOR: YASMIN PEREIRA DA SILVA
+        * DATA DE CRIAÇÃO: 06/12/19
+        * MODIFICAÇÕES:
+         -> DATA: 11/12/19
+            ALTERAÇÕES REALIZADAS: Atualizações dos atributos, getters e setters
+            NOME DO DESENVOLVEDOR: YASMIN PEREIRA DA SILVA
+    */
     class Subcategoria{
 
         //Atributos
         private $codigo;
         private $descricao;
-        private $idCategoria;
         private $status;
         private $nome;
-        private $codigoCategoria;
+        //private $codigoCategoria;
 
         //Construtor
         public function __construct(){}
@@ -26,13 +34,6 @@
         public function setDescricao($descricao){
             $this->descricao = $descricao;
         }
-        //IdCategoria
-        public function getIdCategoria(){
-            return $this->idCategoria;
-        }
-        public function setIdCategoria($idCategoria){
-            $this->idCategoria = $idCategoria;
-        }
         //Status
         public function getStatus(){
             return $this->status;
@@ -47,12 +48,5 @@
         public function setNome($nome){
             $this->nome = $nome;
         }
-        public function getCodigoCategoria(){
-            return $this->codigoCategoria;
-        }
-        public function setCodigoCategoria($codigoCategoria){
-            $this->codigoCategoria = $codigoCategoria;
-        }
-
     }
 ?>
