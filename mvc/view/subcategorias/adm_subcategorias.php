@@ -1,13 +1,14 @@
 <?php
+    //Action do form quando a página é carregada
     $action = 'router.php?controller=subcategorias&modo=novo';
     
     if(isset($_GET['modo'])){
         if(strtoupper($_GET['modo']) == 'BUSCAR'){
+
             $descricao = $dadosSub->getDescricao();
-            $codeCategoria = $dadosSub->getCodigoCategoria();
-            $nomeCategoria = $dadosSub->getNome();
             $codigo = $dadosSub->getCodigo();
 
+            //Muda o modo p/ editar no action do form
             $action = 'router.php?controller=subcategorias&modo=editar&id='.$codigo;
         }
     }
@@ -29,50 +30,9 @@
         <section class="conteudo center fonte">
                 <h1 class="txt_center">Administração das Subcategorias </h1>
 
-                <!-- Formulário Para Criar Páginas -->
+                <!-- Formulário -->
                 <form method="post"  action="<?=$action?>"  class="center back_green_dark_cms form_curiosidades color_white" name="frmcategorias" enctype="multipart/form-data">
-                    <!-- Restante do formulário -->
                     <div id="card_curiosidades">
-                        <!-- Categoria -->
-                        <div class="card_curiosidades">
-                            <div class="card_curiosidades_name"> <p>Categoria:</p>  </div>
-                            <select name="sltcategorias" id="" class="fonte card_curiosidades_input">
-                                <?php 
-                                    //Importe do arquivo 
-                                    require_once('controller/categoriaController.php');
-
-                                    //instancia
-                                    $categorias = new CategoriaController();
-
-                                    if(isset($_GET['modo'])){
-                                         ?>
-                                            <option value="<?=$codeCategoria?>">
-                                                <?=$nomeCategoria?>
-                                            </option> 
-                                <?php 
-                                        //Método que faz o select
-                                        $select = $categorias->listaCategoria($codeCategoria);
-                                    }
-                                    else{
-                                        //Método que faz o select
-                                        $select = $categorias->listaCategoria(0);
-                                    }
-                                    
-                                    //Contador
-                                    $cont = 0;
-
-                                    //Laço
-                                    while($cont < count($select)){
-                                ?>
-                                    <option value="<?=$select[$cont]->getCodigo()?>">
-                                        <?=$select[$cont]->getNome()?>
-                                    </option>    
-                                <?php
-                                    $cont++;
-                                    } 
-                                ?>
-                            </select>
-                        </div>
                         <!-- Nome -->
                         <div class="card_curiosidades">
                             <div class="card_curiosidades_name"> <p>Nome:</p>  </div>
@@ -91,10 +51,7 @@
                         <td colspan="4"><h1> Subcategorias: </h1></td>
                     </tr>
                     <tr class="exibir_linha back_pink_cms color_white">
-                        <td>
-                            <p> Categoria: </p>
-                        </td>
-                        <td colspan="2">
+                        <td colspan="3">
                             <p> Nome: </p>
                         </td>
                         <td>
@@ -102,26 +59,18 @@
                         </td>
                     </tr>
                     <?php 
-                        //Importe
+                        //Importe do arquivo e instancia da classe controller
                         require_once('controller/subController.php');
-
-                        //Instancia
                         $subController = new SubcategoriaController();
 
-                        //Metodo
+                        //Metodo p/ listar dados
                         $dados = $subController->listaSubcategoria();
 
-                        //contador
                         $cont = 0;
-
-                        //laço
                         while($cont < count($dados)){
                     ?>
                     <tr class="exibir_linha back_green_cms color_white">
-                        <td>
-                            <p> <?=$dados[$cont]->getNome()?>  </p>
-                        </td>
-                        <td colspan="2" class="exibir_coluna">
+                        <td colspan="3" class="exibir_coluna">
                             <p> <?=$dados[$cont]->getDescricao()?> </p>
                         </td>
                         <td>
@@ -153,7 +102,7 @@
                         </td>
                     <tr>
                     <?php 
-                        $cont++;
+                            $cont++;
                         }?>
                     
                 </table>
