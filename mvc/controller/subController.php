@@ -1,4 +1,16 @@
 <?php
+    /*
+        * CLASSE DE CONTROLLER DO CONTATO
+        * AUTOR: YASMIN PEREIRA DA SILVA
+        * DATA DE CRIAÇÃO: 06/12/19
+        * MODIFICAÇÕES:
+         -> DATA: 07/12/19
+            ALTERAÇÕES REALIZADAS: Método p/ editar, excluir e buscar implementados
+            NOME DO DESENVOLVEDOR: YASMIN PEREIRA DA SILVA
+         -> DATA: 11/12/19
+            ALTERAÇÕES REALIZADAS: Atualização dos dados resgatados pelo formulário
+            NOME DO DESENVOLVEDOR: YASMIN PEREIRA DA SILVA
+    */
     class SubcategoriaController{
         //Variaveis
         private $sub;
@@ -14,6 +26,9 @@
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 //Instancia da classe categoria
                 $this->sub = new Subcategoria();
+
+                //Resgata o dado via post
+                $this->sub->setDescricao($_POST['txtnome']);
             }
 
             //Instancia da classe DAO
@@ -22,9 +37,7 @@
 
         //Nova subcategoria
         public function novaSubcategoria(){
-            //Resgata o dado via post
-            $this->sub->setDescricao($_POST['txtnome']);
-            $this->sub->setIdCategoria($_POST['sltcategorias']);
+            
             $this->sub->setStatus(1);
 
             if($this->subDAO->insertSubcategoria($this->sub))
@@ -35,9 +48,7 @@
 
         //Atualiza subcategoria
         public function editaSubcategoria($idSubcategoria){
-            //Resgata o dado via post
-            $this->sub->setDescricao($_POST['txtnome']);
-            $this->sub->setIdCategoria($_POST['sltcategorias']);
+
             $this->sub->setCodigo($idSubcategoria);
 
             if($this->subDAO->updateSubcategoria($this->sub))
@@ -84,26 +95,6 @@
             $dadosSub = $this->subDAO->selectByIdSubcategoria($idSubcategoria);
 
             require_once('sub.php');
-        }
-
-        //Busca uma subcategoria pelo seu codigo
-        public function buscaSubcategoriaPorCategoria($idCategoria){
-            $dadosSub = $this->subDAO->selectAllByIdCategoria($idCategoria);
-
-            $cont = 0;
-
-            session_start();
-            $_SESSION['codecategoria'] = $idCategoria;
-            $_SESSION['quantidade'] = count($dadosSub);
-
-            while($cont < count($dadosSub)){
-                echo('<div class="color_container">
-                        <input name="chk'.$cont.'" value="'.$dadosSub[$cont]->getCodigo().'
-                        " type="checkbox" class="radio">
-                        <div class="title_color"> <p>'.$dadosSub[$cont]->getDescricao().' </p></div>
-                      </div>');
-                $cont++;
-            }
         }
     }
 ?>

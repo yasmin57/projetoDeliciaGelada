@@ -1,6 +1,18 @@
 <?php
+    /*
+        * CLASSE DE CONTROLLER DO CONTATO
+        * AUTOR: YASMIN PEREIRA DA SILVA
+        * DATA DE CRIAÇÃO: 04/12/19
+        * MODIFICAÇÕES:
+         -> DATA: 05/12/19
+            ALTERAÇÕES REALIZADAS: Método p/ editar, excluir e buscar implementados
+            NOME DO DESENVOLVEDOR: YASMIN PEREIRA DA SILVA
+         -> DATA: 11/12/19
+            ALTERAÇÕES REALIZADAS: Atualização dos comentários
+            NOME DO DESENVOLVEDOR: YASMIN PEREIRA DA SILVA
+    */
     class CategoriaController{
-        //Variaveis
+        //Atributos
         private $categoria;
         private $categoriaDAO;
 
@@ -78,7 +90,7 @@
             //Instancia da classe categoria
             $this->categoria = new Categoria();
             
-            //Verifica o valor do status e muda
+            //Verifica o valor do status e modifica
             if($statusCategoria == 1)
                 $status = 0;
             else
