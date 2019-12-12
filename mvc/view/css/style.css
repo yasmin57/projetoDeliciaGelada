@@ -262,11 +262,17 @@ footer{
     display: flex;
     padding: 20px;
 }
+.form_produtos_foto{
+    width: 300px;
+    display: flex;
+    padding: 20px;
+    margin-top: -100px;
+    padding-left: 0px;
+}
 /* Mostrar img */
 #img_curiosidades{
     width: 400px;
-    height: 400px;
-    margin-left: 20px;
+    height: 300px;
 }
 
 .btn_adm_usuarios{
@@ -303,7 +309,7 @@ footer{
 }
 .card_curiosidades_big{
     width: inherit;
-    height: 150px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -323,17 +329,26 @@ footer{
 .card_curiosidades_file{
     width: 850px;
     margin-top: 12px;
+    margin-left: 12px;
 }
 .card_curiosidades_texto{
     width: 430px;
-    height: 160px;
+    height: 200px;
     margin-top: 7px;
 }
 .btn_curiosidades{
     width: 150px;
     height: 40px;
 }
-
+#tblprodutos{
+    height: 290px;
+    width: inherit;
+}
+#tblfotos{
+    min-height: 50px;
+    width: inherit;
+    padding-top: 30px;
+}
 /* Tabela p/ exibir os dados */
 .exibir_table{
     width: 1300px; /* 1400px*/

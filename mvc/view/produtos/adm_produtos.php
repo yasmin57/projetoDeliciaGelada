@@ -39,92 +39,14 @@
             <section class="conteudo center fonte txt_center"> 
                 <h1 class="txt_center">Administração dos Produtos </h1>
 
-                <table class="center back_green_dark_cms">
+                <table id="tblprodutos" class="back_green_dark_cms">
                     <tr>
-                        <td rowspan="3">
-                            <!-- Mostrar Imagem -->
-                            <div id="img_curiosidades" class="back back_green_light_cms">
-                                <?php if(isset($_GET['modo'])) {?>
-                                    <img src="../imgs/<?=$foto?>" alt="imagem"/>
-                                <?php } else{?>
-                                    <img src="view/imgs/icon_image.png" alt="imagem">
-                                <?php }?>
-                            </div>
-                        </td>
-                        <td>
-                            <!-- Form da foto -->
-                            <form method="post"  action="router.php?controller=produtos&modo=foto"  class="fonte center back_green_dark_cms form_produtos color_white" name="frmfoto" id="formFoto" enctype="multipart/form-data">
-                                <!-- FOTO -->
-                                <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
-                                </div>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <!-- Form das categorias -->
-                            <form method="post"  action="router.php?controller=subcategorias&modo=buscarporcategoria"  class="fonte center back_green_dark_cms form_produtos color_white" name="frmcategorias" id="formCategorias">
-                                <!-- CATEGORIA -->
-                                <div class="card_curiosidades">
-                                    <div class="card_curiosidades_name"> <p>Categoria:</p>  </div>
-                                    <select name="sltcategorias" id="sltCategorias" class="fonte card_curiosidades_input">
-                                        <option value="">Selecione</option>
-                                        <?php 
-                                            //Importe do arquivo 
-                                            require_once('controller/categoriaController.php');
-
-                                            //instancia
-                                            $categorias = new CategoriaController();
-
-                                            if(isset($_GET['modo'])){
-                                                    ?>
-                                                    <option value="<?=$codeCategoria?>">
-                                                        <?=$nomeCategoria?>
-                                                    </option> 
-                                        <?php 
-                                                //Método que faz o select
-                                                $select = $categorias->listaCategoria($codeCategoria);
-                                            }
-                                            else{
-                                                //Método que faz o select
-                                                $select = $categorias->listaCategoria(0);
-                                            }
-                                            
-                                            //Contador
-                                            $cont = 0;
-
-                                            //Laço
-                                            while($cont < count($select)){
-                                        ?>
-                                            <option value="<?=$select[$cont]->getCodigo()?>">
-                                                <?=$select[$cont]->getNome()?>
-                                            </option>    
-                                        <?php
-                                            $cont++;
-                                            } 
-                                        ?>
-                                    </select>
-                                </div>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
+                        <!-- FORM PRINCIPAL -->
                         <td>
                             <!-- Formulário Para Criar Produtos -->
                             <form method="post"  action="<?=$action?>"  class="fonte center back_green_dark_cms form_produtos color_white" name="frmprodutos" enctype="multipart/form-data">
                                 <!-- Restante do formulário -->
                                 <div id="card_curiosidades">
-                                    <!-- SUBCATEGORIAS -->
-                                    <div class="card_curiosidades_big">
-                                        <div class="card_curiosidades_name"> <p>Subcategorias:</p>  </div>
-                                        
-                                        <div class="colors back" id="sub">
-                                            <h1 style="margin-top: 55px"> Selecione uma categoria </h1>
-                                        </div>
-                                        
-                                    </div>
                                     <!-- NOME -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name "> <p>Nome:</p>  </div>
@@ -145,29 +67,49 @@
                                         <div class="card_curiosidades_name "> <p>Desconto:</p>  </div>
                                         <input value="<?=@$nome?>" name="txtdesconto" placeholder="Digite o percentual de deconto. Ex: 10" class="fonte card_curiosidades_input" type="text" maxlength="2" required size="45">
                                     </div>
+                                    <div class="card_curiosidades">
+                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
+                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                                    </div>
+                                    <div class="card_curiosidades">
+                                        <input style="margin-top: 15px" class="botao back_orange_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btnprodutos">
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                        <!-- FORM DESTAQUE -->
+                        <td>
+                            <form method="post"  action="<?=$action?>"  class="fonte center back_green_dark_cms form_produtos color_white" name="frmprodutos" enctype="multipart/form-data">
+                                <div id="card_curiosidades">
                                     <!-- DESTAQUE -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name "> <p>Destaque:</p>  </div>
                                         <input  name="chkdestaque" value="1" type="checkbox" class="radio">
                                     </div>
-                                    <!-- TEXTO DESTAQUE -->
+                                    <!-- DESCRICAO -->
                                     <div class="card_curiosidades_big">
-                                        <div class="card_curiosidades_name"> <p>Texto Dest.:</p>  </div>
-                                        <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txttexto" ><?=@$texto?></textarea>
+                                        <div class="card_curiosidades_name"> <p>Descricao:</p>  </div>
+                                        <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txtdescricao" required ><?=@$texto?></textarea>
                                     </div>
                                     <!-- FOTO -->
                                     <div class="card_curiosidades">
-                                            <div class="card_curiosidades_name"> <p>Foto Dest.:</p>  </div>
-                                            <input class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
+                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                                    </div>
+                                    <!-- FOTO -->
+                                    <div class="card_curiosidades">
+                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
+                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
                                     </div>
                                     <div class="card_curiosidades">
-                                        <input style="margin-top: 15px" class="botao back_orange_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btnprodutos">
                                     </div>
-                                </div>    
+                                    <div class="card_curiosidades">
+                                    </div>
+                                </div>
                             </form>
                         </td>
                     </tr>
-                </table>     
+                </table>
             </section>
         </div>
         
