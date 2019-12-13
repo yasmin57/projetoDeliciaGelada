@@ -14,17 +14,11 @@
         <link type="text/css" href="view/css/style.css" rel="stylesheet">
         <script src="view/js/jquery.js"></script>
         <script src="view/js/jquery.form.js"></script>
-        <script>
-            $(document).ready(function(){
-                
-
-                $('#sltCategorias').live('change', function(){
-                    $('#formCategorias').ajaxForm({
-                        target: '#sub'
-                    }).submit();
-                });
-            });
-        </script>
+        <?php
+            if(isset($_SESSION['erroUp'])){
+                echo($_SESSION['erroUp']);
+            }
+        ?>
     </head>
     <body>
         <!-- CABEÇALHO -->
@@ -38,7 +32,15 @@
                     <tr>
                         <td>
                             <!-- Mostrar Imagem -->
-                            <div id="img_curiosidades" class="back back_green_light_cms">
+                            <div class="img_curiosidades back back_green_light_cms">
+                                <?php if(isset($_GET['modo'])) {?>
+                                    <img id="img1" src="../../imgs/<?=$foto?>" alt="imagem"/>
+                                <?php } else{?>
+                                    <img id="img1" src="view/imgs/icon_image.png" alt="imagem">
+                                <?php }?>
+                            </div>
+                            <!-- Mostrar Imagem -->
+                            <div id="" class="img_curiosidades back back_green_light_cms">
                                 <?php if(isset($_GET['modo'])) {?>
                                     <img src="../../imgs/<?=$foto?>" alt="imagem"/>
                                 <?php } else{?>
@@ -46,15 +48,7 @@
                                 <?php }?>
                             </div>
                             <!-- Mostrar Imagem -->
-                            <div id="img_curiosidades" class="back back_green_light_cms">
-                                <?php if(isset($_GET['modo'])) {?>
-                                    <img src="../../imgs/<?=$foto?>" alt="imagem"/>
-                                <?php } else{?>
-                                    <img src="view/imgs/icon_image.png" alt="imagem">
-                                <?php }?>
-                            </div>
-                            <!-- Mostrar Imagem -->
-                            <div id="img_curiosidades" class="back back_green_light_cms">
+                            <div id="" class=" img_curiosidades back back_green_light_cms">
                                 <?php if(isset($_GET['modo'])) {?>
                                     <img src="../imgs/<?=$foto?>" alt="imagem"/>
                                 <?php } else{?>
@@ -89,7 +83,7 @@
                                     <!-- FOTO -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                                        <input id='upload' <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
                                     </div>
                                     <div class="card_curiosidades">
                                     </div>
@@ -101,17 +95,17 @@
                                     <!-- DESCRICAO -->
                                         <div class="card_curiosidades_big">
                                             <div class="card_curiosidades_name"> <p>Descricao:</p>  </div>
-                                            <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txttextodesc" required ><?=@$texto?></textarea>
+                                            <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txttextodesc"  ><?=@$texto?></textarea>
                                         </div>
                                     <!-- FOTO -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                                        <input <?php if(!isset($_GET["modo"])){?>required<?php }?> class="card_curiosidades_file fonte" type="file" name="flefotodesc" accept="image/jpeg, image/png, image/jpg">
+                                        <input class="card_curiosidades_file fonte" type="file" name="flefotodesc" accept="image/jpeg, image/png, image/jpg">
                                     </div>
                                     <!-- FOTO -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name"> <p>Foto de fundo:</p>  </div>
-                                        <input <?php if(!isset($_GET["modo"])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flebackdesc" accept="image/jpeg, image/png, image/jpg">
+                                        <input class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flebackdesc" accept="image/jpeg, image/png, image/jpg">
                                     </div>
                                     <div class="card_curiosidades">
                                     </div>
@@ -127,6 +121,8 @@
         </div>
         
         <!-- RODAPÉ  -->
-       <?php require_once("view/footer.php"); ?>
+       <?php require_once("view/footer.php")?>
+
+       <?php if(isset($_SESSION['erroUp'])){unset($_SESSION['erroUp']);} ?>
     </body>
 </html>

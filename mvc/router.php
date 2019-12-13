@@ -132,16 +132,7 @@
             //Importe do arquivo controller
             require_once('controller/produtoController.php');
             
-            switch ($modo) {
-                case 'CHKDEST':
-                    //instancia da classe controler
-                    $produtosController = new ProdutoController();
-
-                    //chama o método p/ fazer upload
-                    $produtosController->acionaFormDestaque();
-
-                    break;
-                
+            switch ($modo) {  
                 case 'NOVO':
                 
                     //instancia da classe controler

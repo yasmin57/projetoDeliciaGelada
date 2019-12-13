@@ -70,7 +70,7 @@
         public function getTextoDest(){ //GETTERS E SETTERS DO TEXTO DO DESTAQUE
             return $this->textoDest;
         }
-        public function setTexto($textoDest){
+        public function setTextoDest($textoDest){
             $this->textoDest = $textoDest;
         }
 
@@ -84,7 +84,7 @@
         public function getBackDest(){ //GETTERS E SETTERS DO BACKGROUND DESTAQUE
             return $this->backDest;
         }
-        public function setFotoDestaque($backDest){
+        public function setBackDest($backDest){
             $this->backDest = $backDest;
         }
         

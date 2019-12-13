@@ -264,7 +264,7 @@ footer{
 }
 
 /* Mostrar img */
-#img_curiosidades{
+.img_curiosidades{
     width: 400px;
     height: 300px;
 }

@@ -20,63 +20,77 @@
         //Método p/ inserir tblprodutos
         public function insertProduto(Produto $produto){
             //Script p/ o bd
-            $sql = "insert into tblprodutos(nome, descricao, preco, foto, idcategoria, status,
-                    destaque, textodestaque, fotodestaque, desconto) 
+            $sql = "insert into tblprodutos (nome, descricao, preco, foto, status,
+                    destaque, textodestaque, fotodestaque, backdestaque, desconto) 
                     values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             //Prepara p/ mandar p/ o bd
             $statement = $this->conexao->prepare($sql);
 
+            if($produto->getDestaque() <> null){
+                $destaque = 1;
+            }
+            else{
+                $destaque = 0;
+            }
+
             //Array com o dado
-            $statementDado = array(
+            $statementDados = array(
                 $produto->getNome(), $produto->getDescricao(),
                 $produto->getPreco(), $produto->getFoto(),
-                $produto->getCategoria(), $produto->getStatus(),
-                $produto->getDestaque(), $produto->getTexto(),
-                $produto->getFotoDestaque(), $produto->getDesconto()
+                $produto->getStatus(), $destaque, 
+                $produto->getTextoDest(),  $produto->getFotoDest(),
+                $produto->getBackDest(), $produto->getDesconto()
             );
 
             //Manda p/ o bd e retorna o resultado
-            if($statement->execute($statementDado))
+            if($statement->execute($statementDados))
                 return true;
             else
-                return false;
+
+                //var_dump($produto->getDestaque());
+                echo($destaque);
+                // var_dump($produto->>getTextoDest());
+                // var_dump($produto->getFotoDest());
+                // var_dump($produto->>getBackDest());
+
+                //return false;
         }
 
         //Método p/ inserir na tblprodutos_subcategorias
-        public function insertProdutoSubcategoria($codeProduto, $subcategorias){
-            $cont = 0;
+        // public function insertProdutoSubcategoria($codeProduto, $subcategorias){
+        //     $cont = 0;
 
-            while($cont < count($subcategorias)){
-                $sql = " insert into tblprodutos_subcategorias(idproduto, idsubcategoria) 
-                values(".$codeProduto." ,".$subcategorias[$cont]." )";
+        //     while($cont < count($subcategorias)){
+        //         $sql = " insert into tblprodutos_subcategorias(idproduto, idsubcategoria) 
+        //         values(".$codeProduto." ,".$subcategorias[$cont]." )";
 
-                if($insert = $this->conexao->query($sql))
-                    $cont++;
-                else
-                    $cont = 100;
-            }
+        //         if($insert = $this->conexao->query($sql))
+        //             $cont++;
+        //         else
+        //             $cont = 100;
+        //     }
 
-            if($insert)
-                return true;
-            else
-                return false;
+        //     if($insert)
+        //         return true;
+        //     else
+        //         return false;
             
-        }
+        // }
 
         //Método p/ pegar o código do último registro
-        public function selectCodeUltimoProduto(){
-            $sql = "select codigo from tblprodutos order by codigo desc";
+        // public function selectCodeUltimoProduto(){
+        //     $sql = "select codigo from tblprodutos order by codigo desc";
 
-            if($select = $this->conexao->query($sql)){
-                $rs = $select->fetch(PDO::FETCH_ASSOC);
+        //     if($select = $this->conexao->query($sql)){
+        //         $rs = $select->fetch(PDO::FETCH_ASSOC);
 
-                return $rs['codigo'];
-            }
-            else{
-                return false;
-            }
-        }
+        //         return $rs['codigo'];
+        //     }
+        //     else{
+        //         return false;
+        //     }
+        // }
 
 
         //Método p/ editar
