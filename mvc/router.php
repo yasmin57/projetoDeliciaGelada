@@ -133,14 +133,12 @@
             require_once('controller/produtoController.php');
             
             switch ($modo) {
-                case 'FOTO':
-                    require_once('controller/previewProduto.php');
-
+                case 'CHKDEST':
                     //instancia da classe controler
-                    $previewProduto = new PreviewProduto();
+                    $produtosController = new ProdutoController();
 
                     //chama o método p/ fazer upload
-                    $previewProduto->previewFoto();
+                    $produtosController->acionaFormDestaque();
 
                     break;
                 

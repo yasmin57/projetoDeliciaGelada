@@ -16,12 +16,7 @@
         <script src="view/js/jquery.form.js"></script>
         <script>
             $(document).ready(function(){
-                //Function p/ fazer o upload e o preview da imagem
-                $('#fileFoto').live('change', function(){
-                    $('#formFoto').ajaxForm({
-                        target: '#img_curiosidades' //Call Back do upload.php
-                    }).submit();
-                });
+                
 
                 $('#sltCategorias').live('change', function(){
                     $('#formCategorias').ajaxForm({
@@ -39,13 +34,37 @@
             <section class="conteudo center fonte txt_center"> 
                 <h1 class="txt_center">Administração dos Produtos </h1>
 
-                <table id="tblprodutos" class="back_green_dark_cms">
+                <table id="tblprodutos" class="center back_green_dark_cms">
                     <tr>
+                        <td>
+                            <!-- Mostrar Imagem -->
+                            <div id="img_curiosidades" class="back back_green_light_cms">
+                                <?php if(isset($_GET['modo'])) {?>
+                                    <img src="../../imgs/<?=$foto?>" alt="imagem"/>
+                                <?php } else{?>
+                                    <img src="view/imgs/icon_image.png" alt="imagem">
+                                <?php }?>
+                            </div>
+                            <!-- Mostrar Imagem -->
+                            <div id="img_curiosidades" class="back back_green_light_cms">
+                                <?php if(isset($_GET['modo'])) {?>
+                                    <img src="../../imgs/<?=$foto?>" alt="imagem"/>
+                                <?php } else{?>
+                                    <img src="view/imgs/icon_image.png" alt="imagem">
+                                <?php }?>
+                            </div>
+                            <!-- Mostrar Imagem -->
+                            <div id="img_curiosidades" class="back back_green_light_cms">
+                                <?php if(isset($_GET['modo'])) {?>
+                                    <img src="../imgs/<?=$foto?>" alt="imagem"/>
+                                <?php } else{?>
+                                    <img src="view/imgs/icon_image.png" alt="imagem">
+                                <?php }?>
+                            </div>
+                        </td>
                         <!-- FORM PRINCIPAL -->
                         <td>
-                            <!-- Formulário Para Criar Produtos -->
                             <form method="post"  action="<?=$action?>"  class="fonte center back_green_dark_cms form_produtos color_white" name="frmprodutos" enctype="multipart/form-data">
-                                <!-- Restante do formulário -->
                                 <div id="card_curiosidades">
                                     <!-- NOME -->
                                     <div class="card_curiosidades">
@@ -67,47 +86,41 @@
                                         <div class="card_curiosidades_name "> <p>Desconto:</p>  </div>
                                         <input value="<?=@$nome?>" name="txtdesconto" placeholder="Digite o percentual de deconto. Ex: 10" class="fonte card_curiosidades_input" type="text" maxlength="2" required size="45">
                                     </div>
+                                    <!-- FOTO -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
+                                    </div>
+                                    <div class="card_curiosidades">
+                                    </div>
+                                    <!-- DESTAQUE -->
+                                    <div class="card_curiosidades">
+                                        <div class="card_curiosidades_name "> <p>Destaque:</p>  </div>
+                                        <input id="destaque" name="chkdestaque" value="1" type="checkbox" class="radio">
+                                    </div>
+                                    <!-- DESCRICAO -->
+                                        <div class="card_curiosidades_big">
+                                            <div class="card_curiosidades_name"> <p>Descricao:</p>  </div>
+                                            <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txttextodesc" required ><?=@$texto?></textarea>
+                                        </div>
+                                    <!-- FOTO -->
+                                    <div class="card_curiosidades">
+                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
+                                        <input <?php if(!isset($_GET["modo"])){?>required<?php }?> class="card_curiosidades_file fonte" type="file" name="flefotodesc" accept="image/jpeg, image/png, image/jpg">
+                                    </div>
+                                    <!-- FOTO -->
+                                    <div class="card_curiosidades">
+                                        <div class="card_curiosidades_name"> <p>Foto de fundo:</p>  </div>
+                                        <input <?php if(!isset($_GET["modo"])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flebackdesc" accept="image/jpeg, image/png, image/jpg">
+                                    </div>
+                                    <div class="card_curiosidades">
                                     </div>
                                     <div class="card_curiosidades">
                                         <input style="margin-top: 15px" class="botao back_orange_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btnprodutos">
                                     </div>
                                 </div>
                             </form>
-                        </td>
-                        <!-- FORM DESTAQUE -->
-                        <td>
-                            <form method="post"  action="<?=$action?>"  class="fonte center back_green_dark_cms form_produtos color_white" name="frmprodutos" enctype="multipart/form-data">
-                                <div id="card_curiosidades">
-                                    <!-- DESTAQUE -->
-                                    <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name "> <p>Destaque:</p>  </div>
-                                        <input  name="chkdestaque" value="1" type="checkbox" class="radio">
-                                    </div>
-                                    <!-- DESCRICAO -->
-                                    <div class="card_curiosidades_big">
-                                        <div class="card_curiosidades_name"> <p>Descricao:</p>  </div>
-                                        <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txtdescricao" required ><?=@$texto?></textarea>
-                                    </div>
-                                    <!-- FOTO -->
-                                    <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
-                                    </div>
-                                    <!-- FOTO -->
-                                    <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                                        <input <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
-                                    </div>
-                                    <div class="card_curiosidades">
-                                    </div>
-                                    <div class="card_curiosidades">
-                                    </div>
-                                </div>
-                            </form>
-                        </td>
+                        </td> 
                     </tr>
                 </table>
             </section>

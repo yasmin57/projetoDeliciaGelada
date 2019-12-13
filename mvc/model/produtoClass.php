@@ -7,111 +7,94 @@
         private $descricao;
         private $preco;
         private $foto;
-        private $categoria;
-        private $subcategoria;
-        private $destaque;
-        private $texto;
-        private $fotodestaque;
         private $status;
+        private $destaque;
+        private $textoDest;
+        private $fotoDest;
+        private $backDest;
         private $desconto;
 
         //Construtor da classe
         public function __construct(){}
 
-        //GETTERS E SETTERS DO CODIGO
-        public function getCodigo(){
+        
+        public function getCodigo(){ //GETTERS E SETTERS DO CODIGO
             return $this->codigo;
         }
         public function setCodigo($codigo){
             $this->codigo = $codigo;
         }
 
-        //GETTERS E SETTERS DO NOME
-        public function getNome(){
+        public function getNome(){ //GETTERS E SETTERS DO NOME
             return $this->nome;
         }
         public function setNome($nome){
             $this->nome = $nome;
         }
 
-        //GETTERS E SETTERS DA DESCRICAO
-        public function getDescricao(){
+        public function getDescricao(){ //GETTERS E SETTERS DA DESCRICAO
             return $this->descricao;
         }
         public function setDescricao($descricao){
             $this->descricao = $descricao;
         }
 
-        //GETTERS E SETTERS DO PRECO
-        public function getPreco(){
+        public function getPreco(){ //GETTERS E SETTERS DO PRECO
             return $this->preco;
         }
         public function setPreco($preco){
             $this->preco = $preco;
         }
 
-        //GETTERS E SETTERS DA FOTO
-        public function getFoto(){
+        public function getFoto(){ //GETTERS E SETTERS DA FOTO
             return $this->foto;
         }
         public function setFoto($foto){
             $this->foto = $foto;
         }
-
-        //GETTERS E SETTERS DA CATEGORIA
-        public function getCategoria(){
-            return $this->categoria;
+        
+        public function getStatus(){ //GETTERS E SETTERS DO STATUS
+            return $this->status;
         }
-        public function setCategoria($categoria){
-            $this->categoria = $categoria;
-        }
-
-        //GETTERS E SETTERS DA SUBCATEGORIA
-        public function getSubcategoria(){
-            return $this->subcategoria;
-        }
-        public function setSubcategoria($subcategoria){
-            $this->subcategoria = $subcategoria;
+        public function setStatus($status){
+            $this->status = $status;
         }
 
-        //GETTERS E SETTERS DO DESTAQUE
-        public function getDestaque(){
+        public function getDestaque(){ //GETTERS E SETTERS DO DESTAQUE
             return $this->destaque;
         }
         public function setDestaque($destaque){
             $this->destaque = $destaque;
         }
 
-        //GETTERS E SETTERS DO TEXTO
-        public function getTexto(){
-            return $this->texto;
+        public function getTextoDest(){ //GETTERS E SETTERS DO TEXTO DO DESTAQUE
+            return $this->textoDest;
         }
-        public function setTexto($texto){
-            $this->texto = $texto;
-        }
-
-        //GETTERS E SETTERS DA FOTO DESTAQUE
-        public function getFotoDestaque(){
-            return $this->fotodestaque;
-        }
-        public function setFotoDestaque($fotodestaque){
-            $this->fotodestaque = $fotodestaque;
+        public function setTexto($textoDest){
+            $this->textoDest = $textoDest;
         }
 
-        //GETTERS E SETTERS DO DESCONTO
-        public function getDesconto(){
+        public function getFotoDest(){ //GETTERS E SETTERS DA FOTO DESTAQUE
+            return $this->fotoDest;
+        }
+        public function setFotoDest($fotoDest){
+            $this->fotoDest = $fotoDest;
+        }
+
+        public function getBackDest(){ //GETTERS E SETTERS DO BACKGROUND DESTAQUE
+            return $this->backDest;
+        }
+        public function setFotoDestaque($backDest){
+            $this->backDest = $backDest;
+        }
+        
+        public function getDesconto(){ //GETTERS E SETTERS DO DESCONTO
             return $this->desconto;
         }
         public function setDesconto($desconto){
             $this->desconto = $desconto;
         }
         
-        //GETTERS E SETTERS DO STATUS
-        public function getStatus(){
-            return $this->status;
-        }
-        public function setStatus($status){
-            $this->status = $status;
-        }
+        
     }
 ?>
