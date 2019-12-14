@@ -52,14 +52,52 @@
 
         //Método p/ editar
         public function updateProduto(Produto $produto){
+            $sql = "update tblprodutos set nome=?, descricao=?, preco=?, foto=?, 
+                    destaque=?, textodestaque=?, fotodestaque=?, backdestaque=?, desconto=?
+                    where codigo=?";
+
+            $statement = $this->conexao->prepare($sql);
+
+            //Tratamento para o campo destaque
+            if($produto->getDestaque() == 1)
+                $destaque = 1;
+            else
+                $destaque = 0; 
+
+            $statementDados = array(
+                $produto->getNome(), $produto->getDescricao(),
+                $produto->getPreco(), $produto->getFoto(),
+                $destaque, $produto->getTextoDest(),
+                $produto->getFotoDest(), $produto->getBackDest(),
+                $produto->getDesconto(), $produto->getCodigo()
+            );
+
+            if($statement->execute($statementDados)){
+                return true;
+            }
+            else
+                return false;
         }
 
         //Método p/ deletar
         public function deleteProduto($codeProduto){
+            //Resgatando o nome da foto
+            $sql = "select * from tblprodutos where codigo =".$codeProduto;
+
+            $select = $this->conexao->query($sql); //manda p/ bd
+
+            $rs = $select->fetch(PDO::FETCH_ASSOC); //tranforma em um array
+
+            $foto = $rs['foto']; //resgata o nome da foto
+            
+
+            //Code para excluir registro
             $sql = "delete from tblprodutos where codigo =".$codeProduto;
 
-            if($this->conexao->query($sql))
+            if($this->conexao->query($sql)){
+                unlink('../imgs/'.$foto);
                 return true;
+            }
             else
                 return false;
         }
@@ -98,7 +136,28 @@
         }
 
         //Método p/ listar por id
-        public function selectByIdProduto($codeCategoria){
+        public function selectByIdProduto($codeProduto){
+            $sql = "select * from tblprodutos where codigo=".$codeProduto;
+
+            $select = $this->conexao->query($sql);
+
+            $rs = $select->fetch(PDO::FETCH_ASSOC);
+
+            //Guarda os dados do produto no objeto produto
+            $Produto = new Produto();
+            $Produto->setCodigo($rs['codigo']);
+            $Produto->setNome($rs['nome']);
+            $Produto->setDescricao($rs['descricao']);
+            $Produto->setPreco($rs['preco']);
+            $Produto->setDesconto($rs['desconto']);
+            $Produto->setDestaque($rs['destaque']);
+            $Produto->setFotoDest($rs['fotodestaque']);
+            $Produto->setTextoDest($rs['textodestaque']);
+            $Produto->setBackDest($rs['backdestaque']);
+            $Produto->setFoto($rs['foto']);
+            $Produto->setStatus($rs['status']);
+
+            return $Produto;
         }
 
         //Método p/ editar status

@@ -142,15 +142,19 @@
     
                     break;
                 case 'BUSCAR':
-            
+                    $id = $_GET['id'];
                     //instancia da classe controler
                     $produtosController = new ProdutoController();
+
+                    $produtosController->buscaProduto($id);
     
                     break;
                 case 'EDITAR':
-        
+                    $id = $_GET['id'];
                     //instancia da classe controler
                     $produtosController = new ProdutoController();
+
+                    $produtosController->editaProduto($id);
     
                     break;
                 case 'EXCLUIR':

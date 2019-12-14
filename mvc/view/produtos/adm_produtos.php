@@ -4,6 +4,35 @@
     if(!isset($_SESSION))
         session_start();
 
+    if(isset($_GET['modo'])){
+        if($_GET['modo'] == 'buscar'){
+            $nome = $dados->getNome();
+            $descricao = $dados->getDescricao();
+            $preco = $dados->getPreco();
+            $desconto = $dados->getDesconto();
+            $foto = $dados->getFoto();
+            $destaque = $dados->getDestaque();
+            $code = $dados->getCodigo();
+
+            if($destaque == 1){
+                $destaque = "checked";
+                $textodest = $dados->getTextoDest();
+                $fotodest = $dados->getFotoDest();
+                $backdest = $dados->getBackDest();
+
+                //Variaveis de sessão com os nomes das fotos
+                $_SESSION['fotodest'] = $fotodest;
+                $_SESSION['backdest'] = $backdest;
+            }
+
+            //Variaveis de sessão com os nomes das fotos
+            $_SESSION['foto'] = $foto;
+            
+            
+            $action = 'router.php?controller=produtos&modo=editar&id='.$code;
+        }
+    }
+
     //Cor
     function mostrarDestaque($valor)
     {
@@ -47,23 +76,23 @@
                             <!-- Mostrar Imagem -->
                             <div class="img_curiosidades back back_green_light_cms">
                                 <?php if(isset($_GET['modo'])) {?>
-                                    <img id="img1" src="../../imgs/<?=$foto?>" alt="imagem"/>
+                                    <img src="../imgs/<?=$foto?>" alt="imagem"/>
                                 <?php } else{?>
-                                    <img id="img1" src="view/imgs/icon_image.png" alt="imagem">
+                                    <img src="view/imgs/icon_image.png" alt="imagem">
                                 <?php }?>
                             </div>
                             <!-- Mostrar Imagem -->
                             <div id="" class="img_curiosidades back back_green_light_cms">
-                                <?php if(isset($_GET['modo'])) {?>
-                                    <img src="../../imgs/<?=$foto?>" alt="imagem"/>
+                                <?php if(isset($fotodest)) {?>
+                                    <img src="../imgs/<?=$fotodest?>" alt="imagem"/>
                                 <?php } else{?>
                                     <img src="view/imgs/icon_image.png" alt="imagem">
                                 <?php }?>
                             </div>
                             <!-- Mostrar Imagem -->
                             <div id="" class=" img_curiosidades back back_green_light_cms">
-                                <?php if(isset($_GET['modo'])) {?>
-                                    <img src="../imgs/<?=$foto?>" alt="imagem"/>
+                                <?php if(isset($backdest)) {?>
+                                    <img src="../imgs/<?=$backdest?>" alt="imagem"/>
                                 <?php } else{?>
                                     <img src="view/imgs/icon_image.png" alt="imagem">
                                 <?php }?>
@@ -81,17 +110,17 @@
                                     <!-- DESCRICAO -->
                                     <div class="card_curiosidades_big">
                                         <div class="card_curiosidades_name"> <p>Descricao:</p>  </div>
-                                        <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txtdescricao" required ><?=@$texto?></textarea>
+                                        <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txtdescricao" required ><?=@$descricao?></textarea>
                                     </div>
                                     <!-- PRECO -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name "> <p>Preço:</p>  </div>
-                                        <input value="<?=@$nome?>" name="txtpreco" placeholder="Digite o preço do produto" class="fonte card_curiosidades_input" type="text" maxlength="10" required size="45">
+                                        <input value="<?=@$preco?>" name="txtpreco" placeholder="Digite o preço do produto" class="fonte card_curiosidades_input" type="text" maxlength="10" required size="45">
                                     </div>
                                     <!-- DESCONTO -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name "> <p>Desconto:</p>  </div>
-                                        <input value="<?=@$nome?>" name="txtdesconto" placeholder="Digite o percentual de deconto. Ex: 10" class="fonte card_curiosidades_input" type="text" maxlength="2" required size="45">
+                                        <input value="<?=@$desconto?>" name="txtdesconto" placeholder="Digite o percentual de deconto. Ex: 10" class="fonte card_curiosidades_input" type="text" maxlength="2" required size="45">
                                     </div>
                                     <!-- FOTO -->
                                     <div class="card_curiosidades">
@@ -103,12 +132,12 @@
                                     <!-- DESTAQUE -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name "> <p>Destaque:</p>  </div>
-                                        <input id="destaque" name="chkdestaque" value="1" type="checkbox" class="radio">
+                                        <input <?=@$destaque?> id="destaque" name="chkdestaque" value="1" type="checkbox" class="radio">
                                     </div>
                                     <!-- DESCRICAO -->
                                         <div class="card_curiosidades_big">
                                             <div class="card_curiosidades_name"> <p>Descricao:</p>  </div>
-                                            <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txttextodesc"  ><?=@$texto?></textarea>
+                                            <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txttextodesc"  ><?=@$textodest?></textarea>
                                         </div>
                                     <!-- FOTO -->
                                     <div class="card_curiosidades">
@@ -182,7 +211,9 @@
                         <!-- Icones -->
                         <td>
                             <!-- ICONE LAPIS -->
-                            <a class="exibir_icon float botao visualizar">
+                            <a  href="router.php?controller=produtos&modo=buscar&
+                                id=<?=$produto[$cont]->getCodigo()?>"
+                                class="exibir_icon float botao visualizar">
                                 <img src="view/imgs/icon_edit.png" alt="imagem">
                             </a>
                             <!-- ICONE EXCLUIR -->

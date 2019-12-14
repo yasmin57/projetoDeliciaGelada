@@ -118,7 +118,7 @@
             }
 
             if(isset($_POST['chkdestaque'])){
-                $this->produto->setDesconto(1);
+                $this->produto->setDestaque(1);
                 $this->produto->setTextoDest($_POST['txttextodesc']);
 
                 if($upload = $this->uploadFoto('flefotodesc')){
@@ -144,6 +144,80 @@
   
         //Método p/ editar
         public function editaProduto($idProduto){
+            //Atribui um valor ao status e ao codigo
+            $this->produto->setCodigo($idProduto);
+
+            //Declaração de variaveis
+            $off = "";
+            $foto = "";
+            $fotodest = "";
+            $backdest = "";
+
+            //Verifica se o file está vazio
+            if($_FILES['flefoto']['name'] == ""){
+                $this->produto->setFoto($_SESSION['foto']);
+            } 
+            //verifica se o upload deu certo
+            elseif($upload = $this->uploadFoto('flefoto')){
+                $this->produto->setFoto($upload); 
+
+                if(isset($_SESSION['foto']))
+                    $foto = $_SESSION['foto'];
+            }
+
+            //Resgata os dados para produto destaque
+            if(isset($_POST['chkdestaque'])){
+                $this->produto->setDestaque(1);
+                $this->produto->setTextoDest($_POST['txttextodesc']);
+                
+                if($_FILES['flefotodesc']['name'] == ""){
+                    $this->produto->setFotoDest($_SESSION['fotodest']);
+                }
+                elseif($upload2 = $this->uploadFoto('flefotodesc')){
+                    $this->produto->setFotoDest($upload2);
+
+                    if(isset($_SESSION['fotodest']))
+                        $fotodest = $_SESSION['fotodest'];
+                }
+
+                if($_FILES['flebackdesc']['name'] == ""){
+                    $this->produto->setBackDest($_SESSION['backdest']);
+                }
+                elseif($upload3 = $this->uploadFoto('flebackdesc')){
+                    $this->produto->setBackDest($upload3);
+
+                    if(isset($_SESSION['backdest']))
+                        $backdest = $_SESSION['backdest'];
+                }
+            }
+            else{
+                $this->produto->setTextoDest($off);
+                $this->produto->setFotoDest($off);
+                $this->produto->setBackDest($off);
+            }
+
+            //chama o método p/ atualizar
+            if($this->produtoDAO->updateProduto($this->produto)){
+                if($foto <> '')
+                    unlink('../imgs/'.$foto);
+                
+                if($fotodest <> '')
+                    unlink('../imgs/'.$fotodest);
+
+                if($backdest <> '')
+                    unlink('../imgs/'.$backdest);
+
+                if(isset($_SESSION['foto']))
+                    unset($_SESSION['foto']);
+                if(isset($_SESSION['fotodest']))
+                    unset($_SESSION['fotodest']);
+                if(isset($_SESSION['backdest']))
+                    unset($_SESSION['backdest']);
+                    
+                header('location:produtos.php');
+            }
+            else
+                echo('erro ao atualizar registro');
         }
 
         //Método p/ deletar
@@ -164,6 +238,9 @@
 
         //Método p/ listar por id
         public function buscaProduto($idProduto){
+            $dados = $this->produtoDAO->selectByIdProduto($idProduto);
+
+            require_once('produtos.php');
         }
 
         //Método p/ mudar o status
