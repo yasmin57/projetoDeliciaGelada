@@ -143,24 +143,41 @@
         }
   
         //Método p/ editar
-        public function editaProduto($idCategoria){
+        public function editaProduto($idProduto){
         }
 
         //Método p/ deletar
-        public function excluiProduto($idCategoria){
+        public function excluiProduto($idProduto){
+            if($this->produtoDAO->deleteProduto($idProduto))
+                header('location:produtos.php');
+            else
+                echo('erro ao excluir');
         }
 
         //Método p/ listar
         public function listaProduto(){
-            
+            if($list = $this->produtoDAO->selectAllProduto())
+                return $list;
+            else
+                die();
         }
 
         //Método p/ listar por id
-        public function buscaProduto($idCategoria){
+        public function buscaProduto($idProduto){
         }
 
         //Método p/ mudar o status
-        public function statusProduto($idCategoria, $statusCategoria){
+        public function statusProduto($idProduto, $statusProduto){
+
+            if($statusProduto)
+                $status = 0;
+            else
+                $status = 1;
+
+            if($this->produtoDAO->updateStatusProduto($idProduto, $status))
+                header('location:produtos.php');
+            else
+                echo('erro ao excluir');
         }
         
     }

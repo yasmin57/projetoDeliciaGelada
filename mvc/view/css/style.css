@@ -274,6 +274,16 @@ footer{
     padding-left: 0px;
     margin-right: 20px;
 }
+.bola_destaque{
+    height: 25px;
+    width: 25px;
+    border-radius: 20px;
+    border: solid 1px black;
+}
+.img_cadastro{
+    height: 80px;
+    width: 100px;
+}
 
 /* Restante do formulário */
 #categorias{

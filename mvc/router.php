@@ -153,6 +153,26 @@
                     $produtosController = new ProdutoController();
     
                     break;
+                case 'EXCLUIR':
+
+                    $id = $_GET['id'];
+
+                    //instancia da classe controler
+                    $produtosController = new ProdutoController();
+
+                    $produtosController->excluiProduto($id);
+    
+                    break;
+                case 'STATUS':
+                    $id = $_GET['id'];
+                    $status = $_GET['status'];
+
+                    //instancia da classe controler
+                    $produtosController = new ProdutoController();
+
+                    $produtosController->statusProduto($id, $status);
+
+                    break;
             }
 
             break;

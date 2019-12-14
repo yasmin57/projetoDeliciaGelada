@@ -47,17 +47,73 @@
             if($statement->execute($statementDados))
                 return true;
             else
-
-                //var_dump($produto->getDestaque());
-                echo($destaque);
-                // var_dump($produto->>getTextoDest());
-                // var_dump($produto->getFotoDest());
-                // var_dump($produto->>getBackDest());
-
-                //return false;
+                return false;
         }
 
-        //Método p/ inserir na tblprodutos_subcategorias
+        //Método p/ editar
+        public function updateProduto(Produto $produto){
+        }
+
+        //Método p/ deletar
+        public function deleteProduto($codeProduto){
+            $sql = "delete from tblprodutos where codigo =".$codeProduto;
+
+            if($this->conexao->query($sql))
+                return true;
+            else
+                return false;
+        }
+
+        //Método p/ listar
+        public function selectAllProduto(){
+            $sql = "select * from tblprodutos";
+
+            $select = $this->conexao->query($sql);
+
+            $cont = 0;
+
+            while($rs = $select->fetch(PDO::FETCH_ASSOC))
+            {
+                //Instancia da classe categoria
+                $listProdutos[] = new Produto();
+                $listProdutos[$cont]->setCodigo($rs['codigo']);
+                $listProdutos[$cont]->setNome($rs['nome']);
+                $listProdutos[$cont]->setDescricao($rs['descricao']);
+                $listProdutos[$cont]->setPreco($rs['preco']);
+                $listProdutos[$cont]->setDesconto($rs['desconto']);
+                $listProdutos[$cont]->setDestaque($rs['destaque']);
+                $listProdutos[$cont]->setFotoDest($rs['fotodestaque']);
+                $listProdutos[$cont]->setTextoDest($rs['textodestaque']);
+                $listProdutos[$cont]->setBackDest($rs['backdestaque']);
+                $listProdutos[$cont]->setFoto($rs['foto']);
+                $listProdutos[$cont]->setStatus($rs['status']);
+
+                $cont++;
+            }
+
+            if(isset($listProdutos))
+                return $listProdutos;
+            else
+                return false;
+        }
+
+        //Método p/ listar por id
+        public function selectByIdProduto($codeCategoria){
+        }
+
+        //Método p/ editar status
+        public function updateStatusProduto($codeProduto, $statusProduto){
+            $sql = "update tblprodutos set status =".$statusProduto." where codigo =".$codeProduto;
+
+            if($this->conexao->query($sql))
+                return true;
+            else
+                return false;
+        }
+    }
+
+
+    //Método p/ inserir na tblprodutos_subcategorias
         // public function insertProdutoSubcategoria($codeProduto, $subcategorias){
         //     $cont = 0;
 
@@ -91,55 +147,6 @@
         //         return false;
         //     }
         // }
-
-
-        //Método p/ editar
-        public function updateProduto(Categoria $categoria){
-        }
-
-        //Método p/ deletar
-        public function deleteProduto($codeCategoria){
-        }
-
-        //Método p/ listar
-        public function selectAllProduto(){
-            $sql = "select * from tblprodutos ";
-
-            $select = $this->conexao->query($sql);
-
-            $cont = 0;
-
-            while($rs = $select->fetch(PDO::FETCH_ASSOC))
-            {
-                //Instancia da classe categoria
-                $listProdutos[] = new Produto();
-                $listProdutos[$cont]->setCodigo($rs['codigo']);
-                $listProdutos[$cont]->setNome($rs['nome']);
-                $listProdutos[$cont]->setNome($rs['descricao']);
-                $listProdutos[$cont]->setNome($rs['preco']);
-                $listProdutos[$cont]->setNome($rs['desconto']);
-                $listProdutos[$cont]->setNome($rs['destaque']);
-                $listProdutos[$cont]->setNome($rs['fotodestaque']);
-                $listProdutos[$cont]->setNome($rs['textodestaque']);
-                $listProdutos[$cont]->setNome($rs['foto']);
-                $listProdutos[$cont]->setNome($rs['idcategoria']);
-                $listProdutos[$cont]->setStatus($rs['status']);
-
-                $cont++;
-            }
-
-            if(isset($listProdutos))
-                return $listProdutos;
-            else
-                return false;
-        }
-
-        //Método p/ listar por id
-        public function selectByIdProduto($codeCategoria){
-        }
-
-        //Método p/ editar status
-        public function statusProduto(Categoria $categoria){
-        }
-    }
 ?>
+
+
