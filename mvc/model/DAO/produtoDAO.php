@@ -20,25 +20,17 @@
         //Método p/ inserir tblprodutos
         public function insertProduto(Produto $produto){
             //Script p/ o bd
-            $sql = "insert into tblprodutos (nome, descricao, preco, foto, status,
-                    destaque, textodestaque, fotodestaque, backdestaque, desconto) 
-                    values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "insert into tblprodutos (nome, descricao, preco, foto,
+                    textodestaque, fotodestaque, backdestaque, desconto) 
+                    values(?, ?, ?, ?, ?, ?, ?, ?)";
 
             //Prepara p/ mandar p/ o bd
             $statement = $this->conexao->prepare($sql);
-
-            if($produto->getDestaque() <> null){
-                $destaque = 1;
-            }
-            else{
-                $destaque = 0;
-            }
 
             //Array com o dado
             $statementDados = array(
                 $produto->getNome(), $produto->getDescricao(),
                 $produto->getPreco(), $produto->getFoto(),
-                $produto->getStatus(), $destaque, 
                 $produto->getTextoDest(),  $produto->getFotoDest(),
                 $produto->getBackDest(), $produto->getDesconto()
             );
@@ -53,23 +45,17 @@
         //Método p/ editar
         public function updateProduto(Produto $produto){
             $sql = "update tblprodutos set nome=?, descricao=?, preco=?, foto=?, 
-                    destaque=?, textodestaque=?, fotodestaque=?, backdestaque=?, desconto=?
+                    textodestaque=?, fotodestaque=?, backdestaque=?, desconto=?
                     where codigo=?";
 
             $statement = $this->conexao->prepare($sql);
 
-            //Tratamento para o campo destaque
-            if($produto->getDestaque() == 1)
-                $destaque = 1;
-            else
-                $destaque = 0; 
-
             $statementDados = array(
                 $produto->getNome(), $produto->getDescricao(),
                 $produto->getPreco(), $produto->getFoto(),
-                $destaque, $produto->getTextoDest(),
-                $produto->getFotoDest(), $produto->getBackDest(),
-                $produto->getDesconto(), $produto->getCodigo()
+                $produto->getTextoDest(), $produto->getFotoDest(), 
+                $produto->getBackDest(), $produto->getDesconto(), 
+                $produto->getCodigo()
             );
 
             if($statement->execute($statementDados)){
@@ -150,12 +136,10 @@
             $Produto->setDescricao($rs['descricao']);
             $Produto->setPreco($rs['preco']);
             $Produto->setDesconto($rs['desconto']);
-            $Produto->setDestaque($rs['destaque']);
             $Produto->setFotoDest($rs['fotodestaque']);
             $Produto->setTextoDest($rs['textodestaque']);
             $Produto->setBackDest($rs['backdestaque']);
             $Produto->setFoto($rs['foto']);
-            $Produto->setStatus($rs['status']);
 
             return $Produto;
         }
@@ -163,6 +147,22 @@
         //Método p/ editar status
         public function updateStatusProduto($codeProduto, $statusProduto){
             $sql = "update tblprodutos set status =".$statusProduto." where codigo =".$codeProduto;
+
+            if($this->conexao->query($sql))
+                return true;
+            else
+                return false;
+        }
+
+        //Método p/ editar o produto destaque
+        public function updateDestaqueProduto($codeProduto){
+            //Desativa todos os destaques dos produtos
+            $sql = "update tblprodutos set destaque = 0 where codigo > 0";
+
+            $this->conexao->query($sql);
+
+            //Ativa o destaque pela id do produto
+            $sql = "update tblprodutos set destaque = 1 where codigo =".$codeProduto;
 
             if($this->conexao->query($sql))
                 return true;

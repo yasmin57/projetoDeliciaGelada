@@ -177,6 +177,15 @@
                     $produtosController->statusProduto($id, $status);
 
                     break;
+                case 'DESTAQUE':
+                    $id = $_GET['id'];
+
+                    //instancia da classe controler
+                    $produtosController = new ProdutoController();
+
+                    $produtosController->destaqueProduto($id);
+
+                    break;
             }
 
             break;

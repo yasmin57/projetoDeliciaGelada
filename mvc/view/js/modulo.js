@@ -25,9 +25,9 @@ function validarEntrada (caracter, tipoAceito){
 }
 //Professor fez com o tipo de bloqueio
 
-function mascaraFone(obj, caracter){
+function mascaraPreco(obj, caracter){
     
-    if(validarEntrada(caracter, "numeric")==false)
+    if(validarEntrada(caracter, "numeric") == false)
         return false
     else{
        //console.log(input);
@@ -35,13 +35,9 @@ function mascaraFone(obj, caracter){
         var id = obj.id;
         var resultado = input;
 
-        if(input.length == 0)
-            resultado = "(";
-        else if(input.length == 4)
-            resultado +=") ";
-        else if(input.length == 10)
-            resultado += "-";
-        else if(input.length == 15)
+        if(input.length == 3)
+            resultado += ".";
+        else if(input.length == 6)
             return false;
 
         document.getElementById(id).value = resultado; 

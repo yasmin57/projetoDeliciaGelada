@@ -11,23 +11,23 @@
             $preco = $dados->getPreco();
             $desconto = $dados->getDesconto();
             $foto = $dados->getFoto();
-            $destaque = $dados->getDestaque();
             $code = $dados->getCodigo();
 
-            if($destaque == 1){
-                $destaque = "checked";
-                $textodest = $dados->getTextoDest();
-                $fotodest = $dados->getFotoDest();
-                $backdest = $dados->getBackDest();
-
-                //Variaveis de sessão com os nomes das fotos
-                $_SESSION['fotodest'] = $fotodest;
-                $_SESSION['backdest'] = $backdest;
-            }
+            $textodest = $dados->getTextoDest();
+            $fotodest = $dados->getFotoDest();
+            $backdest = $dados->getBackDest();
 
             //Variaveis de sessão com os nomes das fotos
+            $_SESSION['fotodest'] = $fotodest; 
+            $_SESSION['backdest'] = $backdest;
             $_SESSION['foto'] = $foto;
+
+            //Verifica se existem fotos salvas no bd
+            if($fotodest <> '')
+                $foto2 = 1;
             
+            if($backdest <> '')
+                $foto3 = 1;
             
             $action = 'router.php?controller=produtos&modo=editar&id='.$code;
         }
@@ -55,14 +55,47 @@
         </title>
         <link type="text/css" href="view/css/style.css" rel="stylesheet">
         <script src="view/js/jquery.js"></script>
-        <script src="view/js/jquery.form.js"></script>
+        <script src="view/js/modulo.js"></script>
         <?php
             if(isset($_SESSION['erroUp'])){
                 echo($_SESSION['erroUp']);
             }
         ?>
+        <script>
+            //Abre e fecha modal
+            $(document).ready(function(){
+                $('.visualizar').click(function(){
+                    $('#container').fadeIn(1000);
+                });
+
+                $('#fechar_modal').click(function(){
+                    $('#container').fadeOut(1000);
+                })
+            });
+
+            //Função para descarregar os dados
+            function verDados(idItem)
+            {
+                $.ajax({
+                    type:"POST",
+                    url:"modalProd.php",
+                    data: {modo:'visualizar', codigo:idItem}, 
+                    success: function(dados){
+                        $('#modalDados').html(dados);
+                    }
+                })
+            }
+        </script>
     </head>
     <body>
+        <!-- MODAL -->
+        <div id="container">
+            <div id="modal">
+                <div id="modalDados"></div>
+                <div id="fechar_modal" class="botao back_pink_light_cms color_white fonte">Fechar</div>
+            </div>
+        </div>
+
         <!-- CABEÇALHO -->
         <?php require_once("view/header.php"); ?>
         
@@ -83,15 +116,15 @@
                             </div>
                             <!-- Mostrar Imagem -->
                             <div id="" class="img_curiosidades back back_green_light_cms">
-                                <?php if(isset($fotodest)) {?>
+                                <?php if(isset($foto2)){?>
                                     <img src="../imgs/<?=$fotodest?>" alt="imagem"/>
                                 <?php } else{?>
-                                    <img src="view/imgs/icon_image.png" alt="imagem">
+                                        <img src="view/imgs/icon_image.png" alt="imagem">
                                 <?php }?>
                             </div>
                             <!-- Mostrar Imagem -->
                             <div id="" class=" img_curiosidades back back_green_light_cms">
-                                <?php if(isset($backdest)) {?>
+                                <?php if(isset($foto3)) {?>
                                     <img src="../imgs/<?=$backdest?>" alt="imagem"/>
                                 <?php } else{?>
                                     <img src="view/imgs/icon_image.png" alt="imagem">
@@ -115,12 +148,12 @@
                                     <!-- PRECO -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name "> <p>Preço:</p>  </div>
-                                        <input value="<?=@$preco?>" name="txtpreco" placeholder="Digite o preço do produto" class="fonte card_curiosidades_input" type="text" maxlength="10" required size="45">
+                                        <input id="preco" onkeypress="return  mascaraPreco(this, event);" value="<?=@$preco?>" name="txtpreco" placeholder="Digite o preço do produto" class="fonte card_curiosidades_input" type="text" maxlength="10" required size="45">
                                     </div>
                                     <!-- DESCONTO -->
                                     <div class="card_curiosidades">
                                         <div class="card_curiosidades_name "> <p>Desconto:</p>  </div>
-                                        <input value="<?=@$desconto?>" name="txtdesconto" placeholder="Digite o percentual de deconto. Ex: 10" class="fonte card_curiosidades_input" type="text" maxlength="2" required size="45">
+                                        <input onkeypress="return  validarEntrada(event, 'numeric');" value="<?=@$desconto?>" name="txtdesconto" placeholder="Digite o percentual de deconto. Ex: 10" class="fonte card_curiosidades_input" type="text" maxlength="2" required size="45">
                                     </div>
                                     <!-- FOTO -->
                                     <div class="card_curiosidades">
@@ -128,11 +161,7 @@
                                         <input id='upload' <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
                                     </div>
                                     <div class="card_curiosidades">
-                                    </div>
-                                    <!-- DESTAQUE -->
-                                    <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name "> <p>Destaque:</p>  </div>
-                                        <input <?=@$destaque?> id="destaque" name="chkdestaque" value="1" type="checkbox" class="radio">
+                                        <p> Produto destaque: </p>
                                     </div>
                                     <!-- DESCRICAO -->
                                         <div class="card_curiosidades_big">
@@ -203,8 +232,20 @@
                             <?php 
                                 $style = mostrarDestaque($produto[$cont]->getDestaque());
                             ?>
-                                <div class="bola_destaque center" <?=$style?>>
-                                </div>
+                                <a <?php
+                                        if($produto[$cont]->getDestaque() == 1){
+                                    ?>
+                                        onclick="alert('Você não pode desativar esse recurso dessa maneira. Toque no produto que você deseja ativar o destaque.')"
+                                    <?php        
+                                        } else {
+                                    ?>
+                                        href="router.php?controller=produtos&modo=destaque&
+                                        id=<?=$produto[$cont]->getCodigo()?>"
+                                    <?php        
+                                        }
+                                    ?>>
+                                    <div class="bola_destaque center" <?=$style?>></div>
+                                </a>
                         </td>
                         <td><p><?=$produto[$cont]->getPreco()?></p></td>
                         <td><p><?=$produto[$cont]->getDesconto()?>%</p></td>
@@ -236,7 +277,7 @@
                                 <?php } ?> 
                             </a>
                             <!-- ICONE LUPA -->
-                            <a href="#" class="exibir_icon float botao visualizar" onclick="verDados(<?=$rsCuriosidades['codigo']?>);" >
+                            <a href="#" class="exibir_icon float botao visualizar" onclick="verDados(<?=$produto[$cont]->getCodigo()?>);" >
                                 <img src="view/imgs/icon_ver.png" alt="imagem">
                             </a>
                         </td>

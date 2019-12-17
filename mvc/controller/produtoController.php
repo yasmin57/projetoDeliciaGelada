@@ -9,23 +9,27 @@
         {
             if(!isset($_SESSION))
                 session_start();
-
+            
             require_once('model/produtoClass.php');
             require_once('model/DAO/produtoDAO.php');
 
-            //Verifica se o método é post
-            if($_SERVER['REQUEST_METHOD'] == 'POST' ){
+            if(!isset($_SESSION['modal']))
+            {
+                //Verifica se o método é post
+                if($_SERVER['REQUEST_METHOD'] == 'POST' ){
 
-                //Instancia da classe categoria
-                $this->produto = new Produto();
+                    //Instancia da classe categoria
+                    $this->produto = new Produto();
 
-                //Resgata o dado via post
-                $this->produto->setNome($_POST['txtnome']);
-                $this->produto->setDescricao($_POST['txtdescricao']);
-                $this->produto->setPreco($_POST['txtpreco']); 
-                $this->produto->setDesconto($_POST['txtdesconto']);
+                    //Resgata o dado via post
+                    $this->produto->setNome($_POST['txtnome']);
+                    $this->produto->setDescricao($_POST['txtdescricao']);
+                    $this->produto->setPreco($_POST['txtpreco']); 
+                    $this->produto->setDesconto($_POST['txtdesconto']);
 
+                }
             }
+                
             $this->produtoDAO = new ProdutoDAO();
         }
 
@@ -107,8 +111,6 @@
 
         //Método p/ inserir
         public function novoProduto(){
-            //Atribui um valor ao status
-            $this->produto->setStatus(1);
 
             $off = "";
 
@@ -117,22 +119,33 @@
                 $this->produto->setFoto($upload);
             }
 
-            if(isset($_POST['chkdestaque'])){
-                $this->produto->setDestaque(1);
-                $this->produto->setTextoDest($_POST['txttextodesc']);
+            //Resgate dos dados não obrigatórios:
 
-                if($upload = $this->uploadFoto('flefotodesc')){
-                    $this->produto->setFotoDest($upload);
-                }
-                if($upload = $this->uploadFoto('flebackdesc')){
-                    $this->produto->setBackDest($upload);
-                }
-            }
-            else{
+            //Texto destaque
+            if(isset($_POST['txttextodesc']))
+                $this->produto->setTextoDest($_POST['txttextodesc']);
+            else
                 $this->produto->setTextoDest($off);
-                $this->produto->setFotoDest($off);
-                $this->produto->setBackDest($off);
+
+            //Foto destaque
+            if($_FILES['flefotodesc']['name'] <> '')
+            {
+                //Método p/ fazer upload
+                if($upload = $this->uploadFoto('flefotodesc'))
+                    $this->produto->setFotoDest($upload);
             }
+            else
+                $this->produto->setFotoDest($off);
+
+            //Back destaque
+            if($_FILES['flebackdesc']['name'] <> '')
+            {
+                //Método p/ fazer upload
+                if($upload = $this->uploadFoto('flebackdesc'))
+                    $this->produto->setBackDest($upload);
+            }
+            else
+                $this->produto->setBackDest($off);
 
             //chama o método p/ inserir
             if($this->produtoDAO->insertProduto($this->produto))
@@ -161,39 +174,38 @@
             elseif($upload = $this->uploadFoto('flefoto')){
                 $this->produto->setFoto($upload); 
 
-                if(isset($_SESSION['foto']))
-                    $foto = $_SESSION['foto'];
+                if($_SESSION['foto'] <> '')
+                    $foto = "k";
             }
 
-            //Resgata os dados para produto destaque
-            if(isset($_POST['chkdestaque'])){
-                $this->produto->setDestaque(1);
+            //Resgate dos dados não obrigatórios:
+
+            //Texto destaque
+            if(isset($_POST['txttextodesc']))
                 $this->produto->setTextoDest($_POST['txttextodesc']);
-                
-                if($_FILES['flefotodesc']['name'] == ""){
-                    $this->produto->setFotoDest($_SESSION['fotodest']);
-                }
-                elseif($upload2 = $this->uploadFoto('flefotodesc')){
-                    $this->produto->setFotoDest($upload2);
-
-                    if(isset($_SESSION['fotodest']))
-                        $fotodest = $_SESSION['fotodest'];
-                }
-
-                if($_FILES['flebackdesc']['name'] == ""){
-                    $this->produto->setBackDest($_SESSION['backdest']);
-                }
-                elseif($upload3 = $this->uploadFoto('flebackdesc')){
-                    $this->produto->setBackDest($upload3);
-
-                    if(isset($_SESSION['backdest']))
-                        $backdest = $_SESSION['backdest'];
-                }
-            }
-            else{
+            else
                 $this->produto->setTextoDest($off);
-                $this->produto->setFotoDest($off);
-                $this->produto->setBackDest($off);
+
+            //Foto destaque 
+            if($_FILES['flefotodesc']['name'] == ""){
+                $this->produto->setFotoDest($_SESSION['fotodest']);
+            }
+            elseif($upload2 = $this->uploadFoto('flefotodesc')){
+                $this->produto->setFotoDest($upload2);
+
+                if($_SESSION['fotodest'] <> '')
+                    $fotodest = 'k';
+            }
+
+            //Back destaque 
+            if($_FILES['flebackdesc']['name'] == ""){
+                $this->produto->setBackDest($_SESSION['backdest']);
+            }
+            elseif($upload3 = $this->uploadFoto('flebackdesc')){
+                $this->produto->setBackDest($upload3);
+
+                if($_SESSION['backdest'] <> '')
+                    $backdest = 'k';
             }
 
             //chama o método p/ atualizar
@@ -207,11 +219,11 @@
                 if($backdest <> '')
                     unlink('../imgs/'.$backdest);
 
-                if(isset($_SESSION['foto']))
+                //if(isset($_SESSION['foto']))
                     unset($_SESSION['foto']);
-                if(isset($_SESSION['fotodest']))
+                //if(isset($_SESSION['fotodest']))
                     unset($_SESSION['fotodest']);
-                if(isset($_SESSION['backdest']))
+               // if(isset($_SESSION['backdest']))
                     unset($_SESSION['backdest']);
                     
                 header('location:produtos.php');
@@ -243,6 +255,13 @@
             require_once('produtos.php');
         }
 
+        //Método p/ retornar produto p/ modal
+        public function produtoModal($idProduto){
+            $dados = $this->produtoDAO->selectByIdProduto($idProduto);
+            return $dados;
+        }
+
+
         //Método p/ mudar o status
         public function statusProduto($idProduto, $statusProduto){
 
@@ -252,6 +271,15 @@
                 $status = 1;
 
             if($this->produtoDAO->updateStatusProduto($idProduto, $status))
+                header('location:produtos.php');
+            else
+                echo('erro ao excluir');
+        }
+
+        //Método p/ mudar o produto destaque
+        public function destaqueProduto($idProduto){
+
+            if($this->produtoDAO->updateDestaqueProduto($idProduto))
                 header('location:produtos.php');
             else
                 echo('erro ao excluir');
