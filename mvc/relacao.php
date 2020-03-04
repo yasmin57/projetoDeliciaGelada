@@ -1,0 +1,1 @@
+<?php require_once('view/relacionamentos/adm_relacao.php') ?>

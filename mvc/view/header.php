@@ -27,6 +27,10 @@
                                 <a href="produtos.php"><div class="menu_icon back" id="adm_produtos"></div></a>
                                 <div class="menu_option fonte botao"><a class="color_white" href="produtos.php">Adm. Produtos </a></div>
                         </td>
+                        <td class="menu_itens">
+                                <a href="relacao.php"><div class="menu_icon back" id="adm_relacao"></div></a>
+                                <div class="menu_option fonte botao"><a class="color_white" href="relacao.php">Adm. Relações </a></div>
+                        </td>
                         <td class="menu_itens_big">
                             <div class="menu_mensagem fonte color_white"><p> Bem Vindo, <?=$_SESSION['nomeUsuarioLogin']?></p></div>
                             <div class="menu_mensagem fonte botao logout back_orange_cms"><a class="color_white" href="../raiz/sistema_interno.php">logout</a></div>

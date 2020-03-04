@@ -166,6 +166,9 @@ header{
 #adm_produtos{
     background-image: url(../imgs/icon_product.png) 
 }
+#adm_relacao{
+    background-image: url(../imgs/icon_relacao.png)
+}
 
 /**/
 .menu_option{
@@ -363,6 +366,10 @@ footer{
     min-height: 50px;
     width: inherit;
     padding-top: 30px;
+}
+.select{
+    width: 428px;
+    height: 42px;
 }
 /* Tabela p/ exibir os dados */
 .exibir_table{

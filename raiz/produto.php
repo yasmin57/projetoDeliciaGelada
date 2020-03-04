@@ -1,3 +1,19 @@
+<?php
+    require_once('../bd/conexao.php');
+
+    $conexao = conexaoMysql();
+
+    $sql = "select * from tblprodutos where destaque = 1";
+
+    $select = mysqli_query($conexao, $sql);
+
+    $rs = mysqli_fetch_array($select);
+
+    $titulo = $rs['nome'];
+    $texto = $rs['textodestaque'];
+    $foto = $rs['fotodestaque'];
+    $back = $rs['backdestaque'];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -13,21 +29,13 @@
         <?php require_once("header.php"); ?>
        
        <!-- CONTEÚDO      -->
-       <div id="produto_mes_main" class="back">
+       <div id="produto_mes_main" style="background-image: url('../imgs/<?=$back?>')" class="back">
           <div class="conteudo back center">
-             <div id="img_limao" class="back"></div>
+             <div id="img_limao" class="back" style="background-image: url('../imgs/<?=$foto?>')"></div>
              <section class="fonte texto">
-                <h2> Suco de Limão </h2>
-                <p> Hoje em dia, o limão é queridinho na dieta e refeições de muitas pessoas. Deixou a fama de ser uma fruta que só possui acidez e o azedo, e atualmente, está presente na lista de frutas preferidas de muitas pessoas. Isso, porque possui diversos benefícios para saúde! </p>
+                <h2> <?=$titulo?> </h2>
                 <p>
-                Engana-se quem acha que o suco de limão é indicado apenas para os dias mais quentes, porque transmite frescor.
-                </p>
-                <p>
-                  Segundo dados do Sebrae, além do uso na culinária e preparo de bebidas, o limão é utilizado na produção de suco concentrado. A indústria de suco utiliza 40% a 50% do fruto, sendo o restante considerado resíduo industrial.
-                </p>
-                
-                <p>
-                  Escolha sempre uma marca de confiança, que não use conservantes, para obter o melhor do sabor e das propriedades das frutas. Conheça a Life Sucos!
+                    <?=$texto?>
                 </p>
                  <div id="botoes">
                      <div class="produto_mes_btn fonte float"> <a href="home.php">Compre</a> </div>

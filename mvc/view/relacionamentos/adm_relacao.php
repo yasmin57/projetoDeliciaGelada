@@ -1,4 +1,8 @@
 <?php
+    require_once('controller/produtoController.php');
+    require_once('controller/categoriaController.php');
+    require_once('controller/subController.php');
+
     $action = 'router.php?controller=produtos&modo=novo';
 
     if(!isset($_SESSION))
@@ -56,46 +60,9 @@
         <link type="text/css" href="view/css/style.css" rel="stylesheet">
         <script src="view/js/jquery.js"></script>
         <script src="view/js/modulo.js"></script>
-        <?php
-            if(isset($_SESSION['erroUp'])){
-                echo($_SESSION['erroUp']);
-            }
-        ?>
-        <script>
-            //Abre e fecha modal
-            $(document).ready(function(){
-                $('.visualizar').click(function(){
-                    $('#container').fadeIn(1000);
-                });
-
-                $('#fechar_modal').click(function(){
-                    $('#container').fadeOut(1000);
-                })
-            });
-
-            //Função para descarregar os dados
-            function verDados(idItem)
-            {
-                $.ajax({
-                    type:"POST",
-                    url:"modalProd.php",
-                    data: {modo:'visualizar', codigo:idItem}, 
-                    success: function(dados){
-                        $('#modalDados').html(dados);
-                    }
-                })
-            }
-        </script>
     </head>
     <body>
-        <!-- MODAL -->
-        <div id="container">
-            <div id="modal">
-                <div id="modalDados"></div>
-                <div id="fechar_modal" class="botao back_pink_light_cms color_white fonte">Fechar</div>
-            </div>
-        </div>
-
+    
         <!-- CABEÇALHO -->
         <?php require_once("view/header.php"); ?>
         
@@ -105,83 +72,82 @@
 
                 <table id="tblprodutos" class="center back_green_dark_cms">
                     <tr>
-                        <td>
-                            <!-- Mostrar Imagem -->
-                            <div class="img_curiosidades back back_green_light_cms">
-                                <?php if(isset($_GET['modo'])) {?>
-                                    <img src="../imgs/<?=$foto?>" alt="imagem"/>
-                                <?php } else{?>
-                                    <img src="view/imgs/icon_image.png" alt="imagem">
-                                <?php }?>
-                            </div>
-                            <!-- Mostrar Imagem -->
-                            <div id="" class="img_curiosidades back back_green_light_cms">
-                                <?php if(isset($foto2)){?>
-                                    <img src="../imgs/<?=$fotodest?>" alt="imagem"/>
-                                <?php } else{?>
-                                        <img src="view/imgs/icon_image.png" alt="imagem">
-                                <?php }?>
-                            </div>
-                            <!-- Mostrar Imagem -->
-                            <div id="" class=" img_curiosidades back back_green_light_cms">
-                                <?php if(isset($foto3)) {?>
-                                    <img src="../imgs/<?=$backdest?>" alt="imagem"/>
-                                <?php } else{?>
-                                    <img src="view/imgs/icon_image.png" alt="imagem">
-                                <?php }?>
-                            </div>
-                        </td>
                         <!-- FORM PRINCIPAL -->
                         <td>
-                            <form method="post"  action="<?=$action?>"  class="fonte center back_green_dark_cms form_produtos color_white" name="frmprodutos" enctype="multipart/form-data">
+                            <form method="post"  action="<?=$action?>"  class="fonte center back_green_dark_cms form_produtos color_white" name="frmrelacoes">
                                 <div id="card_curiosidades">
-                                    <!-- NOME -->
+                                    <!-- NOME DOS PRODUTOS -->
                                     <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name "> <p>Nome:</p>  </div>
-                                        <input value="<?=@$nome?>" name="txtnome" placeholder="Digite o nome do produto" class="fonte card_curiosidades_input" type="text" maxlength="50" required size="45">
+                                        <div class="card_curiosidades_name "> <p>Produto:</p>  </div>
+                                        <select name="sltprodutos" class="select fonte">
+                                            <?php
+                                                $produtoController = new ProdutoController();
+
+                                                $produtos = $produtoController->listaProduto();
+
+                                                $cont = 0;
+
+                                                while($cont < count($produtos)){
+                                            ?>
+                                                    <option value="<?=$produtos[$cont]->getCodigo()?>">
+                                                        <?=$produtos[$cont]->getNome()?>
+                                                    </option>
+                                            <?php
+                                                    $cont++;
+                                                }
+                                            ?>
+                                        </select>
                                     </div>
                                     <!-- DESCRICAO -->
-                                    <div class="card_curiosidades_big">
-                                        <div class="card_curiosidades_name"> <p>Descricao:</p>  </div>
-                                        <textarea class="card_curiosidades_texto fonte" maxlength="400" name="txtdescricao" required ><?=@$descricao?></textarea>
+                                    <div class="card_curiosidades">
+                                        <div class="card_curiosidades_name"> <p>Categoria:</p>  </div>
+                                        <select name="sltcategorias" class="select fonte">
+                                            <?php
+                                                $categoriaController = new CategoriaController();
+
+                                                $categorias = $categoriaController->listaCategoria(0);
+
+                                                $cont = 0;
+
+                                                var_dump($categorias[$cont]);
+
+                                                while($cont < count($categorias)){
+                                            ?>
+                                                    <option value="<?=$categorias[$cont]->getCodigo()?>">
+                                                        <?=$categorias[$cont]->getNome()?>
+                                                    </option>
+                                            <?php
+                                                    $cont++;
+                                                }
+                                            ?>
+                                        </select>
                                     </div>
                                     <!-- PRECO -->
                                     <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name "> <p>Preço:</p>  </div>
-                                        <input id="preco" onkeypress="return  mascaraPreco(this, event);" value="<?=@$preco?>" name="txtpreco" placeholder="Digite o preço do produto" class="fonte card_curiosidades_input" type="text" maxlength="10" required size="45">
-                                    </div>
-                                    <!-- DESCONTO -->
-                                    <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name "> <p>Desconto:</p>  </div>
-                                        <input onkeypress="return  validarEntrada(event, 'numeric');" value="<?=@$desconto?>" name="txtdesconto" placeholder="Digite o percentual de deconto. Ex: 10" class="fonte card_curiosidades_input" type="text" maxlength="2" required size="45">
-                                    </div>
-                                    <!-- FOTO -->
-                                    <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                                        <input id='upload' <?php if(!isset($_GET['modo'])){?>required<?php }?> class="card_curiosidades_file fonte" type="file" name="flefoto" accept="image/jpeg, image/png, image/jpg">
-                                    </div>
-                                    <div class="card_curiosidades">
-                                        <p> Produto destaque: </p>
-                                    </div>
-                                    <!-- DESCRICAO -->
-                                        <div class="card_curiosidades_big">
-                                            <div class="card_curiosidades_name"> <p>Descricao:</p>  </div>
-                                            <textarea class="card_curiosidades_texto fonte" maxlength="2000" name="txttextodesc"  ><?=@$textodest?></textarea>
-                                        </div>
-                                    <!-- FOTO -->
-                                    <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name"> <p>Foto:</p>  </div>
-                                        <input class="card_curiosidades_file fonte" type="file" name="flefotodesc" accept="image/jpeg, image/png, image/jpg">
-                                    </div>
-                                    <!-- FOTO -->
-                                    <div class="card_curiosidades">
-                                        <div class="card_curiosidades_name"> <p>Foto de fundo:</p>  </div>
-                                        <input class="card_curiosidades_file fonte" id="fileFoto" type="file" name="flebackdesc" accept="image/jpeg, image/png, image/jpg">
+                                        <div class="card_curiosidades_name "> <p>Subcategoria:</p>  </div>
+                                        <select name="sltcategorias" class="select fonte">
+                                            <?php
+                                                $subcategoriaController = new SubcategoriaController();
+
+                                                $subcategorias = $subcategoriaController->listaSubcategoria();
+
+                                                $cont = 0;
+
+                                                while($cont < count($subcategorias)){
+                                            ?>
+                                                    <option value="<?=$subcategorias[$cont]->getCodigo()?>">
+                                                        <?=$subcategorias[$cont]->getDescricao()?>
+                                                    </option>
+                                            <?php
+                                                    $cont++;
+                                                }
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="card_curiosidades">
                                     </div>
                                     <div class="card_curiosidades">
-                                        <input style="margin-top: 15px" class="botao back_orange_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btnprodutos">
+                                        <input style="margin-top: 15px" class="botao back_orange_cms color_white fonte btn_curiosidades center" type="submit" value="SALVAR" name="btnrelacoes">
                                     </div>
                                 </div>
                             </form>
